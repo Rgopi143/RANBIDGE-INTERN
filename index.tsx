@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { GoogleGenAI } from '@google/genai';
 import { 
   BookOpen, 
   Search, 
@@ -435,9 +434,6 @@ const App = () => {
   const [view, setView] = useState<View>('home');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [aiInput, setAiInput] = useState('');
-  const [aiLoading, setAiLoading] = useState(false);
-  const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
@@ -487,33 +483,6 @@ const App = () => {
       return () => clearTimeout(timer);
     }
   }, [filteredCourses.length, searchQuery]);
-
-  const handleAiConsult = async () => {
-    if (!aiInput.trim()) return;
-    setAiLoading(true);
-    setAiResponse(null);
-
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const courseList = COURSES.map(c => `- ${c.title}: ${c.description}`).join('\n');
-      const prompt = `You are a Career Coach for RANBIDGE Solutions. Given the user goal: "${aiInput}", 
-      recommend 1-2 tracks from:
-      ${courseList}
-      
-      Keep it professional, concise, and encouraging.`;
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: prompt,
-      });
-
-      setAiResponse(response.text || 'Sorry, I couldn\'t generate a recommendation right now.');
-    } catch (error) {
-      setAiResponse('Oops, something went wrong with the AI coach.');
-    } finally {
-      setAiLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-slate-50">
@@ -631,20 +600,6 @@ const App = () => {
                 <p className="text-indigo-100 text-sm mb-6 leading-relaxed opacity-90">
                   Tell me your dreams and I'll map out your learning journey.
                 </p>
-                <textarea 
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-2xl text-white placeholder:text-white/40 text-sm focus:bg-white/20 outline-none transition-all resize-none mb-4"
-                  rows={4}
-                  placeholder="e.g. I want to build world-class mobile apps..."
-                  value={aiInput}
-                  onChange={(e) => setAiInput(e.target.value)}
-                />
-                <button 
-                  onClick={handleAiConsult}
-                  disabled={aiLoading}
-                  className="w-full py-4 bg-white text-indigo-700 rounded-2xl text-sm font-black hover:bg-indigo-50 transition-all shadow-xl disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {aiLoading ? <div className="animate-spin rounded-full h-4 w-4 border-2 border-indigo-600 border-t-transparent"></div> : "Get Recommendations"}
-                </button>
               </div>
             </aside>
 
@@ -659,27 +614,6 @@ const App = () => {
                 </div>
               </div>
 
-              {aiResponse && (
-                <div className="mb-12 p-8 bg-white border-2 border-indigo-100 rounded-[2rem] relative shadow-2xl shadow-indigo-100 animate-in fade-in slide-in-from-top-6 duration-700">
-                  <button onClick={() => setAiResponse(null)} className="absolute top-6 right-6 p-2 text-slate-300 hover:text-slate-900 transition-colors"><X size={20} /></button>
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 bg-indigo-600 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-indigo-200">
-                      <Sparkles size={24} />
-                    </div>
-                    <div>
-                      <h4 className="font-black text-indigo-900 text-lg mb-2">Personalized Recommendation</h4>
-                      <p className="text-slate-600 leading-relaxed whitespace-pre-line">{aiResponse}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {filteredCourses.map(course => (
-                  <CourseCard key={course.id} course={course} />
-                ))}
-              </div>
-              
               {/* No Results State */}
               {filteredCourses.length === 0 && (
                 <div className="text-center py-32 bg-white rounded-[3rem] border-2 border-dashed border-slate-100">
