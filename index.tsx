@@ -49,7 +49,7 @@ type View = 'home' | 'privacy' | 'terms' | 'virtual-internship';
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
 const REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdrzYAVBF9rEFV7zcs_p0a_St8qGcnEsltEvdI-ZULHlO5Xbg/viewform?usp=publish-editor";
 const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
-const WHATSAPP_CHAT_LINK = "https://chat.whatsapp.com/ESytKXP6RJ81yUdNrDx63A";
+const WHATSAPP_CHAT_LINK = "https://wa.me/8247392437?text=Hi%20RANBIDGE%2C%20I'm%20interested%20in%20the%20Academic%20Paper%20Writing%20service.%20Can%20you%20provide%20more%20information%3F";
 const LINKEDIN_LINK = "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376/";
 const INSTAGRAM_LINK = "https://www.instagram.com/ranbridgeserviceprivatelimited?igsh=MTYxOWU4NHJ0YzcwaA%3D%3D";
 const YOUTUBE_LINK = "https://www.youtube.com/@RSPL-Academy";
@@ -120,6 +120,19 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
     curriculum: ['UI Design Fundamentals', 'UX Research & Testing', 'Design Systems & Prototyping', 'Accessibility']
   },
+
+  ,
+  {
+    id: 'mobile-app',
+    title: 'Mobile App Development',
+    category: 'Engineering',
+    duration: '12 Weeks',
+    instructor: 'Ranbidge Mobile',
+    description: 'Build high-performance cross-platform mobile applications using React Native and Flutter.',
+    level: 'Intermediate',
+    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['React Native Fundamentals', 'Flutter & Dart Basics', 'Mobile UI/UX Principles', 'Firebase Integration']
+  },
   
   {
     id: 'data-science',
@@ -132,20 +145,10 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Python for Data Science', 'EDA & Data Visualization', 'Machine Learning Models', 'Deep Learning Basics']
   },
-  {
-    id: 'mobile-app',
-    title: 'Mobile App Development',
-    category: 'Engineering',
-    duration: '12 Weeks',
-    instructor: 'Ranbidge Mobile',
-    description: 'Build high-performance cross-platform mobile applications using React Native and Flutter.',
-    level: 'Intermediate',
-    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-    curriculum: ['React Native Fundamentals', 'Flutter & Dart Basics', 'Mobile UI/UX Principles', 'Firebase Integration']
-  },
+  
   {
     id: 'paper-writing',
-    title: 'Academic Paper Writing Intern',
+    title: 'Academic Paper Writing Service',
     category: 'Business',
     duration: '8 Weeks',
     instructor: 'Ranbidge Writing',
@@ -312,12 +315,9 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
     'cloud-devops',
     'ai-genai',
     'qa-testing',
-    
     'product-mgmt',
     'blockchain-dev',
-    
-   
-    
+    'paper-writing'
   ];
   
   const isComingSoon = comingSoonCourses.includes(course.id);
@@ -374,8 +374,14 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
             <span className="text-xs font-medium text-slate-500">Ranbidge Solutions</span>
           </div>
           {isComingSoon ? (
-            <span className="px-4 py-2 bg-slate-100 text-slate-500 rounded-xl text-sm font-semibold cursor-not-allowed border border-slate-200">
-              Coming Soon
+            <span className="px-4 py-2 bg-blue-500 text-white rounded-xl text-sm font-semibold cursor-not-allowed border border-blue-400">
+              <a 
+                href={WHATSAPP_CHAT_LINK}
+                target="_blank"
+                className="text-white hover:text-blue-100 transition-colors"
+              >
+                Contact Us
+              </a>
             </span>
           ) : (
             <a 
