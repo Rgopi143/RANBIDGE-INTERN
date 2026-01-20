@@ -373,7 +373,7 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
             <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-8 h-8 rounded-full border-2 border-indigo-100" />
             <span className="text-xs font-medium text-slate-500">Ranbidge Solutions</span>
           </div>
-          {isComingSoon ? (
+          {isComingSoon && course.id === 'paper-writing' ? (
             <span className="px-4 py-2 bg-blue-500 text-white rounded-xl text-sm font-semibold cursor-not-allowed border border-blue-400">
               <a 
                 href={WHATSAPP_CHAT_LINK}
