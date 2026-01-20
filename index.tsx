@@ -63,16 +63,17 @@ const HEADER_CONFIG = {
 };
 
 const COURSES: Course[] = [
+  
   {
-    id: 'web-dev',
-    title: 'Web Development Intern',
+    id: 'frontend',
+    title: 'Frontend Development',
     category: 'Engineering',
-    duration: '12 Weeks',
+    duration: '10 Weeks',
     instructor: 'Ranbidge Team',
-    description: 'Work on real-world web development projects using modern technologies and frameworks.',
-    level: 'Beginner',
-    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
-    curriculum: ['HTML, CSS, and JS Fundamentals', 'Responsive Web Design', 'React.js for Beginners', 'Advanced MERN Stack']
+    description: 'Develop responsive and interactive web applications for various platforms.',
+    level: 'Intermediate',
+    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['HTML & CSS Advanced', 'JS ES6+ Features', 'Frontend Optimization', 'State Management']
   },
   {
     id: 'backend',
@@ -86,6 +87,17 @@ const COURSES: Course[] = [
     curriculum: ['Node.js and Express Essentials', 'Database Design (MongoDB & MySQL)', 'RESTful API Development', 'Auth & Authorization']
   },
   {
+    id: 'web-dev',
+    title: 'Web Development Intern',
+    category: 'Engineering',
+    duration: '12 Weeks',
+    instructor: 'Ranbidge Team',
+    description: 'Work on real-world web development projects using modern technologies and frameworks.',
+    level: 'Beginner',
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['HTML, CSS, and JS Fundamentals', 'Responsive Web Design', 'React.js for Beginners', 'Advanced MERN Stack']
+  },
+  {
     id: 'fullstack',
     title: 'Full Stack Development Intern',
     category: 'Engineering',
@@ -96,6 +108,7 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Frontend with React.js', 'Backend with Node.js', 'Full Stack Project Dev', 'Deployment & Hosting']
   },
+  
   {
     id: 'uiux',
     title: 'UI/UX Design Intern',
@@ -107,17 +120,7 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
     curriculum: ['UI Design Fundamentals', 'UX Research & Testing', 'Design Systems & Prototyping', 'Accessibility']
   },
-  {
-    id: 'frontend',
-    title: 'Frontend Development',
-    category: 'Engineering',
-    duration: '10 Weeks',
-    instructor: 'Ranbidge Team',
-    description: 'Develop responsive and interactive web applications for various platforms.',
-    level: 'Intermediate',
-    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-    curriculum: ['HTML & CSS Advanced', 'JS ES6+ Features', 'Frontend Optimization', 'State Management']
-  },
+  
   {
     id: 'data-science',
     title: 'Data Science & ML Intern',
@@ -393,10 +396,8 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
 const App = () => {
   const [view, setView] = useState<View>('home');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -412,65 +413,10 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close filter dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      if (!target.closest('.filter-dropdown-container')) {
-        setFilterDropdownOpen(false);
-      }
-    };
-
-    if (filterDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [filterDropdownOpen]);
-
-  // Close dropdown when pressing Escape key
-  useEffect(() => {
-    const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setFilterDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscapeKey);
-    return () => document.removeEventListener('keydown', handleEscapeKey);
-  }, []);
-
-  const handleSearchKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      // Scroll to the courses section
-      const coursesSection = document.getElementById('courses-section');
-      if (coursesSection) {
-        coursesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
-
   const filteredCourses = COURSES.filter(course => {
     const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
-    const searchLower = searchQuery.toLowerCase();
-    const matchesSearch = course.title.toLowerCase().includes(searchLower) || 
-                          course.description.toLowerCase().includes(searchLower) ||
-                          course.instructor.toLowerCase().includes(searchLower) ||
-                          course.level.toLowerCase().includes(searchLower) ||
-                          course.category.toLowerCase().includes(searchLower) ||
-                          course.curriculum.some(item => item.toLowerCase().includes(searchLower));
-    return matchesCategory && matchesSearch;
+    return matchesCategory;
   });
-
-  // Auto-navigate to enrollment if exactly one course matches and search has meaningful content
-  useEffect(() => {
-    if (searchQuery.trim().length > 2 && filteredCourses.length === 1) {
-      const timer = setTimeout(() => {
-        window.open(REGISTRATION_LINK, '_blank');
-      }, 1500); // 1.5 second delay to show the result first
-      return () => clearTimeout(timer);
-    }
-  }, [filteredCourses.length, searchQuery]);
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-slate-50">
@@ -498,106 +444,40 @@ const App = () => {
               <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
                 Unlock your potential with hands-on industrial internships at RANBIDGE Solutions. Real projects, real mentors, real impact.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                <div className="relative w-full max-w-md">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
-                  <input 
-                    type="text"
-                    placeholder="Search your career track..."
-                    className="w-full pl-12 pr-12 py-4 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all shadow-sm"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyPress={handleSearchKeyPress}
-                  />
-                  {searchQuery && (
-                    <button 
-                      onClick={() => setSearchQuery('')}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
-                    >
-                      <X size={18} />
-                    </button>
-                  )}
-                </div>
-                
-                {/* Filter Tracks */}
-                <div className="relative filter-dropdown-container">
-                  <button 
-                    onClick={() => {
-                      setFilterDropdownOpen(!filterDropdownOpen);
-                      // Scroll to courses section when filter is opened
-                      const coursesSection = document.getElementById('courses-section');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }}
-                    className="flex items-center gap-2 px-4 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold text-slate-600 hover:border-indigo-500 hover:text-indigo-600 transition-all shadow-sm"
-                  >
-                    <Filter size={16} className="text-indigo-600" />
-                    <span className="truncate max-w-24">
-                      {selectedCategory === 'All' ? 'All Tracks' : selectedCategory}
-                    </span>
-                    <ChevronRight 
-                      size={14} 
-                      className={`transition-transform duration-200 ${filterDropdownOpen ? 'rotate-90' : 'rotate-0'}`} 
-                    />
-                  </button>
-                  
-                  {/* Dropdown Menu */}
-                  {filterDropdownOpen && (
-                    <div className="absolute top-full right-0 mt-2 w-56 bg-white border border-slate-200 rounded-2xl shadow-xl z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="p-2 space-y-1">
-                        <div className="flex items-center justify-between px-3 py-2 border-b border-slate-100">
-                          <span className="text-sm font-bold text-slate-400">Filter Tracks</span>
-                          <button 
-                            onClick={() => setFilterDropdownOpen(false)}
-                            className="text-slate-400 hover:text-slate-600 transition-colors"
-                          >
-                            <X size={16} />
-                          </button>
-                        </div>
-                        {CATEGORIES.map(cat => (
-                          <button
-                            key={cat}
-                            onClick={() => {
-                              setSelectedCategory(cat);
-                              setFilterDropdownOpen(false);
-                              // Scroll to courses section when category is selected
-                              const coursesSection = document.getElementById('courses-section');
-                              if (coursesSection) {
-                                coursesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                              }
-                            }}
-                            className={`w-full text-left px-3 py-2 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
-                              selectedCategory === cat 
-                                ? 'bg-indigo-600 text-white' 
-                                : 'text-slate-600 hover:bg-slate-50'
-                            }`}
-                          >
-                            <span className="flex-1">{cat}</span>
-                            {selectedCategory === cat && <CheckCircle2 size={14} />}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-                
-                {searchQuery && (
-                  <div className="text-sm font-bold text-slate-600">
-                    {filteredCourses.length} {filteredCourses.length === 1 ? 'result' : 'results'} found
-                    {filteredCourses.length === 1 && (
-                      <span className="ml-2 text-indigo-600 animate-pulse">
-                        → Opening enrollment form...
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
             </div>
             
             {/* Decoration */}
             <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-[32px] border-indigo-50 rounded-full opacity-20"></div>
           </header>
+
+          {/* Course Filter Bar */}
+          <div className="bg-white border-b border-slate-100 py-4 sticky top-16 z-40">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">Filter by:</span>
+                  <div className="flex flex-wrap gap-2">
+                    {CATEGORIES.map(cat => (
+                      <button
+                        key={cat}
+                        onClick={() => setSelectedCategory(cat)}
+                        className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                          selectedCategory === cat 
+                            ? 'bg-indigo-600 text-white shadow-md' 
+                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                        }`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="text-sm text-slate-500">
+                  {filteredCourses.length} {filteredCourses.length === 1 ? 'course' : 'courses'} found
+                </div>
+              </div>
+            </div>
+          </div>
 
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row gap-12 relative z-10">
             {/* Catalog Grid */}
