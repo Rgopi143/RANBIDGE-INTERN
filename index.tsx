@@ -248,7 +248,7 @@ const COURSES: Course[] = [
   
 ];
 
-const CATEGORIES = ['All', 'Engineering', 'Design', 'Data Science', 'Security', 'Marketing', 'Cloud', 'AI', 'Testing', 'Business', 'Management'];
+const CATEGORIES = ['All', 'Engineering', 'Design', 'Data Science', 'Security', 'Marketing', 'Cloud', 'AI', 'Testing', 'Business'];
 
 const FAQS = [
   { q: "What are the eligibility criteria for the internship?", a: "We welcome students from CS, IT, and related engineering backgrounds. Basic knowledge of programming is a plus, but we provide foundational training for all tracks." },
@@ -461,7 +461,6 @@ const App = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">Filter by:</span>
                   <div className="flex flex-wrap gap-2">
                     {CATEGORIES.map(cat => (
                       <button
