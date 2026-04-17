@@ -1,0 +1,76 @@
+{
+  "stats": [
+    {
+      "id": "courses-enrolled",
+      "title": "Courses Enrolled",
+      "value": "12",
+      "subtitle": "3 in progress",
+      "icon": "BookOpen",
+      "color": "indigo",
+      "bgColor": "bg-indigo-100",
+      "textColor": "text-indigo-600"
+    },
+    {
+      "id": "certificates-earned",
+      "title": "Certificates Earned",
+      "value": "8",
+      "subtitle": "4 pending",
+      "icon": "Award",
+      "color": "green",
+      "bgColor": "bg-green-100",
+      "textColor": "text-green-600"
+    },
+    {
+      "id": "learning-hours",
+      "title": "Learning Hours",
+      "value": "156",
+      "subtitle": "This month",
+      "icon": "Clock",
+      "color": "purple",
+      "bgColor": "bg-purple-100",
+      "textColor": "text-purple-600"
+    },
+    {
+      "id": "completion-rate",
+      "title": "Completion Rate",
+      "value": "92%",
+      "subtitle": "Above average",
+      "icon": "TrendingUp",
+      "color": "orange",
+      "bgColor": "bg-orange-100",
+      "textColor": "text-orange-600"
+    }
+  ],
+  "recentActivities": [
+    {
+      "id": "activity-1",
+      "title": "Completed Full Stack Development Module",
+      "description": "Successfully completed the advanced React and Node.js module",
+      "timestamp": "2 hours ago",
+      "icon": "BookOpen",
+      "color": "indigo",
+      "bgColor": "bg-indigo-100",
+      "textColor": "text-indigo-600"
+    },
+    {
+      "id": "activity-2",
+      "title": "Earned React.js Certificate",
+      "description": "Achieved certification in React.js development",
+      "timestamp": "1 day ago",
+      "icon": "Award",
+      "color": "green",
+      "bgColor": "bg-green-100",
+      "textColor": "text-green-600"
+    },
+    {
+      "id": "activity-3",
+      "title": "Joined Mentorship Session",
+      "description": "Participated in one-on-one mentorship with industry expert",
+      "timestamp": "3 days ago",
+      "icon": "Users",
+      "color": "purple",
+      "bgColor": "bg-purple-100",
+      "textColor": "text-purple-600"
+    }
+  ]
+}
