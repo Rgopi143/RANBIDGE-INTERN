@@ -1588,6 +1588,100 @@ const App: React.FC = () => {
             </div>
           </div>
 
+          {/* Final Year Projects Section */}
+          <div className="bg-white rounded-[3rem] shadow-2xl p-12 mb-20 border border-slate-100">
+            <h2 className="text-3xl font-black mb-8 text-center text-slate-900">Final Year Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
+                    <Lightbulb className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-purple-900">AI Chatbot Application</h3>
+                </div>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  Develop an intelligent chatbot using natural language processing and machine learning. Perfect for demonstrating AI/ML skills and modern web technologies.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  <li> Python with Flask/FastAPI backend</li>
+                  <li> OpenAI GPT integration for responses</li>
+                  <li> React.js frontend with chat interface</li>
+                  <li> MongoDB for conversation history</li>
+                  <li> Sentiment analysis and intent recognition</li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 border border-indigo-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center">
+                    <Target className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-indigo-900">Social Media Dashboard</h3>
+                </div>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  Create a comprehensive social media analytics dashboard with real-time data visualization. Ideal for showcasing data analysis and visualization skills.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  <li> Real-time data from multiple social APIs</li>
+                  <li> Interactive charts and graphs</li>
+                  <li> Node.js backend with Express</li>
+                  <li> PostgreSQL database with analytics</li>
+                  <li> Responsive design with D3.js</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Internship Kit Section */}
+          <div className="bg-gradient-to-r from-purple-900 to-pink-900 rounded-[3rem] p-12 text-white mb-20">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8 text-center">Internship Kit</h2>
+              <p className="text-xl text-purple-200 mb-12 text-center">
+                Comprehensive resources to accelerate your learning journey
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                    <BookOpen className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">Learning Resources</h3>
+                  <ul className="space-y-2 text-purple-200">
+                    <li> Comprehensive coding tutorials</li>
+                    <li> Interactive coding exercises</li>
+                    <li> Project-based learning modules</li>
+                    <li> Code review and feedback</li>
+                    <li> Access to premium development tools</li>
+                  </ul>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center mb-4">
+                    <Users className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">Mentorship Support</h3>
+                  <ul className="space-y-2 text-purple-200">
+                    <li> Daily standup meetings</li>
+                    <li> Code review sessions</li>
+                    <li> Technical skill assessments</li>
+                    <li> Peer collaboration opportunities</li>
+                    <li> Industry expert Q&A sessions</li>
+                  </ul>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                    <Award className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">Career Development</h3>
+                  <ul className="space-y-2 text-purple-200">
+                    <li> GitHub portfolio setup</li>
+                    <li> LinkedIn profile optimization</li>
+                    <li> Technical interview preparation</li>
+                    <li> Resume building workshops</li>
+                    <li> Job search strategies</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-purple-600 to-pink-700 rounded-[3rem] p-12 text-white">
             <h2 className="text-3xl font-black mb-4">Ready to Build Your Skills?</h2>
