@@ -59,6 +59,7 @@ type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-me
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
 const REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdrzYAVBF9rEFV7zcs_p0a_St8qGcnEsltEvdI-ZULHlO5Xbg/viewform?usp=publish-editor";
+const FINAL_YEAR_PROJECTS_LINK = "https://forms.gle/DHavgijonoyLcLfG6";
 const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const MENTORSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const PAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
@@ -1819,7 +1820,7 @@ const App: React.FC = () => {
               Complete your academic journey with industry-relevant projects that showcase your skills and launch your career.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={REGISTRATION_LINK} target="_blank" className="px-8 py-4 bg-orange-600 text-white rounded-2xl font-black hover:bg-orange-700 transition-all shadow-xl flex items-center gap-3">
+              <a href={FINAL_YEAR_PROJECTS_LINK} target="_blank" className="px-8 py-4 bg-orange-600 text-white rounded-2xl font-black hover:bg-orange-700 transition-all shadow-xl flex items-center gap-3">
                 <Target size={20} /> Start Your Project
               </a>
               <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
@@ -1882,7 +1883,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <a 
-                    href={REGISTRATION_LINK} 
+                    href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
                     className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
                   >
@@ -1937,7 +1938,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <a 
-                    href={REGISTRATION_LINK} 
+                    href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
                     className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
                   >
@@ -1992,7 +1993,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <a 
-                    href={REGISTRATION_LINK} 
+                    href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
                     className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
                   >
@@ -2057,7 +2058,7 @@ const App: React.FC = () => {
           <div className="text-center bg-gradient-to-r from-orange-600 to-amber-700 rounded-[3rem] p-12 text-white">
             <h2 className="text-3xl font-black mb-4">Ready to Excel in Your Final Year?</h2>
             <p className="text-xl mb-8 text-orange-100">Complete your academic journey with a project that stands out.</p>
-            <a href={REGISTRATION_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-orange-700 rounded-2xl font-black hover:bg-orange-50 transition-all shadow-xl">
+            <a href={FINAL_YEAR_PROJECTS_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-orange-700 rounded-2xl font-black hover:bg-orange-50 transition-all shadow-xl">
               Start Your Final Year Project - Limited Slots
             </a>
           </div>
