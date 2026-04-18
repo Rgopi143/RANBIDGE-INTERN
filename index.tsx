@@ -54,7 +54,7 @@ interface Course {
   curriculum: string[];
 }
 
-type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship';
+type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects';
 
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
@@ -316,7 +316,7 @@ const Navigation: React.FC<{
           <div className="relative internship-dropdown">
             <button 
               onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
-              className={`text-sm font-bold flex items-center gap-2 transition-all ${['virtual-internship', 'paid-internship', 'unpaid-internship', 'one-on-one-mentorship'].includes(view) ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}
+              className={`text-sm font-bold flex items-center gap-2 transition-all ${['virtual-internship', 'paid-internship', 'unpaid-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}
             >
               <Briefcase size={16} /> Internship
               <ChevronDown size={14} className={`transition-transform ${isInternshipDropdownOpen ? 'rotate-180' : ''}`} />
@@ -362,6 +362,16 @@ const Navigation: React.FC<{
                   <div>
                     <div className="font-semibold">One-on-One Mentorship</div>
                     <div className="text-xs text-slate-500">Personalized guidance</div>
+                  </div>
+                </button>
+                <button 
+                  onClick={() => { setView('final-year-projects'); setIsInternshipDropdownOpen(false); }}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'final-year-projects' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                >
+                  <Target size={16} />
+                  <div>
+                    <div className="font-semibold">Final Year Projects</div>
+                    <div className="text-xs text-slate-500">Academic project development</div>
                   </div>
                 </button>
               </div>
@@ -484,7 +494,7 @@ const App: React.FC = () => {
   // Initialize view from URL hash on component mount
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove the # symbol
-    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship'].includes(hash)) {
+    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects'].includes(hash)) {
       setView(hash as View);
     }
   }, []);
@@ -1796,6 +1806,273 @@ const App: React.FC = () => {
         </main>
       )}
 
+      {view === 'final-year-projects' && (
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-black mb-8 tracking-widest uppercase">
+              <Target size={14} /> Academic Excellence
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+              Final Year <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600">Projects</span>
+            </h1>
+            <p className="text-xl text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Complete your academic journey with industry-relevant projects that showcase your skills and launch your career.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={REGISTRATION_LINK} target="_blank" className="px-8 py-4 bg-orange-600 text-white rounded-2xl font-black hover:bg-orange-700 transition-all shadow-xl flex items-center gap-3">
+                <Target size={20} /> Start Your Project
+              </a>
+              <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
+                View Projects
+              </button>
+            </div>
+          </div>
+
+          {/* Featured Projects */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-black text-slate-900 mb-4">Featured <span className="text-orange-600">Projects</span></h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose from our range of comprehensive final year projects</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+              {/* E-Commerce Platform */}
+              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
+                <div className="relative h-48">
+                  <img 
+                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" 
+                    alt="E-Commerce Platform" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      Full Stack
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      Popular
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Advanced</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-sm">
+                      <Clock size={14} />
+                      12 Weeks
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">E-Commerce Platform</h3>
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    Build a complete e-commerce platform with user authentication, payment processing, and admin dashboard.
+                  </p>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      React.js & Node.js
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      MongoDB & Stripe API
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      JWT Authentication
+                    </div>
+                  </div>
+                  <a 
+                    href={REGISTRATION_LINK} 
+                    target="_blank"
+                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                  >
+                    Choose This Project
+                  </a>
+                </div>
+              </div>
+
+              {/* AI Chatbot */}
+              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
+                <div className="relative h-48">
+                  <img 
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" 
+                    alt="AI Chatbot" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      AI/ML
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      Trending
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Advanced</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-sm">
+                      <Clock size={14} />
+                      14 Weeks
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">AI Chatbot System</h3>
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    Develop an intelligent chatbot using natural language processing and machine learning technologies.
+                  </p>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      Python & OpenAI API
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      NLP & TensorFlow
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      React Frontend
+                    </div>
+                  </div>
+                  <a 
+                    href={REGISTRATION_LINK} 
+                    target="_blank"
+                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                  >
+                    Choose This Project
+                  </a>
+                </div>
+              </div>
+
+              {/* IoT Dashboard */}
+              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
+                <div className="relative h-48">
+                  <img 
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbcc31c?auto=format&fit=crop&w=800&q=80" 
+                    alt="IoT Dashboard" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      IoT
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      Innovative
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Intermediate</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-sm">
+                      <Clock size={14} />
+                      10 Weeks
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">IoT Smart Home</h3>
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    Create a smart home automation system with real-time monitoring and control capabilities.
+                  </p>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      Raspberry Pi & Arduino
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      MQTT Protocol
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      React Dashboard
+                    </div>
+                  </div>
+                  <a 
+                    href={REGISTRATION_LINK} 
+                    target="_blank"
+                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                  >
+                    Choose This Project
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Project Benefits */}
+          <div className="bg-slate-900 rounded-[3rem] p-12 text-white mb-20">
+            <h2 className="text-3xl font-black mb-8 text-center">Project Benefits</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-black mb-4 text-orange-400">Academic Excellence</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                    <span>Industry-relevant project topics</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                    <span>Comprehensive documentation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                    <span>Expert guidance and mentorship</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                    <span>University compliance</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-black mb-4 text-orange-400">Career Advancement</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                    <span>Portfolio-worthy projects</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                    <span>Job placement assistance</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                    <span>Industry networking</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                    <span>Certificate of completion</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center bg-gradient-to-r from-orange-600 to-amber-700 rounded-[3rem] p-12 text-white">
+            <h2 className="text-3xl font-black mb-4">Ready to Excel in Your Final Year?</h2>
+            <p className="text-xl mb-8 text-orange-100">Complete your academic journey with a project that stands out.</p>
+            <a href={REGISTRATION_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-orange-700 rounded-2xl font-black hover:bg-orange-50 transition-all shadow-xl">
+              Start Your Final Year Project - Limited Slots
+            </a>
+          </div>
+
+          <div className="mt-16 pt-8 flex justify-center">
+            <button 
+              onClick={() => setView('home')} 
+              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+            >
+              <Home size={20} /> Return to Home
+            </button>
+          </div>
+        </main>
+      )}
+
       {(view === 'privacy' || view === 'terms') && (
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
@@ -1892,6 +2169,7 @@ const App: React.FC = () => {
                 <li><button onClick={() => setView('one-on-one-mentorship')} className="font-bold hover:text-indigo-400 transition-colors">One-on-One Mentorship</button></li>
                 <li><button onClick={() => setView('paid-internship')} className="font-bold text-indigo-400 hover:text-white transition-colors">Paid Internship</button></li>
                 <li><button onClick={() => setView('unpaid-internship')} className="font-bold text-indigo-400 hover:text-white transition-colors">Unpaid Internship</button></li>
+                <li><button onClick={() => setView('final-year-projects')} className="font-bold text-indigo-400 hover:text-white transition-colors">Final Year Projects</button></li>
                 <li><button onClick={() => setView('privacy')} className="font-bold hover:text-indigo-400 transition-colors">Privacy Policy</button></li>
                 <li><button onClick={() => setView('terms')} className="font-bold hover:text-indigo-400 transition-colors">Terms of Service</button></li>
                 <li><a href={REGISTRATION_LINK} target="_blank" className="font-bold text-indigo-400 hover:text-white transition-colors">Apply Now</a></li>
