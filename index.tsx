@@ -1258,6 +1258,100 @@ const App: React.FC = () => {
             </div>
           </div>
 
+          {/* Final Year Projects Section */}
+          <div className="bg-white rounded-[3rem] shadow-2xl p-12 mb-20 border border-slate-100">
+            <h2 className="text-3xl font-black mb-8 text-center text-slate-900">Final Year Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                    <Zap className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-blue-900">E-Commerce Platform</h3>
+                </div>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  Build a full-featured e-commerce platform with user authentication, payment integration, and admin dashboard. Perfect for showcasing full-stack development skills.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  <li>• React.js frontend with modern UI/UX</li>
+                  <li>• Node.js backend with RESTful APIs</li>
+                  <li>• MongoDB database with advanced queries</li>
+                  <li>• Stripe payment integration</li>
+                  <li>• JWT authentication & authorization</li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
+                    <Target className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-black text-green-900">Task Management System</h3>
+                </div>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  Develop a comprehensive task management system with real-time collaboration features. Ideal for demonstrating advanced React and state management skills.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  <li>• Real-time collaboration features</li>
+                  <li>• Drag-and-drop task management</li>
+                  <li>• WebSocket integration</li>
+                  <li>• Advanced state management (Redux)</li>
+                  <li>• Responsive design with Tailwind CSS</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Internship Kit Section */}
+          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-[3rem] p-12 text-white mb-20">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8 text-center">Internship Kit</h2>
+              <p className="text-xl text-slate-300 mb-12 text-center">
+                Everything you need to succeed in your internship journey
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                    <BookOpen className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">Learning Resources</h3>
+                  <ul className="space-y-2 text-slate-300">
+                    <li>• Comprehensive course materials</li>
+                    <li>• Video tutorials & guides</li>
+                    <li>• Best practice documentation</li>
+                    <li>• Code examples & templates</li>
+                    <li>• Industry-standard tools access</li>
+                  </ul>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-4">
+                    <Users className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">Mentorship Support</h3>
+                  <ul className="space-y-2 text-slate-300">
+                    <li>• 1-on-1 expert guidance</li>
+                    <li>• Weekly progress reviews</li>
+                    <li>• Career coaching sessions</li>
+                    <li>• Industry networking opportunities</li>
+                    <li>• Resume & portfolio reviews</li>
+                  </ul>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                    <Award className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">Career Development</h3>
+                  <ul className="space-y-2 text-slate-300">
+                    <li>• Certificate of completion</li>
+                    <li>• Performance-based recommendations</li>
+                    <li>• Job placement assistance</li>
+                    <li>• LinkedIn profile optimization</li>
+                    <li>• Interview preparation kit</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-green-600 to-emerald-700 rounded-[3rem] p-12 text-white">
             <h2 className="text-3xl font-black mb-4">Ready to Earn While You Learn?</h2>
