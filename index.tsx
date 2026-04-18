@@ -2130,6 +2130,42 @@ const App: React.FC = () => {
                 </div>
               )}
             </div>
+          </div>
+        </main>
+      )}
+
+      {/* Footer */}
+      <footer className="bg-slate-900 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-full bg-white border-2 border-white/10 flex items-center justify-center p-1">
+                  <img src={LOGO_URL} alt="Logo" className="w-10 h-10 rounded-full" />
+                </div>
+                <span className="text-2xl font-black tracking-tighter text-white">RANBIDGE SOLUTIONS PVT LTD</span>
+              </div>
+              <p className="max-w-sm mb-10 leading-relaxed text-slate-500 text-lg">
+                We're building the bridge between academic knowledge and industry excellence. Join the most intensive internship program in India.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <MapPin size={18} className="text-indigo-400" />
+                  </div>
+                  <span className="font-bold text-white">Narasaraopet, Andhra Pradesh, India</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <Mail size={18} className="text-indigo-400" />
+                  </div>
+                  <span className="font-bold text-white">ranbidgesolutionspvtltd@gmail.com</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-white font-black text-lg mb-8 uppercase tracking-widest">Quick Links</h4>
+              <ul className="space-y-4">
                 <li><button onClick={() => setView('final-year-projects')} className="font-bold text-indigo-400 hover:text-white transition-colors">Final Year Projects</button></li>
                 <li><button onClick={() => setView('privacy')} className="font-bold hover:text-indigo-400 transition-colors">Privacy Policy</button></li>
                 <li><button onClick={() => setView('terms')} className="font-bold hover:text-indigo-400 transition-colors">Terms of Service</button></li>
