@@ -23,6 +23,7 @@ import {
   Plus,
   Minus,
   MessageSquare,
+  X,
   Linkedin,
   Instagram,
   Youtube,
@@ -491,6 +492,7 @@ const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [showAddProjectModal, setShowAddProjectModal] = useState(false);
 
   // Initialize view from URL hash on component mount
   useEffect(() => {
@@ -1732,6 +1734,12 @@ const App: React.FC = () => {
               <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
                 View Projects
               </button>
+              <button 
+                onClick={() => setShowAddProjectModal(true)}
+                className="px-8 py-4 bg-green-600 text-white rounded-2xl font-black hover:bg-green-700 transition-all shadow-xl flex items-center gap-3"
+              >
+                <Plus size={20} /> Add New Project
+              </button>
             </div>
           </div>
 
@@ -2032,50 +2040,96 @@ const App: React.FC = () => {
                   <Home size={20} /> Return to Home
                 </button>
               </div>
-            </div>
-          </div>
-        </main>
-      )}
 
-      
-      
-      {/* Footer */}
-      <footer className="mt-auto bg-slate-950 text-slate-400 py-20 border-t border-white/5 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-3 text-white mb-8">
-                <div className="w-12 h-12 rounded-full bg-white border-2 border-white/10 flex items-center justify-center p-1">
-                  <img src={LOGO_URL} alt="Logo" className="w-10 h-10 rounded-full" />
-                </div>
-                <span className="text-2xl font-black tracking-tighter">RANBIDGE SOLUTIONS PVT LTD</span>
-              </div>
-              <p className="max-w-sm mb-10 leading-relaxed text-slate-500 text-lg">
-                We're building the bridge between academic knowledge and industry excellence. Join the most intensive internship program in India.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                    <MapPin size={18} className="text-indigo-400" />
+              {/* Add New Project Modal */}
+              {showAddProjectModal && (
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                  <div className="bg-white rounded-[3rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div className="bg-gradient-to-r from-orange-600 to-amber-700 p-8 text-white rounded-t-[3rem]">
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-2xl font-black flex items-center gap-3">
+                          <Plus size={24} /> Add New Project
+                        </h2>
+                        <button 
+                          onClick={() => setShowAddProjectModal(false)}
+                          className="text-white hover:text-orange-200 transition-colors"
+                        >
+                          <X size={24} />
+                        </button>
+                      </div>
+                      <p className="text-orange-100 text-sm">Submit your final year project proposal for review</p>
+                    </div>
+                    
+                    <form className="p-8 space-y-6">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Project Title</label>
+                        <input 
+                          type="text" 
+                          className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                          placeholder="Enter your project title"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Project Description</label>
+                        <textarea 
+                          rows={4} 
+                          className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
+                          placeholder="Describe your final year project in detail"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Technology Stack</label>
+                        <input 
+                          type="text" 
+                          className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                          placeholder="e.g., React.js, Node.js, MongoDB"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Duration (Weeks)</label>
+                        <select className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                          <option value="">Select duration</option>
+                          <option value="8">8 Weeks</option>
+                          <option value="10">10 Weeks</option>
+                          <option value="12">12 Weeks</option>
+                          <option value="14">14 Weeks</option>
+                          <option value="16">16 Weeks</option>
+                        </select>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Difficulty Level</label>
+                        <select className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                          <option value="">Select difficulty</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="Advanced">Advanced</option>
+                        </select>
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <button 
+                          type="button"
+                          onClick={() => setShowAddProjectModal(false)}
+                          className="flex-1 px-6 py-3 bg-slate-200 text-slate-700 rounded-xl font-medium hover:bg-slate-300 transition-all"
+                        >
+                          Cancel
+                        </button>
+                        <button 
+                          type="submit"
+                          className="flex-1 px-6 py-3 bg-orange-600 text-white rounded-xl font-medium hover:bg-orange-700 transition-all"
+                        >
+                          Submit Project
+                        </button>
+                      </div>
+                    </form>
                   </div>
-                  <span className="font-bold">Narasaraopet, Andhra Pradesh, India</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                    <Mail size={18} className="text-indigo-400" />
-                  </div>
-                  <span className="font-bold">ranbidgesolutionspvtltd@gmail.com</span>
-                </div>
-              </div>
+              )}
             </div>
-            <div>
-              <h4 className="text-white font-black text-lg mb-8 uppercase tracking-widest">Navigation</h4>
-              <ul className="space-y-4">
-                <li><button onClick={() => setView('home')} className="font-bold hover:text-indigo-400 transition-colors">Course Catalog</button></li>
-                <li><button onClick={() => setView('virtual-internship')} className="font-bold hover:text-indigo-400 transition-colors">Virtual Internship</button></li>
-                <li><button onClick={() => setView('one-on-one-mentorship')} className="font-bold hover:text-indigo-400 transition-colors">One-on-One Mentorship</button></li>
-                <li><button onClick={() => setView('paid-internship')} className="font-bold text-indigo-400 hover:text-white transition-colors">Paid Internship</button></li>
-                <li><button onClick={() => setView('unpaid-internship')} className="font-bold text-indigo-400 hover:text-white transition-colors">Unpaid Internship</button></li>
                 <li><button onClick={() => setView('final-year-projects')} className="font-bold text-indigo-400 hover:text-white transition-colors">Final Year Projects</button></li>
                 <li><button onClick={() => setView('privacy')} className="font-bold hover:text-indigo-400 transition-colors">Privacy Policy</button></li>
                 <li><button onClick={() => setView('terms')} className="font-bold hover:text-indigo-400 transition-colors">Terms of Service</button></li>
