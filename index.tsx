@@ -250,11 +250,22 @@ const COURSES: Course[] = [
     level: 'Intermediate',
     thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Microcontroller Basics (Arduino/ESP32)', 'C/C++ for Embedded Systems', 'Sensor Integration', 'IoT Protocols (MQTT/HTTP)']
+  },
+  {
+    id: 'cad-design',
+    title: 'CAD Design & Modeling',
+    category: 'Mechanical',
+    duration: '4 Weeks',
+    instructor: 'Ranbidge Design Team',
+    description: 'Learn professional CAD tools like AutoCAD, SolidWorks, and Fusion 360 for mechanical design and drafting.',
+    level: 'Intermediate',
+    thumbnail: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['AutoCAD 2D Drafting', 'SolidWorks 3D Modeling', 'Fusion 360 Fundamentals', 'Technical Drawings & Blueprints']
   }
   
 ];
 
-const CATEGORIES = ['All', 'Engineering', 'Design', 'Data Science', 'Security', 'Marketing', 'Cloud', 'AI', 'Testing', 'Business'];
+const CATEGORIES = ['All', 'Engineering', 'Design', 'Data Science', 'Security', 'Marketing', 'Cloud', 'AI', 'Testing', 'Business', 'Mechanical'];
 
 const FAQS = [
   { q: "What are the eligibility criteria for the internship?", a: "We welcome students from CS, IT, and related engineering backgrounds. Basic knowledge of programming is a plus, but we provide foundational training for all tracks." },
@@ -284,7 +295,7 @@ const Navigation: React.FC<{
 }> = ({ view, setView, scrolled }) => {
   const [isInternshipDropdownOpen, setIsInternshipDropdownOpen] = useState(false);
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside or moving away
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isInternshipDropdownOpen && event.target instanceof Element) {
@@ -1695,6 +1706,52 @@ const App: React.FC = () => {
             </div>
           </div>
 
+          {/* Mechanical Courses Section */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-black text-slate-900 mb-4">Mechanical Engineering <span className="text-purple-600">Courses</span></h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Comprehensive mechanical engineering training from fundamentals to advanced applications</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {COURSES.filter(course => course.category === 'Mechanical').map((course) => (
+                <div key={course.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100">
+                  <div className="relative h-48 overflow-hidden bg-gray-200">
+                    <img src={course.thumbnail} alt={course.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">{course.level}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-black text-slate-900 mb-2">{course.title}</h3>
+                    <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
+                      <Clock size={14} />
+                      {course.duration}
+                    </div>
+                    <p className="text-sm text-slate-600 mb-4">{course.description}</p>
+                    <div className="mb-6">
+                      <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Curriculum</h4>
+                      <ul className="space-y-1">
+                        {course.curriculum.slice(0, 3).map((item, idx) => (
+                          <li key={idx} className="text-xs text-slate-600 flex items-start gap-2">
+                            <span className="text-purple-600 mt-1">•</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <a 
+                      href={UNPAID_INTERNSHIP_LINK} 
+                      target="_blank"
+                      className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-bold hover:bg-purple-700 transition-all text-center text-sm"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-purple-600 to-pink-700 rounded-[3rem] p-12 text-white">
             <h2 className="text-3xl font-black mb-4">Ready to Build Your Skills?</h2>
@@ -1796,7 +1853,8 @@ const App: React.FC = () => {
                       JWT Authentication
                     </div>
                   </div>
-                  <a 
+                  <a git
+config global user.name "Your
                     href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
                     className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
@@ -2135,45 +2193,45 @@ const App: React.FC = () => {
       )}
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-white/10">
+      <footer className="bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-full bg-white border-2 border-white/10 flex items-center justify-center p-1">
+                <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center p-1">
                   <img src={LOGO_URL} alt="Logo" className="w-10 h-10 rounded-full" />
                 </div>
-                <span className="text-2xl font-black tracking-tighter text-white">RANBIDGE SOLUTIONS PVT LTD</span>
+                <span className="text-xl font-black tracking-tighter text-slate-900">RANBIDGE SOLUTIONS PVT LTD</span>
               </div>
-              <p className="max-w-sm mb-10 leading-relaxed text-slate-500 text-lg">
+              <p className="max-w-sm mb-10 leading-relaxed text-slate-600 text-sm">
                 We're building the bridge between academic knowledge and industry excellence. Join the most intensive internship program in India.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                    <MapPin size={18} className="text-indigo-400" />
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
+                    <MapPin size={18} className="text-indigo-500" />
                   </div>
-                  <span className="font-bold text-white">Narasaraopet, Andhra Pradesh, India</span>
+                  <span className="font-bold text-slate-900">Narasaraopet, Andhra Pradesh, India</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                    <Mail size={18} className="text-indigo-400" />
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
+                    <Mail size={18} className="text-indigo-500" />
                   </div>
-                  <span className="font-bold text-white">ranbidgesolutionspvtltd@gmail.com</span>
+                  <span className="font-bold text-slate-900">ranbidgesolutionspvtltd@gmail.com</span>
                 </div>
               </div>
             </div>
             <div>
-              <h4 className="text-white font-black text-lg mb-8 uppercase tracking-widest">Quick Links</h4>
+              <h4 className="text-slate-900 font-black text-lg mb-8 uppercase tracking-widest">Quick Links</h4>
               <ul className="space-y-4">
-                <li><button onClick={() => setView('final-year-projects')} className="font-bold text-indigo-400 hover:text-white transition-colors">Final Year Projects</button></li>
-                <li><button onClick={() => setView('privacy')} className="font-bold hover:text-indigo-400 transition-colors">Privacy Policy</button></li>
-                <li><button onClick={() => setView('terms')} className="font-bold hover:text-indigo-400 transition-colors">Terms of Service</button></li>
-                <li><a href={REGISTRATION_LINK} target="_blank" className="font-bold text-indigo-400 hover:text-white transition-colors">Apply Now</a></li>
+                <li><button onClick={() => setView('final-year-projects')} className="font-bold text-indigo-600 hover:text-indigo-500 transition-colors">Final Year Projects</button></li>
+                <li><button onClick={() => setView('privacy')} className="font-bold text-slate-700 hover:text-indigo-600 transition-colors">Privacy Policy</button></li>
+                <li><button onClick={() => setView('terms')} className="font-bold text-slate-700 hover:text-indigo-600 transition-colors">Terms of Service</button></li>
+                <li><a href={REGISTRATION_LINK} target="_blank" className="font-bold text-indigo-600 hover:text-indigo-500 transition-colors">Apply Now</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-black text-lg mb-8 uppercase tracking-widest">Our Reach</h4>
+              <h4 className="text-slate-900 font-black text-lg mb-8 uppercase tracking-widest">Our Reach</h4>
               <div className="flex flex-wrap gap-3">
                 <SocialIcon href={LINKEDIN_LINK} color="#0077B5">
                   <Linkedin size={16} />
@@ -2195,12 +2253,12 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="mt-20 pt-10 border-t border-white/5 text-center flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-sm font-bold text-slate-600">© 2025 RANBIDGE Solutions Private Limited. All rights reserved.</p>
+          <div className="mt-20 pt-10 border-t border-slate-200 text-center flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-sm font-bold text-slate-500">© 2025 RANBIDGE Solutions Private Limited. All rights reserved.</p>
             <div className="flex gap-8 text-xs font-black uppercase tracking-widest text-slate-700">
-               <span className="cursor-pointer hover:text-slate-400 transition-colors">Facebook</span>
-               <span className="cursor-pointer hover:text-slate-400 transition-colors">GitHub</span>
-               <span className="cursor-pointer hover:text-slate-400 transition-colors">Behance</span>
+               <span className="cursor-pointer hover:text-slate-500 transition-colors">Facebook</span>
+               <span className="cursor-pointer hover:text-slate-500 transition-colors">GitHub</span>
+               <span className="cursor-pointer hover:text-slate-500 transition-colors">Behance</span>
             </div>
           </div>
         </div>
