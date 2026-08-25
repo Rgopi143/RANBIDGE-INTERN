@@ -56,7 +56,23 @@ interface Course {
   curriculum: string[];
 }
 
-type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects';
+interface Hackathon {
+  id: string;
+  title: string;
+  category: string;
+  prizePool: string;
+  duration: string;
+  mode: string;
+  status: 'Live Now' | 'Registration Open' | 'Upcoming';
+  statusColor: string;
+  badge: string;
+  thumbnail: string;
+  description: string;
+  techStack: string[];
+  link: string;
+}
+
+type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons';
 
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
@@ -81,6 +97,99 @@ const HEADER_CONFIG = {
   transparentBg: 'bg-white/80 backdrop-blur-md border-b border-slate-200/50',
   solidBg: 'bg-white/80 backdrop-blur-md border-b border-slate-200'
 };
+
+const HACKATHONS: Hackathon[] = [
+  {
+    id: 'ai-llm-hack',
+    title: 'National AI & LLM Challenge 2025',
+    category: 'AI / ML',
+    prizePool: '₹1,50,000 Pool',
+    duration: '48 Hours Sprint',
+    mode: 'Virtual / Online',
+    status: 'Live Now',
+    statusColor: 'bg-emerald-600',
+    badge: 'Flagship Event',
+    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+    description: 'Build innovative generative AI apps, autonomous agents, and RAG pipelines.',
+    techStack: ['Python', 'OpenAI / LangChain', 'Vector DBs'],
+    link: HACKATHON_LINK
+  },
+  {
+    id: 'fullstack-web-sprint',
+    title: 'Full-Stack Web Dev Sprint 2025',
+    category: 'Web Dev',
+    prizePool: '₹1,00,000 Pool',
+    duration: '36 Hours Sprint',
+    mode: 'Virtual / Online',
+    status: 'Registration Open',
+    statusColor: 'bg-amber-600',
+    badge: 'High Popularity',
+    thumbnail: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
+    description: 'Architect scalable SaaS web products with modern frameworks & real-time DBs.',
+    techStack: ['React / Next.js', 'Node.js', 'PostgreSQL / MongoDB'],
+    link: HACKATHON_LINK
+  },
+  {
+    id: 'iot-embedded-hack',
+    title: 'IoT Smart Automation Hack 2025',
+    category: 'IoT & Hardware',
+    prizePool: '₹80,000 + Hardware',
+    duration: '48 Hours Sprint',
+    mode: 'Hybrid / Online',
+    status: 'Registration Open',
+    statusColor: 'bg-blue-600',
+    badge: 'Hardware Focus',
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    description: 'Design smart home & industrial IoT systems with sensor networks & MQTT dashboards.',
+    techStack: ['ESP32 / Arduino', 'C++', 'MQTT & React Dashboard'],
+    link: HACKATHON_LINK
+  },
+  {
+    id: 'cyber-security-ctf',
+    title: 'CyberSecurity CTF & Defense League',
+    category: 'Cyber Security',
+    prizePool: '₹1,20,000 Pool',
+    duration: '24 Hours CTF',
+    mode: 'Virtual CTF Arena',
+    status: 'Upcoming',
+    statusColor: 'bg-purple-600',
+    badge: 'Capture The Flag',
+    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+    description: 'Test your ethical hacking, network analysis, cryptography, and reverse engineering.',
+    techStack: ['Linux', 'Wireshark & BurpSuite', 'Cryptography'],
+    link: HACKATHON_LINK
+  },
+  {
+    id: 'cloud-devops-hack',
+    title: 'Cloud Native & DevOps Sprint',
+    category: 'Cloud & DevOps',
+    prizePool: '₹90,000 + AWS Credits',
+    duration: '36 Hours Sprint',
+    mode: 'Virtual / Online',
+    status: 'Registration Open',
+    statusColor: 'bg-indigo-600',
+    badge: 'Cloud Native',
+    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    description: 'Deploy resilient microservices pipelines using Docker, Kubernetes, and CI/CD.',
+    techStack: ['Docker & K8s', 'Terraform', 'AWS & GitHub Actions'],
+    link: HACKATHON_LINK
+  },
+  {
+    id: 'mobile-app-cup',
+    title: 'Mobile App Innovation Cup 2025',
+    category: 'Mobile Dev',
+    prizePool: '₹1,10,000 Pool',
+    duration: '48 Hours Sprint',
+    mode: 'Virtual / Online',
+    status: 'Upcoming',
+    statusColor: 'bg-pink-600',
+    badge: 'Mobile App',
+    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+    description: 'Build sleek mobile apps for Android and iOS tackling healthcare, edtech, or fintech.',
+    techStack: ['React Native / Flutter', 'Firebase', 'Mobile UI/UX'],
+    link: HACKATHON_LINK
+  }
+];
 
 const COURSES: Course[] = [
   {
@@ -617,18 +726,18 @@ const Navigation: React.FC<{
           </div>
 
           {/* Hackathons Button */}
-          <a 
-            href={HACKATHON_LINK} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-sm font-bold flex items-center gap-1.5 text-slate-600 hover:text-indigo-600 transition-all relative group"
+          <button 
+            onClick={() => setView('hackathons')} 
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+              view === 'hackathons' ? 'text-amber-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-amber-600'
+            }`}
           >
-            <Trophy size={16} className="text-amber-500 group-hover:scale-110 transition-transform" /> 
+            <Trophy size={16} className="text-amber-500 group-hover:scale-110 transition-transform shrink-0" /> 
             <span>Hackathons</span>
             <span className="px-1.5 py-0.5 text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full uppercase tracking-wider animate-pulse shadow-xs">
               Live
             </span>
-          </a>
+          </button>
         </div>
         <a href={REGISTRATION_LINK} target="_blank" className="hidden sm:block px-5 py-2 bg-indigo-600 text-white rounded-full text-xs font-bold hover:bg-indigo-700 transition-all shadow-md">
           Apply Now
@@ -737,6 +846,8 @@ const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [virtualCategory, setVirtualCategory] = useState('All');
   const [virtualSearch, setVirtualSearch] = useState('');
+  const [hackathonCategory, setHackathonCategory] = useState('All');
+  const [hackathonSearch, setHackathonSearch] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [showAddProjectModal, setShowAddProjectModal] = useState(false);
@@ -744,7 +855,7 @@ const App: React.FC = () => {
   // Initialize view from URL hash on component mount
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove the # symbol
-    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects'].includes(hash)) {
+    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects', 'hackathons'].includes(hash)) {
       setView(hash as View);
     }
   }, []);
@@ -775,6 +886,14 @@ const App: React.FC = () => {
     const matchesSearch = prog.title.toLowerCase().includes(virtualSearch.toLowerCase()) || 
                           prog.description.toLowerCase().includes(virtualSearch.toLowerCase()) ||
                           prog.curriculum.some(c => c.toLowerCase().includes(virtualSearch.toLowerCase()));
+    return matchesCat && matchesSearch;
+  });
+
+  const filteredHackathons = HACKATHONS.filter(hack => {
+    const matchesCat = hackathonCategory === 'All' || hack.category === hackathonCategory;
+    const matchesSearch = hack.title.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
+                          hack.description.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
+                          hack.techStack.some(t => t.toLowerCase().includes(hackathonSearch.toLowerCase()));
     return matchesCat && matchesSearch;
   });
 
@@ -2169,6 +2288,239 @@ const App: React.FC = () => {
         </main>
       )}
 
+      {view === 'hackathons' && (
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-[11px] font-black mb-4 tracking-widest uppercase border border-amber-200/60 shadow-xs">
+              <Trophy size={13} className="text-amber-500" /> Live Innovation Sprints & CTFs
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+              National <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600">Hackathons</span> & Challenges
+            </h1>
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Compete in high-stakes tech hackathons, solve real-world industry challenges, win cash prizes, and secure direct placement offers.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={HACKATHON_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl text-xs sm:text-sm font-black hover:from-amber-600 hover:to-orange-700 transition-all shadow-md flex items-center gap-2">
+                <Trophy size={16} /> Register for Hackathon
+              </a>
+              <button onClick={() => setView('home')} className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
+                Explore All Tracks
+              </button>
+            </div>
+          </div>
+
+          {/* Hackathon Key Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
+            {[
+              { icon: <Trophy className="text-amber-500" />, title: "Cash Prizes", desc: "Win cash rewards & hardware kits." },
+              { icon: <Award className="text-amber-500" />, title: "Certificates", desc: "Recognized national winner credentials." },
+              { icon: <Zap className="text-amber-500" />, title: "Fast-Track Hiring", desc: "Direct interview calls from sponsors." },
+              { icon: <Users className="text-amber-500" />, title: "Expert Mentors", desc: "1-on-1 guidance during code sprints." },
+              { icon: <Star className="text-amber-500" />, title: "Portfolio Boost", desc: "Build production-ready prototypes." },
+              { icon: <Sparkles className="text-amber-500" />, title: "Live Demos", desc: "Pitch your product to tech leaders." }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Hackathons Catalog */}
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[11px] font-black mb-2 tracking-widest uppercase">
+                <Sparkles size={13} /> Active & Upcoming Events
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
+                Explore Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Hackathons</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Filter hackathons by tech domain, prize pools, and registration status.
+              </p>
+            </div>
+
+            {/* Filter & Search Bar */}
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                {['All', 'AI / ML', 'Web Dev', 'IoT & Hardware', 'Cyber Security', 'Cloud & DevOps', 'Mobile Dev'].map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setHackathonCategory(cat)}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
+                      hackathonCategory === cat
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md scale-105'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full md:w-80">
+                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search hackathons (e.g., AI, CTF, Web)..."
+                  value={hackathonSearch}
+                  onChange={(e) => setHackathonSearch(e.target.value)}
+                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all"
+                />
+                {hackathonSearch && (
+                  <button
+                    onClick={() => setHackathonSearch('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Hackathons Cards Grid */}
+            {filteredHackathons.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
+                {filteredHackathons.map((hack) => (
+                  <div key={hack.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                    <div className="relative h-40 overflow-hidden bg-gray-100">
+                      <img 
+                        src={hack.thumbnail} 
+                        alt={hack.title} 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80'; }}
+                      />
+                      <div className="absolute top-3 left-3 flex gap-1.5">
+                        <span className={`px-2 py-0.5 text-white text-[10px] font-black rounded-full shadow-md ${hack.statusColor}`}>
+                          {hack.status}
+                        </span>
+                        <span className="px-2 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md">
+                          {hack.badge}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 flex flex-col flex-grow">
+                      <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                        <span className="px-2 py-0.5 bg-amber-50 text-amber-800 text-[10px] font-extrabold rounded-full border border-amber-200/80 flex items-center gap-1">
+                          <Trophy size={11} className="text-amber-500" /> {hack.prizePool}
+                        </span>
+                        <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                          <Clock size={12} className="text-amber-500" />
+                          {hack.duration}
+                        </div>
+                      </div>
+
+                      <h3 className="text-sm font-black text-slate-900 mb-1.5">{hack.title}</h3>
+                      <p className="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">
+                        {hack.description}
+                      </p>
+
+                      <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Focus & Tech</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {hack.techStack.map((tech, idx) => (
+                            <span key={idx} className="px-2 py-0.5 bg-white text-slate-700 text-[10px] font-bold rounded-md border border-slate-200/80">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <a 
+                        href={hack.link} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full mt-auto py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl text-xs font-bold hover:from-amber-600 hover:to-orange-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
+                      >
+                        <Trophy size={13} /> Register Hackathon
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
+                <Search size={32} className="mx-auto text-slate-300 mb-3" />
+                <h3 className="text-base font-black text-slate-800 mb-1">No Hackathons Found</h3>
+                <p className="text-slate-500 text-xs">Try tweaking your search query or select a different category filter.</p>
+              </div>
+            )}
+          </div>
+
+          {/* Highlights & Benefits */}
+          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
+            <h2 className="text-2xl font-black mb-6 text-center">Why Participate in RANBIDGE Hackathons?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-base font-black mb-3 text-amber-400">Winner Rewards & Perks</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
+                    <span>Cash prizes & hardware kits worth up to ₹1,50,000</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
+                    <span>Direct pre-placement interview (PPI) offers</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
+                    <span>National certificate of excellence for winners & participants</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
+                    <span>Featured spotlight on RANBIDGE LinkedIn & media channels</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-base font-black mb-3 text-amber-400">Rules & Eligibility</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
+                    <span>Open to all college students, graduates, and working professionals</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
+                    <span>Individual or team participation (1 to 4 members)</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
+                    <span>Original code built during the hackathon sprint timeframe</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
+                    <span>Live code repository submission & video demo pitch</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Banner */}
+          <div className="text-center bg-gradient-to-r from-amber-500 via-orange-600 to-amber-600 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
+            <h2 className="text-2xl font-black mb-2">Ready to Showcase Your Tech Skills?</h2>
+            <p className="text-xs md:text-sm mb-5 text-amber-100 max-w-xl mx-auto">Register now for upcoming hackathons and accelerate your career trajectory.</p>
+            <a href={HACKATHON_LINK} target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-white text-orange-700 rounded-xl text-xs sm:text-sm font-black hover:bg-amber-50 transition-all shadow-md">
+              Register Now - Free Entry
+            </a>
+          </div>
+
+          <div className="mt-8 pt-4 flex justify-center">
+            <button 
+              onClick={() => setView('home')} 
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
+            >
+              <Home size={16} /> Return to Home
+            </button>
+          </div>
+        </main>
+      )}
+
       {(view === 'privacy' || view === 'terms') && (
         <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
           <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100">
@@ -2347,7 +2699,7 @@ const App: React.FC = () => {
               <ul className="space-y-3.5 text-sm">
                 <li><button onClick={() => setView('one-on-one-mentorship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">1-on-1 Mentorship</button></li>
                 <li><button onClick={() => setView('final-year-projects')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Final Year Projects</button></li>
-                <li><a href={HACKATHON_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-1.5"><Trophy size={14} className="text-amber-500" /> Hackathons</a></li>
+                <li><button onClick={() => setView('hackathons')} className="font-semibold text-slate-700 hover:text-amber-600 transition-colors flex items-center gap-1.5"><Trophy size={14} className="text-amber-500" /> Hackathons</button></li>
               </ul>
             </div>
 
