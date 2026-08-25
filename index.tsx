@@ -931,10 +931,10 @@ const App: React.FC = () => {
               
               {/* No Results State */}
               {filteredCourses.length === 0 && (
-                <div className="text-center py-32 bg-white rounded-[3rem] border-2 border-dashed border-slate-100">
-                   <Search size={48} className="mx-auto text-slate-200 mb-6" />
-                   <h3 className="text-2xl font-black text-slate-900 mb-2">No tracks found</h3>
-                   <p className="text-slate-500">Try searching for something else or browse all categories.</p>
+                <div className="text-center py-16 bg-white rounded-2xl border border-dashed border-slate-200">
+                   <Search size={36} className="mx-auto text-slate-300 mb-3" />
+                   <h3 className="text-base font-black text-slate-900 mb-1">No tracks found</h3>
+                   <p className="text-xs text-slate-500">Try searching for something else or browse all categories.</p>
                 </div>
               )}
             </div>
@@ -968,29 +968,29 @@ const App: React.FC = () => {
       )}
 
       {view === 'virtual-internship' && (
-        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black mb-8 tracking-widest uppercase">
-              <Briefcase size={14} /> Remote Work
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-black mb-4 tracking-widest uppercase">
+              <Briefcase size={13} /> Remote Work
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
               Virtual <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-600">Internship</span> Program
             </h1>
-            <p className="text-xl text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Join our cutting-edge virtual internship program and gain real-world experience from anywhere in the world. Work on live projects with expert mentors.
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Join our virtual internship program and gain real-world experience from anywhere in the world with expert mentors.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={VIRTUAL_INTERNSHIP_LINK} target="_blank" className="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black hover:bg-indigo-700 transition-all shadow-xl flex items-center gap-3">
-                <Briefcase size={20} /> Apply for Virtual Internship
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={VIRTUAL_INTERNSHIP_LINK} target="_blank" className="px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-700 transition-all shadow-md flex items-center gap-2">
+                <Briefcase size={16} /> Apply for Virtual Internship
               </a>
-              <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
+              <button className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
                 Learn More
               </button>
             </div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
             {[
               { icon: <Zap className="text-indigo-600" />, title: "Flexible Schedule", desc: "Work at your own pace with flexible hours." },
               { icon: <Users className="text-indigo-600" />, title: "Global Team", desc: "Collaborate with diverse team members." },
@@ -1010,27 +1010,27 @@ const App: React.FC = () => {
           </div>
 
           {/* Virtual Internship Courses Catalog */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 text-xs font-black mb-4 tracking-widest uppercase">
-                <Sparkles size={14} /> Comprehensive Tracks
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-700 text-[11px] font-black mb-2 tracking-widest uppercase">
+                <Sparkles size={13} /> Comprehensive Tracks
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
                 Explore Virtual Internship <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Tracks</span>
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
                 Choose from domain-focused virtual internships in Web Development, Python, Data Analytics (DA), AI, Cyber Security, UI/UX, and Cloud.
               </p>
             </div>
 
             {/* Filter & Search Bar */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-12 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
                 {['All', 'Development', 'Data & AI', 'Design', 'Security & Cloud'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setVirtualCategory(cat)}
-                    className={`px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
                       virtualCategory === cat
                         ? 'bg-indigo-600 text-white shadow-md scale-105'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -1042,13 +1042,13 @@ const App: React.FC = () => {
               </div>
 
               <div className="relative w-full md:w-80">
-                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Search track (e.g., DA, Python, Web)..."
                   value={virtualSearch}
                   onChange={(e) => setVirtualSearch(e.target.value)}
-                  className="w-full pl-10 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
                 />
                 {virtualSearch && (
                   <button
@@ -1063,47 +1063,47 @@ const App: React.FC = () => {
 
             {/* Virtual Internship Grid */}
             {filteredVirtualPrograms.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
                 {filteredVirtualPrograms.map((prog) => (
                   <div key={prog.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
-                    <div className="relative h-44">
+                    <div className="relative h-40 overflow-hidden bg-gray-100">
                       <img 
                         src={prog.thumbnail} 
                         alt={prog.title} 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute top-3 left-3 flex gap-2">
-                        <span className={`px-2.5 py-0.5 text-white text-[11px] font-bold rounded-full shadow-lg ${prog.badgeColor}`}>
+                      <div className="absolute top-3 left-3 flex gap-1.5">
+                        <span className={`px-2 py-0.5 text-white text-[10px] font-bold rounded-full shadow-md ${prog.badgeColor}`}>
                           {prog.badge}
                         </span>
-                        <span className="px-2.5 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold rounded-full shadow-lg">
-                          100% Virtual
+                        <span className="px-2 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md">
+                          Virtual
                         </span>
                       </div>
                     </div>
                     
-                    <div className="p-5 flex-grow flex flex-col">
-                      <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <span className="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 text-[10px] font-extrabold rounded-full border border-indigo-100">
+                    <div className="p-4 flex flex-col flex-grow">
+                      <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                        <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 text-[10px] font-extrabold rounded-full border border-indigo-100">
                           {prog.level}
                         </span>
-                        <div className="flex items-center gap-1 text-slate-500 text-xs font-semibold">
+                        <div className="flex items-center gap-1 text-slate-400 text-[11px]">
                           <Clock size={12} className="text-indigo-500" />
                           {prog.duration}
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-extrabold text-slate-900 mb-2 leading-snug">{prog.title}</h3>
-                      <p className="text-slate-600 text-xs mb-4 leading-relaxed flex-grow line-clamp-2">
+                      <h3 className="text-sm font-black text-slate-900 mb-1.5">{prog.title}</h3>
+                      <p className="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">
                         {prog.description}
                       </p>
 
-                      <div className="mb-5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-                        <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Key Learnings & Hands-on Skills</h4>
+                      <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Learnings</h4>
                         <ul className="space-y-1">
                           {prog.curriculum.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-1.5 text-[11px] font-medium text-slate-700">
-                              <CheckCircle2 size={12} className="text-indigo-600 mt-0.5 shrink-0" />
+                            <li key={idx} className="flex items-center gap-1.5 text-[11px] font-medium text-slate-700">
+                              <CheckCircle2 size={12} className="text-indigo-600 shrink-0" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -1113,65 +1113,65 @@ const App: React.FC = () => {
                       <a 
                         href={VIRTUAL_INTERNSHIP_LINK} 
                         target="_blank"
-                        className="w-full py-2.5 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-1.5"
+                        className="w-full mt-auto py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
                       >
-                        <Briefcase size={14} /> Enroll in {prog.title.replace(' Virtual Internship', '')}
+                        <Briefcase size={13} /> Enroll Track
                       </a>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="text-center py-20 bg-white rounded-[2.5rem] border border-slate-100">
-                <Search size={40} className="mx-auto text-slate-300 mb-4" />
-                <h3 className="text-xl font-black text-slate-800 mb-2">No Virtual Internship Found</h3>
-                <p className="text-slate-500 text-sm">Try tweaking your search query or select a different category filter.</p>
+              <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
+                <Search size={32} className="mx-auto text-slate-300 mb-3" />
+                <h3 className="text-base font-black text-slate-800 mb-1">No Virtual Internship Found</h3>
+                <p className="text-slate-500 text-xs">Try tweaking your search query or select a different category filter.</p>
               </div>
             )}
           </div>
 
           {/* Program Details */}
-          <div className="bg-slate-900 rounded-[3rem] p-12 text-white mb-20">
-            <h2 className="text-3xl font-black mb-8 text-center">Program Highlights</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
+            <h2 className="text-2xl font-black mb-6 text-center">Program Highlights</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-black mb-4 text-indigo-400">What You'll Get</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-indigo-400">What You'll Get</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Hands-on experience with real client projects</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Weekly 1-on-1 mentorship sessions</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Professional development workshops</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Networking opportunities with industry experts</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-black mb-4 text-indigo-400">Requirements</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-indigo-400">Requirements</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Basic computer skills and internet access</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Minimum 10-15 hours per week commitment</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Good communication skills in English</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Eagerness to learn and take initiative</span>
                   </li>
                 </ul>
@@ -1180,20 +1180,20 @@ const App: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-indigo-600 to-violet-700 rounded-[3rem] p-12 text-white">
-            <h2 className="text-3xl font-black mb-4">Ready to Start Your Virtual Internship?</h2>
-            <p className="text-xl mb-8 text-indigo-100">Join hundreds of students who are already building their careers with us.</p>
-            <a href={VIRTUAL_INTERNSHIP_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-indigo-700 rounded-2xl font-black hover:bg-indigo-50 transition-all shadow-xl">
+          <div className="text-center bg-gradient-to-r from-indigo-600 to-violet-700 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
+            <h2 className="text-2xl font-black mb-2">Ready to Start Your Virtual Internship?</h2>
+            <p className="text-xs md:text-sm mb-5 text-indigo-100 max-w-xl mx-auto">Join hundreds of students who are already building their careers with us.</p>
+            <a href={VIRTUAL_INTERNSHIP_LINK} target="_blank" className="inline-block px-6 py-3 bg-white text-indigo-700 rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-50 transition-all shadow-md">
               Apply Now - Limited Spots Available
             </a>
           </div>
 
-          <div className="mt-16 pt-8 flex justify-center">
+          <div className="mt-8 pt-4 flex justify-center">
             <button 
               onClick={() => setView('home')} 
-              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
             >
-              <Home size={20} /> Return to Home
+              <Home size={16} /> Return to Home
             </button>
           </div>
         </main>
@@ -2207,20 +2207,20 @@ const App: React.FC = () => {
               {/* Add New Project Modal */}
               {showAddProjectModal && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                  <div className="bg-white rounded-[3rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-                    <div className="bg-gradient-to-r from-orange-600 to-amber-700 p-8 text-white rounded-t-[3rem]">
+                  <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto">
+                    <div className="bg-gradient-to-r from-orange-600 to-amber-700 p-6 text-white rounded-t-2xl">
                       <div className="flex items-center justify-between">
-                        <h2 className="text-2xl font-black flex items-center gap-3">
-                          <Plus size={24} /> Add New Project
+                        <h2 className="text-xl font-black flex items-center gap-2.5">
+                          <Plus size={20} /> Add New Project
                         </h2>
                         <button 
                           onClick={() => setShowAddProjectModal(false)}
                           className="text-white hover:text-orange-200 transition-colors"
                         >
-                          <X size={24} />
+                          <X size={20} />
                         </button>
                       </div>
-                      <p className="text-orange-100 text-sm">Submit your final year project proposal for review</p>
+                      <p className="text-orange-100 text-xs mt-1">Submit your final year project proposal for review</p>
                     </div>
                     
                     <form className="p-8 space-y-6">
