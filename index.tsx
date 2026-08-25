@@ -613,13 +613,6 @@ const Navigation: React.FC<{
               </div>
             )}
           </div>
-          
-          <button onClick={() => setView('privacy')} className={`text-sm font-bold flex items-center gap-2 transition-all ${view === 'privacy' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
-            <ShieldAlert size={16} /> Privacy
-          </button>
-          <button onClick={() => setView('terms')} className={`text-sm font-bold flex items-center gap-2 transition-all ${view === 'terms' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
-            <FileText size={16} /> Terms
-          </button>
         </div>
         <a href={REGISTRATION_LINK} target="_blank" className="hidden sm:block px-5 py-2 bg-indigo-600 text-white rounded-full text-xs font-bold hover:bg-indigo-700 transition-all shadow-md">
           Apply Now
@@ -2493,15 +2486,25 @@ const App: React.FC = () => {
             <div>
               <h4 className="text-slate-800 font-bold text-sm mb-6 uppercase tracking-wider">Quick Links</h4>
               <ul className="space-y-3">
-                <li><button onClick={() => setView('final-year-projects')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Final Year Projects</button></li>
-                <li><button onClick={() => setView('privacy')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Privacy Policy</button></li>
-                <li><button onClick={() => setView('terms')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Terms of Service</button></li>
-                <li><a href={REGISTRATION_LINK} target="_blank" className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Apply Now</a></li>
+                <li><button onClick={() => setView('unpaid-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><Heart size={14} className="text-indigo-500" /> Unpaid Internship</button></li>
+                <li><button onClick={() => setView('paid-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><DollarSign size={14} className="text-indigo-500" /> Paid Internship</button></li>
+                <li><button onClick={() => setView('virtual-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><Briefcase size={14} className="text-indigo-500" /> Virtual Internship</button></li>
+                <li><button onClick={() => setView('one-on-one-mentorship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><GraduationCap size={14} className="text-indigo-500" /> One-on-One Mentorship</button></li>
+                <li><button onClick={() => setView('final-year-projects')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><Target size={14} className="text-indigo-500" /> Final Year Projects</button></li>
+                <li><button onClick={() => setView('privacy')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><ShieldAlert size={14} className="text-indigo-500" /> Privacy Policy</button></li>
+                <li><button onClick={() => setView('terms')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><FileText size={14} className="text-indigo-500" /> Terms of Service</button></li>
               </ul>
             </div>
           </div>
           <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-sm font-medium text-slate-500">© 2025 RANBIDGE Solutions Private Limited. All rights reserved.</p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-medium text-slate-500">
+              <p>© 2025 RANBIDGE Solutions Private Limited. All rights reserved.</p>
+              <div className="flex items-center gap-3 text-xs text-slate-400">
+                <button onClick={() => setView('privacy')} className="hover:text-indigo-600 transition-colors">Privacy Policy</button>
+                <span>•</span>
+                <button onClick={() => setView('terms')} className="hover:text-indigo-600 transition-colors">Terms of Service</button>
+              </div>
+            </div>
             <div className="flex flex-wrap items-center gap-3">
               <a 
                 href={LINKEDIN_LINK} 
