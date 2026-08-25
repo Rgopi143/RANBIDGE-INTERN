@@ -552,7 +552,7 @@ const Navigation: React.FC<{
           <div className="relative internship-dropdown">
             <button 
               onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
-              className={`text-sm font-bold flex items-center gap-2 transition-all ${['virtual-internship', 'paid-internship', 'unpaid-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}
+              className={`text-sm font-bold flex items-center gap-2 transition-all ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}
             >
               <Briefcase size={16} /> Internship
               <ChevronDown size={14} className={`transition-transform ${isInternshipDropdownOpen ? 'rotate-180' : ''}`} />
@@ -561,13 +561,13 @@ const Navigation: React.FC<{
             {isInternshipDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
                 <button 
-                  onClick={() => { setView('virtual-internship'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'virtual-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  onClick={() => { setView('unpaid-internship'); setIsInternshipDropdownOpen(false); }}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'unpaid-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
                 >
-                  <Briefcase size={16} />
+                  <Heart size={16} />
                   <div>
-                    <div className="font-semibold">Virtual Internship</div>
-                    <div className="text-xs text-slate-500">Remote work opportunities</div>
+                    <div className="font-semibold">Unpaid Internship</div>
+                    <div className="text-xs text-slate-500">Focus on skill building</div>
                   </div>
                 </button>
                 <button 
@@ -581,13 +581,13 @@ const Navigation: React.FC<{
                   </div>
                 </button>
                 <button 
-                  onClick={() => { setView('unpaid-internship'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'unpaid-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  onClick={() => { setView('virtual-internship'); setIsInternshipDropdownOpen(false); }}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'virtual-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
                 >
-                  <Heart size={16} />
+                  <Briefcase size={16} />
                   <div>
-                    <div className="font-semibold">Unpaid Internship</div>
-                    <div className="text-xs text-slate-500">Focus on skill building</div>
+                    <div className="font-semibold">Virtual Internship</div>
+                    <div className="text-xs text-slate-500">Remote work opportunities</div>
                   </div>
                 </button>
                 <button 
