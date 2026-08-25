@@ -1200,7 +1200,7 @@ const App: React.FC = () => {
       )}
 
       {view === 'one-on-one-mentorship' && (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black mb-8 tracking-widest uppercase">
               <GraduationCap size={14} /> Personal Guidance
@@ -1222,21 +1222,21 @@ const App: React.FC = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
             {[
-              { icon: <HandHeart className="text-indigo-600" />, title: "Personalized Attention", desc: "Get 1-on-1 guidance tailored to your specific learning needs and career goals." },
-              { icon: <Target className="text-indigo-600" />, title: "Goal-Oriented Learning", desc: "Set clear milestones and track your progress with expert mentorship." },
-              { icon: <Lightbulb className="text-indigo-600" />, title: "Industry Insights", desc: "Learn real-world practices and insider knowledge from experienced professionals." },
-              { icon: <Zap className="text-indigo-600" />, title: "Fast-Track Growth", desc: "Accelerate your skill development with focused, intensive mentoring sessions." },
-              { icon: <Users className="text-indigo-600" />, title: "Expert Network", desc: "Connect with industry leaders and expand your professional network." },
-              { icon: <Award className="text-indigo-600" />, title: "Certified Achievement", desc: "Receive mentorship certificates and letters of recommendation." }
+              { icon: <HandHeart className="text-indigo-600" />, title: "Personal Attention", desc: "1-on-1 guidance tailored to your goals." },
+              { icon: <Target className="text-indigo-600" />, title: "Goal-Oriented", desc: "Set clear milestones & track progress." },
+              { icon: <Lightbulb className="text-indigo-600" />, title: "Industry Insights", desc: "Learn real-world practices & insider knowledge." },
+              { icon: <Zap className="text-indigo-600" />, title: "Fast-Track Growth", desc: "Accelerate skill development in intensive sessions." },
+              { icon: <Users className="text-indigo-600" />, title: "Expert Network", desc: "Connect with tech leaders & mentors." },
+              { icon: <Award className="text-indigo-600" />, title: "Certified Track", desc: "Receive certificates & LORs." }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="mb-6 w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center">
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-black text-slate-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -1435,7 +1435,7 @@ const App: React.FC = () => {
       )}
 
       {view === 'paid-internship' && (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-xs font-black mb-8 tracking-widest uppercase">
               <DollarSign size={14} /> Earn While You Learn
@@ -1457,21 +1457,21 @@ const App: React.FC = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
             {[
-              { icon: <DollarSign className="text-green-600" />, title: "Monthly Stipend", desc: "Receive competitive monthly stipends based on your role and performance." },
-              { icon: <Award className="text-green-600" />, title: "Performance Bonuses", desc: "Earn additional bonuses for exceptional work and project completion." },
-              { icon: <Briefcase className="text-green-600" />, title: "Real Projects", desc: "Work on actual client projects and build your professional portfolio." },
-              { icon: <Users className="text-green-600" />, title: "Team Collaboration", desc: "Collaborate with experienced professionals and industry experts." },
-              { icon: <TrendingUp className="text-green-600" />, title: "Career Growth", desc: "Get fast-tracked for full-time positions based on performance." },
-              { icon: <Gift className="text-green-600" />, title: "Additional Benefits", desc: "Enjoy perks like flexible hours, remote work options, and skill certifications." }
+              { icon: <DollarSign className="text-green-600" />, title: "Monthly Stipend", desc: "Competitive stipends based on performance." },
+              { icon: <Award className="text-green-600" />, title: "Performance Bonuses", desc: "Earn extra bonuses for milestone delivery." },
+              { icon: <Briefcase className="text-green-600" />, title: "Real Projects", desc: "Work on live commercial client projects." },
+              { icon: <Users className="text-green-600" />, title: "Team Collaboration", desc: "Collaborate with senior developers." },
+              { icon: <TrendingUp className="text-green-600" />, title: "Career Growth", desc: "Fast-track to full-time engineering roles." },
+              { icon: <Gift className="text-green-600" />, title: "Perks & Benefits", desc: "Flexible hours & skill certifications." }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="mb-6 w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center">
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-black text-slate-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -1765,7 +1765,7 @@ const App: React.FC = () => {
       )}
 
       {view === 'unpaid-internship' && (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-black mb-8 tracking-widest uppercase">
               <Heart size={14} /> Skill Building Focus
@@ -1787,21 +1787,21 @@ const App: React.FC = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
             {[
-              { icon: <GraduationCap className="text-purple-600" />, title: "Intensive Learning", desc: "Focus entirely on skill development without work pressure." },
-              { icon: <Target className="text-purple-600" />, title: "Flexible Schedule", desc: "Learn at your own pace with flexible timing options." },
-              { icon: <Lightbulb className="text-purple-600" />, title: "Creative Freedom", desc: "Experiment and innovate without client constraints." },
-              { icon: <Users className="text-purple-600" />, title: "Peer Learning", desc: "Collaborate with other interns in a supportive environment." },
-              { icon: <Award className="text-purple-600" />, title: "Certificates", desc: "Earn valuable certificates and letters of recommendation." },
-              { icon: <Zap className="text-purple-600" />, title: "Quick Start", desc: "Easy application process and immediate onboarding." }
+              { icon: <GraduationCap className="text-purple-600" />, title: "Intensive Learning", desc: "Focus entirely on skill development." },
+              { icon: <Target className="text-purple-600" />, title: "Flexible Schedule", desc: "Learn at your own pace with flexible timing." },
+              { icon: <Lightbulb className="text-purple-600" />, title: "Creative Freedom", desc: "Experiment and innovate without pressure." },
+              { icon: <Users className="text-purple-600" />, title: "Peer Learning", desc: "Collaborate in a supportive tech team." },
+              { icon: <Award className="text-purple-600" />, title: "Certificates", desc: "Earn verified certificates & LORs." },
+              { icon: <Zap className="text-purple-600" />, title: "Quick Start", desc: "Easy application & immediate onboarding." }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="mb-6 w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center">
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-black text-slate-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -1980,15 +1980,13 @@ const App: React.FC = () => {
             </div>
           </div>
 
-
-
           {/* All Courses Section */}
           <div className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-black text-slate-900 mb-4">Available <span className="text-purple-600">Courses</span></h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">Explore all internship tracks and choose the learning path that fits your goals</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
               {COURSES.map((course) => (
                 <div key={course.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 flex flex-col h-full">
                   <div className="relative h-48 overflow-hidden bg-gray-200">
@@ -2050,7 +2048,7 @@ const App: React.FC = () => {
       )}
 
       {view === 'final-year-projects' && (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-black mb-8 tracking-widest uppercase">
               <Target size={14} /> Academic Excellence
@@ -2083,7 +2081,7 @@ const App: React.FC = () => {
               <h2 className="text-4xl font-black text-slate-900 mb-4">Featured <span className="text-orange-600">Projects</span></h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose from our range of comprehensive final year projects</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
               
               {/* E-Commerce Platform */}
               <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
@@ -2323,7 +2321,7 @@ const App: React.FC = () => {
       )}
 
       {(view === 'privacy' || view === 'terms') && (
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
             <div className="bg-gradient-to-r from-indigo-600 to-violet-700 p-12 text-white">
               <h1 className="text-4xl font-black flex items-center gap-4">
@@ -2591,7 +2589,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
-          </>
+      </>
     </div>
   );
 };
