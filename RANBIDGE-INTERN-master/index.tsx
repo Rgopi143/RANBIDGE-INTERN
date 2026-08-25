@@ -81,7 +81,6 @@ const HEADER_CONFIG = {
 };
 
 const COURSES: Course[] = [
-  
   {
     id: 'frontend',
     title: 'Frontend Development',
@@ -116,6 +115,28 @@ const COURSES: Course[] = [
     curriculum: ['HTML, CSS, and JS Fundamentals', 'Responsive Web Design', 'React.js for Beginners', 'Advanced MERN Stack']
   },
   {
+    id: 'python-dev',
+    title: 'Python Development Intern',
+    category: 'Engineering',
+    duration: '10 Weeks',
+    instructor: 'Ranbidge Team',
+    description: 'Learn Python programming from scratch, object-oriented concepts, web scraping, automation, and backend framework basics.',
+    level: 'Beginner',
+    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['Python Fundamentals & OOP', 'Data Structures & Algorithms', 'Automation & Web Scraping', 'Flask/FastAPI REST APIs']
+  },
+  {
+    id: 'data-analytics',
+    title: 'Data Analytics (DA) Intern',
+    category: 'Data Science',
+    duration: '10 Weeks',
+    instructor: 'Ranbidge Analytics',
+    description: 'Analyze complex datasets, create interactive PowerBI & Tableau dashboards, and drive business decisions using SQL and Python.',
+    level: 'Beginner',
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['SQL Data Extraction & Querying', 'Advanced Excel & Financial Analytics', 'Power BI & Tableau Dashboards', 'Python (Pandas, NumPy, Matplotlib)']
+  },
+  {
     id: 'fullstack',
     title: 'Full Stack Development Intern',
     category: 'Engineering',
@@ -126,7 +147,6 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Frontend with React.js', 'Backend with Node.js', 'Full Stack Project Dev', 'Deployment & Hosting']
   },
-  
   {
     id: 'uiux',
     title: 'UI/UX Design Intern',
@@ -138,8 +158,6 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
     curriculum: ['UI Design Fundamentals', 'UX Research & Testing', 'Design Systems & Prototyping', 'Accessibility']
   },
-
-  ,
   {
     id: 'mobile-app',
     title: 'Mobile App Development',
@@ -151,7 +169,6 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
     curriculum: ['React Native Fundamentals', 'Flutter & Dart Basics', 'Mobile UI/UX Principles', 'Firebase Integration']
   },
-  
   {
     id: 'data-science',
     title: 'Data Science & ML Intern',
@@ -160,10 +177,9 @@ const COURSES: Course[] = [
     instructor: 'Ranbidge Analytics',
     description: 'Master data analysis, visualization, and machine learning models using Python and R.',
     level: 'Intermediate',
-    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Python for Data Science', 'EDA & Data Visualization', 'Machine Learning Models', 'Deep Learning Basics']
   },
-  
   {
     id: 'paper-writing',
     title: 'Academic Paper Writing Service',
@@ -175,7 +191,7 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Research Methodology', 'Paper Structure & Formatting', 'Citation Styles (APA, MLA, Chicago)', 'Peer Review Process']
   },
-    {
+  {
     id: 'python-fullstack',
     title: 'Python Full Stack Intern',
     category: 'Engineering',
@@ -218,6 +234,17 @@ const COURSES: Course[] = [
     level: 'Advanced',
     thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
     curriculum: ['Intro to LLMs & Transformers', 'Prompt Engineering Techniques', 'OpenAI & LangChain', 'Building AI Chatbots']
+  },
+  {
+    id: 'cyber-security',
+    title: 'Cyber Security & Ethical Hacking',
+    category: 'Security',
+    duration: '12 Weeks',
+    instructor: 'Ranbidge CyberSec',
+    description: 'Gain skills in network security, ethical hacking, vulnerability analysis, and securing modern web applications.',
+    level: 'Intermediate',
+    thumbnail: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
+    curriculum: ['Network Protocols & Wireshark', 'Ethical Hacking & Pen Testing', 'Web App Vulnerabilities (OWASP Top 10)', 'Cryptography & Security Compliance']
   },
   {
     id: 'qa-testing',
@@ -263,7 +290,202 @@ const COURSES: Course[] = [
     thumbnail: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
     curriculum: ['AutoCAD 2D Drafting', 'SolidWorks 3D Modeling', 'Fusion 360 Fundamentals', 'Technical Drawings & Blueprints']
   }
-  
+];
+
+interface VirtualProgram {
+  id: string;
+  title: string;
+  category: 'Development' | 'Data & AI' | 'Design' | 'Security & Cloud';
+  badge: string;
+  badgeColor: string;
+  level: string;
+  duration: string;
+  description: string;
+  thumbnail: string;
+  curriculum: string[];
+}
+
+const VIRTUAL_INTERNSHIP_PROGRAMS: VirtualProgram[] = [
+  {
+    id: 'web-dev-virtual',
+    title: 'Web Development Virtual Internship',
+    category: 'Development',
+    badge: 'Popular Track',
+    badgeColor: 'bg-blue-600',
+    level: 'Beginner - Intermediate',
+    duration: '12 Weeks',
+    description: 'Master modern web development from HTML/CSS fundamentals to React.js and RESTful API integrations through real client-level project assignments.',
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'HTML5, CSS3, Flexbox, Grid & Tailwind CSS responsive styling',
+      'JavaScript ES6+, DOM manipulation & Async/Await programming',
+      'Frontend Development with React.js, Hooks & State Management',
+      'REST API Integration, Postman testing & JSON data parsing',
+      'Git/GitHub version control & Live project deployment on Vercel'
+    ]
+  },
+  {
+    id: 'python-dev-virtual',
+    title: 'Python Development Virtual Internship',
+    category: 'Development',
+    badge: 'High Demand',
+    badgeColor: 'bg-yellow-600',
+    level: 'Beginner - Intermediate',
+    duration: '10 Weeks',
+    description: 'Gain comprehensive hands-on experience in Python programming, Object-Oriented Programming (OOP), web scraping, automation, and backend framework development.',
+    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'Python Core Syntax, Data Structures, OOP & Functional Programming',
+      'Automated Scripting, File I/O & Web Scraping (BeautifulSoup & Selenium)',
+      'Backend Web Frameworks with Django & FastAPI',
+      'Database integration with SQLite, PostgreSQL & ORMs',
+      'Building REST APIs, Testing & Production Code Quality'
+    ]
+  },
+  {
+    id: 'da-virtual',
+    title: 'Data Analytics (DA) Virtual Internship',
+    category: 'Data & AI',
+    badge: 'Top Career Track',
+    badgeColor: 'bg-emerald-600',
+    level: 'Beginner - Intermediate',
+    duration: '10 Weeks',
+    description: 'Transform raw data into strategic business insights using SQL queries, Advanced Excel, Power BI dashboards, Tableau, and Python data analytics libraries.',
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'Data extraction, manipulation & complex querying using SQL',
+      'Advanced Excel functions, Power Pivot, VLOOKUP & Data Models',
+      'Interactive Dashboard creation in Power BI & Tableau',
+      'Exploratory Data Analysis (EDA) with Python (Pandas & NumPy)',
+      'Business Intelligence storytelling & KPI reporting for decision making'
+    ]
+  },
+  {
+    id: 'fullstack-virtual',
+    title: 'Full Stack Development Virtual Internship',
+    category: 'Development',
+    badge: 'Most Comprehensive',
+    badgeColor: 'bg-indigo-600',
+    level: 'Advanced',
+    duration: '16 Weeks',
+    description: 'Complete end-to-end full stack software engineering covering React, Node.js, Express, MongoDB, PostgreSQL, and cloud application deployment.',
+    thumbnail: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'Frontend Architecture with React.js, Next.js & TypeScript',
+      'Backend API & Microservices engineering with Node.js & Express',
+      'Database design, Indexing & Data Modeling (MongoDB & PostgreSQL)',
+      'Authentication, Authorization (JWT, OAuth) & Security',
+      'Docker containerization & CI/CD pipeline automation to Cloud'
+    ]
+  },
+  {
+    id: 'data-science-virtual',
+    title: 'Data Science & ML Virtual Internship',
+    category: 'Data & AI',
+    badge: 'Trending',
+    badgeColor: 'bg-purple-600',
+    level: 'Intermediate - Advanced',
+    duration: '14 Weeks',
+    description: 'Build predictive machine learning models, perform advanced statistical modeling, and solve real data engineering problems using Python.',
+    thumbnail: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'Statistical Analysis, Probability & Exploratory Data Analysis (EDA)',
+      'Supervised & Unsupervised Machine Learning Algorithms',
+      'Model Building with Scikit-Learn, SciPy & Matplotlib/Seaborn',
+      'Introduction to Deep Learning & Neural Networks (TensorFlow/Keras)',
+      'End-to-end Machine Learning pipeline deployment'
+    ]
+  },
+  {
+    id: 'ai-genai-virtual',
+    title: 'AI & Generative AI Virtual Internship',
+    category: 'Data & AI',
+    badge: 'Future Tech',
+    badgeColor: 'bg-pink-600',
+    level: 'Advanced',
+    duration: '14 Weeks',
+    description: 'Explore state-of-the-art Artificial Intelligence, Large Language Models (LLMs), Prompt Engineering, LangChain, RAG architecture, and OpenAI integrations.',
+    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'Prompt Engineering techniques & LLM foundational concepts',
+      'Building AI-driven applications with OpenAI API & Hugging Face',
+      'LangChain Framework & Vector Databases (ChromaDB/Pinecone)',
+      'Retrieval-Augmented Generation (RAG) system engineering',
+      'Deploying custom AI Chatbots & autonomous AI Agents'
+    ]
+  },
+  {
+    id: 'uiux-virtual',
+    title: 'UI/UX Design Virtual Internship',
+    category: 'Design',
+    badge: 'Creative Track',
+    badgeColor: 'bg-rose-600',
+    level: 'Beginner',
+    duration: '8 Weeks',
+    description: 'Craft intuitive digital experiences. Master user research, wireframing, high-fidelity interactive prototyping, and design systems using Figma.',
+    thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'User Research methods, Persona creation & Customer Journey Maps',
+      'Wireframing, Information Architecture & UX Logic',
+      'Advanced Figma Prototyping, Auto-Layout & Component Libraries',
+      'Design Systems, Accessibility standards (WCAG) & Micro-interactions',
+      'Usability Testing & Developer Handoff workflows'
+    ]
+  },
+  {
+    id: 'cyber-security-virtual',
+    title: 'Cyber Security & Ethical Hacking Virtual Internship',
+    category: 'Security & Cloud',
+    badge: 'Critical Need',
+    badgeColor: 'bg-red-600',
+    level: 'Intermediate',
+    duration: '12 Weeks',
+    description: 'Learn to protect networks and applications against cyber threats. Conduct vulnerability assessments, penetration testing, and ethical hacking exercises.',
+    thumbnail: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'Network Security fundamentals, TCP/IP & Wireshark Packet Analysis',
+      'Ethical Hacking methodologies & Kali Linux penetration tools',
+      'OWASP Top 10 web application vulnerabilities & exploitation prevention',
+      'System Vulnerability Scanning, Reconnaissance & Remediation',
+      'Cyber Security Incident Response & Defensive Hardening'
+    ]
+  },
+  {
+    id: 'cloud-devops-virtual',
+    title: 'Cloud Computing & DevOps Virtual Internship',
+    category: 'Security & Cloud',
+    badge: 'High Impact',
+    badgeColor: 'bg-sky-600',
+    level: 'Intermediate',
+    duration: '12 Weeks',
+    description: 'Build automated, fault-tolerant infrastructure on AWS cloud using Docker containerization, Kubernetes cluster management, and CI/CD pipelines.',
+    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'AWS Infrastructure Services (EC2, S3, RDS, Lambda, VPC)',
+      'Docker container creation, image optimization & microservices',
+      'Automated CI/CD pipelines using GitHub Actions & Jenkins',
+      'Kubernetes pod orchestration & cluster scaling',
+      'Infrastructure as Code (Terraform) & Cloud Monitoring'
+    ]
+  },
+  {
+    id: 'mobile-app-virtual',
+    title: 'Mobile App Development Virtual Internship',
+    category: 'Development',
+    badge: 'Cross Platform',
+    badgeColor: 'bg-teal-600',
+    level: 'Intermediate',
+    duration: '12 Weeks',
+    description: 'Develop feature-rich cross-platform mobile applications for iOS and Android using React Native and Flutter with real-time Firebase backends.',
+    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+    curriculum: [
+      'React Native & Flutter fundamentals & Mobile UX patterns',
+      'State management (Redux / Provider) & Navigation routing',
+      'Firebase Authentication, Realtime Database & Cloud Storage',
+      'REST API integration & Offline data storage (AsyncStorage/Hive)',
+      'App Store & Google Play Store publishing readiness'
+    ]
+  }
 ];
 
 const CATEGORIES = ['All', 'Engineering', 'Design', 'Data Science', 'Security', 'Marketing', 'Cloud', 'AI', 'Testing', 'Business', 'Mechanical'];
@@ -502,6 +724,8 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
 const App: React.FC = () => {
   const [view, setView] = useState<View>('home');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [virtualCategory, setVirtualCategory] = useState('All');
+  const [virtualSearch, setVirtualSearch] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [showAddProjectModal, setShowAddProjectModal] = useState(false);
@@ -533,6 +757,14 @@ const App: React.FC = () => {
   const filteredCourses = COURSES.filter(course => {
     const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
     return matchesCategory;
+  });
+
+  const filteredVirtualPrograms = VIRTUAL_INTERNSHIP_PROGRAMS.filter(prog => {
+    const matchesCat = virtualCategory === 'All' || prog.category === virtualCategory;
+    const matchesSearch = prog.title.toLowerCase().includes(virtualSearch.toLowerCase()) || 
+                          prog.description.toLowerCase().includes(virtualSearch.toLowerCase()) ||
+                          prog.curriculum.some(c => c.toLowerCase().includes(virtualSearch.toLowerCase()));
+    return matchesCat && matchesSearch;
   });
 
   return (
@@ -694,73 +926,125 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          {/* Full Stack Development Program */}
+          {/* Virtual Internship Courses Catalog */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">Featured Virtual <span className="text-indigo-600">Program</span></h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Master both frontend and backend development in our comprehensive virtual internship</p>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 text-xs font-black mb-4 tracking-widest uppercase">
+                <Sparkles size={14} /> Comprehensive Tracks
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+                Explore Virtual Internship <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Tracks</span>
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                Choose from domain-focused virtual internships in Web Development, Python, Data Analytics (DA), AI, Cyber Security, UI/UX, and Cloud.
+              </p>
             </div>
-            <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="relative h-64 lg:h-auto">
-                  <img 
-                    src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80" 
-                    alt="Full Stack Development" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-full shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                </div>
-                <div className="p-10 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">Advanced</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
-                      16 Weeks
-                    </div>
-                  </div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-4">Full Stack Development Virtual Internship</h3>
-                  <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                    Gain comprehensive experience in frontend, backend, and UI/UX design. Work on real projects using React, Node.js, MongoDB, modern design principles, and deployment technologies.
-                  </p>
-                  <div className="mb-8">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">What You'll Learn</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-indigo-400 rounded-full" />
-                        Frontend development with React.js and modern CSS
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-indigo-400 rounded-full" />
-                        UI/UX Design principles and user-centered design
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-indigo-400 rounded-full" />
-                        Backend development with Node.js and Express
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-indigo-400 rounded-full" />
-                        Database design with MongoDB and PostgreSQL
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-indigo-400 rounded-full" />
-                        Cloud deployment and DevOps practices
-                      </li>
-                    </ul>
-                  </div>
-                  <a 
-                    href={VIRTUAL_INTERNSHIP_LINK} 
-                    target="_blank"
-                    className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+
+            {/* Filter & Search Bar */}
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-12 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                {['All', 'Development', 'Data & AI', 'Design', 'Security & Cloud'].map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setVirtualCategory(cat)}
+                    className={`px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                      virtualCategory === cat
+                        ? 'bg-indigo-600 text-white shadow-md scale-105'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
                   >
-                    Enroll Now in Full Stack Program
-                  </a>
-                </div>
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full md:w-80">
+                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search track (e.g., DA, Python, Web)..."
+                  value={virtualSearch}
+                  onChange={(e) => setVirtualSearch(e.target.value)}
+                  className="w-full pl-10 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                />
+                {virtualSearch && (
+                  <button
+                    onClick={() => setVirtualSearch('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
               </div>
             </div>
+
+            {/* Virtual Internship Grid */}
+            {filteredVirtualPrograms.length > 0 ? (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {filteredVirtualPrograms.map((prog) => (
+                  <div key={prog.id} className="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300">
+                    <div className="relative h-60">
+                      <img 
+                        src={prog.thumbnail} 
+                        alt={prog.title} 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-4 left-4 flex gap-2">
+                        <span className={`px-3 py-1 text-white text-xs font-bold rounded-full shadow-lg ${prog.badgeColor}`}>
+                          {prog.badge}
+                        </span>
+                        <span className="px-3 py-1 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold rounded-full shadow-lg">
+                          100% Virtual
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-8 flex-grow flex flex-col">
+                      <div className="flex items-center gap-3 mb-3 flex-wrap">
+                        <span className="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full">
+                          {prog.level}
+                        </span>
+                        <div className="flex items-center gap-1 text-slate-500 text-xs font-medium">
+                          <Clock size={14} />
+                          {prog.duration}
+                        </div>
+                      </div>
+
+                      <h3 className="text-2xl font-black text-slate-900 mb-3">{prog.title}</h3>
+                      <p className="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        {prog.description}
+                      </p>
+
+                      <div className="mb-8 bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">Key Learnings & Hands-on Skills</h4>
+                        <ul className="space-y-2">
+                          {prog.curriculum.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-xs font-medium text-slate-700">
+                              <CheckCircle2 size={14} className="text-indigo-600 mt-0.5 shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <a 
+                        href={VIRTUAL_INTERNSHIP_LINK} 
+                        target="_blank"
+                        className="w-full py-3.5 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                      >
+                        <Briefcase size={16} /> Enroll in {prog.title.replace(' Virtual Internship', '')}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-20 bg-white rounded-[2.5rem] border border-slate-100">
+                <Search size={40} className="mx-auto text-slate-300 mb-4" />
+                <h3 className="text-xl font-black text-slate-800 mb-2">No Virtual Internship Found</h3>
+                <p className="text-slate-500 text-sm">Try tweaking your search query or select a different category filter.</p>
+              </div>
+            )}
           </div>
 
           {/* Program Details */}
