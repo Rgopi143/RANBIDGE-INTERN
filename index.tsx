@@ -645,62 +645,63 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
   const isComingSoon = comingSoonCourses.includes(course.id);
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
-      <div className="relative h-48 overflow-hidden">
+    <div className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 ease-out border border-slate-100 hover:border-indigo-300 shimmer-card transform hover:-translate-y-2.5 flex flex-col h-full">
+      <div className="relative h-52 overflow-hidden">
         <img 
           src={course.thumbnail} 
           alt={course.title} 
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
         />
-        <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-semibold rounded-full shadow-sm">
+        <div className="absolute top-4 left-4 flex items-center gap-2">
+          <span className="px-3 py-1 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold rounded-full shadow-lg border border-white/20">
             {course.category}
           </span>
         </div>
       </div>
-      <div className="p-5 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 mb-2">
-          <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-            course.level === 'Beginner' ? 'bg-green-100 text-green-700' :
-            course.level === 'Intermediate' ? 'bg-blue-100 text-blue-700' :
-            'bg-purple-100 text-purple-700'
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex items-center gap-2 mb-3">
+          <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full ${
+            course.level === 'Beginner' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
+            course.level === 'Intermediate' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
+            'bg-purple-50 text-purple-700 border border-purple-200'
           }`}>
             {course.level}
           </span>
-          <div className="flex items-center gap-1 text-slate-400 text-xs">
-            <Clock size={12} />
+          <div className="flex items-center gap-1 text-slate-500 text-xs font-semibold">
+            <Clock size={13} className="text-indigo-500" />
             {course.duration}
           </div>
         </div>
-        <h3 className="text-lg font-bold text-slate-800 mb-2 leading-tight group-hover:text-indigo-600 transition-colors">
+        <h3 className="text-xl font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-indigo-600 transition-colors">
           {course.title}
         </h3>
-        <p className="text-slate-600 text-sm line-clamp-2 mb-4">
+        <p className="text-slate-600 text-sm line-clamp-2 mb-5 leading-relaxed">
           {course.description}
         </p>
         
-        <div className="mb-4">
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Curriculum</p>
-          <ul className="space-y-1">
+        <div className="mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100/80">
+          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2.5">Key Curriculum Modules</p>
+          <ul className="space-y-1.5">
             {course.curriculum.map((item, i) => (
-              <li key={i} className="text-[11px] text-slate-500 flex items-center gap-1">
-                <div className="w-1 h-1 bg-indigo-400 rounded-full" /> {item}
+              <li key={i} className="text-xs text-slate-600 font-medium flex items-center gap-2">
+                <CheckCircle2 size={13} className="text-indigo-500 shrink-0" />
+                <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-50">
-          <div className="flex items-center gap-2">
-            <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-8 h-8 rounded-full border-2 border-indigo-100" />
-            <span className="text-xs font-medium text-slate-500">Ranbidge Solutions</span>
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+          <div className="flex items-center gap-2.5">
+            <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-8 h-8 rounded-full border-2 border-indigo-100 shadow-xs" />
+            <span className="text-xs font-bold text-slate-600">Ranbidge Solutions</span>
           </div>
           {isComingSoon && course.id === 'paper-writing' ? (
-            <span className="px-4 py-2 bg-blue-500 text-white rounded-xl text-sm font-semibold cursor-not-allowed border border-blue-400">
+            <span className="px-4 py-2 bg-blue-500 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all shadow-md">
               <a 
                 href={WHATSAPP_CHAT_LINK}
                 target="_blank"
-                className="text-white hover:text-blue-100 transition-colors"
+                className="text-white flex items-center gap-1"
               >
                 Contact Us
               </a>
@@ -710,9 +711,9 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
               href={REGISTRATION_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-semibold hover:bg-indigo-700 shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center gap-2"
+              className="px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-xs font-black hover:bg-indigo-700 shadow-md group-hover:shadow-indigo-500/20 active:scale-95 transition-all flex items-center gap-1.5"
             >
-              Enroll Now
+              Enroll Now <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </a>
           )}
         </div>
@@ -782,23 +783,112 @@ const App: React.FC = () => {
           {view === 'home' && (
             <>
               {/* Hero Section */}
-              <header className="bg-white border-b border-slate-100 relative pt-20 pb-24 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black mb-8 tracking-widest uppercase">
-                <TrendingUp size={14} /> Future-Proof Your Career
+              <header className="bg-gradient-to-b from-indigo-50/40 via-white to-slate-50 border-b border-slate-100 relative pt-20 pb-24 overflow-hidden">
+                {/* Floating Levitating Badges */}
+                <div className="hidden lg:block absolute top-16 left-12 animate-float-slow z-20">
+                  <div className="glass-card px-4 py-2.5 rounded-2xl shadow-xl border border-indigo-100 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-md">
+                      ⚡
+                    </div>
+                    <div>
+                      <p className="text-xs font-black text-slate-900">Web & Python Dev</p>
+                      <p className="text-[10px] text-indigo-600 font-bold">100% Remote Internship</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden lg:block absolute top-20 right-12 animate-float-reverse z-20">
+                  <div className="glass-card px-4 py-2.5 rounded-2xl shadow-xl border border-violet-100 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-violet-600 text-white flex items-center justify-center font-bold text-sm shadow-md">
+                      📊
+                    </div>
+                    <div>
+                      <p className="text-xs font-black text-slate-900">Data Analytics (DA)</p>
+                      <p className="text-[10px] text-violet-600 font-bold">Power BI & SQL Masterclass</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden lg:block absolute bottom-12 right-24 animate-pulse-glow z-20">
+                  <div className="glass-card px-4 py-2 rounded-2xl shadow-xl border border-pink-100 flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-pink-500 text-white flex items-center justify-center font-bold text-xs shadow-md">
+                      🤖
+                    </div>
+                    <div>
+                      <p className="text-xs font-black text-slate-900">AI & GenAI</p>
+                      <p className="text-[10px] text-pink-600 font-bold">LLM & Prompt Eng.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center z-10">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-indigo-100 text-indigo-700 text-xs font-extrabold mb-8 tracking-wide shadow-sm hover:scale-105 transition-transform">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <TrendingUp size={14} className="text-indigo-600" /> Live Admissions Open • 1,250+ Interns Enrolled
+                  </div>
+
+                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+                    Empowering the Next <br />
+                    <span className="animated-gradient-text">Tech Innovators & Leaders</span>
+                  </h1>
+
+                  <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+                    Unlock your potential with hands-on industrial virtual internships at RANBIDGE Solutions. Real client projects, 1-on-1 expert mentorship, and industry-recognized certificates.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a 
+                      href={VIRTUAL_INTERNSHIP_LINK} 
+                      target="_blank" 
+                      className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black hover:bg-indigo-700 transition-all shadow-xl hover:shadow-indigo-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group"
+                    >
+                      <Briefcase size={20} /> Explore Virtual Internships
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    <button 
+                      onClick={() => {
+                        const el = document.getElementById('courses-section');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-md hover:shadow-xl border border-slate-200 hover:scale-105 active:scale-95"
+                    >
+                      Browse All Tracks
+                    </button>
+                  </div>
+                </div>
+
+                {/* Animated Ambient Background Spheres */}
+                <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-200/30 blur-[100px] rounded-full animate-pulse pointer-events-none"></div>
+                <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-96 h-96 bg-violet-200/30 blur-[100px] rounded-full animate-pulse pointer-events-none" style={{ animationDelay: '2s' }}></div>
+              </header>
+
+              {/* Continuous Benefits Marquee Ticker */}
+              <div className="bg-slate-900 text-white py-3.5 overflow-hidden shadow-inner border-y border-slate-800">
+                <div className="animate-marquee whitespace-nowrap flex items-center gap-8 text-xs font-bold tracking-wider uppercase">
+                  <span>✨ Industry Recognized Verified Certificate</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>🚀 1-on-1 Weekly Mentor Guidance</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>💼 Real-World Live Industrial Projects</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>📜 Letter of Recommendation for Top Performers</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>🌐 100% Remote & Flexible Virtual Internships</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>🎓 Final Year Project Development Support</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>✨ Industry Recognized Verified Certificate</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>🚀 1-on-1 Weekly Mentor Guidance</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>💼 Real-World Live Industrial Projects</span>
+                  <span className="text-indigo-400">•</span>
+                  <span>📜 Letter of Recommendation for Top Performers</span>
+                </div>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
-                Empowering the next <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-600">Tech Innovators.</span>
-              </h1>
-              <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Unlock your potential with hands-on industrial internships at RANBIDGE Solutions. Real projects, real mentors, real impact.
-              </p>
-            </div>
-            
-            {/* Decoration */}
-            <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-[32px] border-indigo-50 rounded-full opacity-20"></div>
-          </header>
 
           {/* Course Filter Bar */}
           <div className="bg-white border-b border-slate-100 py-4 sticky top-16 z-40">
