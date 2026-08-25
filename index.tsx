@@ -87,7 +87,7 @@ const WHATSAPP_CHAT_LINK = "https://wa.me/8247392437?text=Hello%20RANBIDGE%21%20
 const LINKEDIN_LINK = "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376/";
 const INSTAGRAM_LINK = "https://www.instagram.com/ranbidge_solutions/";
 const YOUTUBE_LINK = "https://www.youtube.com/@RSPL-Academy";
-const FACEBOOK_LINK = "https://www.facebook.com/ranbridgeserviceprivatelimited";
+const FACEBOOK_LINK = "https://www.facebook.com/profile.php?id=61578597456959";
 const LOCATION_LINK = "https://www.google.com/maps/search/?api=1&query=Narasaraopet,+Andhra+Pradesh,+India";
 
 
