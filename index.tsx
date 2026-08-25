@@ -2473,10 +2473,8 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             <div className="sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-full bg-slate-100 border border-slate-200/80 flex items-center justify-center p-1 shadow-xs">
-                  <img src={LOGO_URL} alt="Logo" className="w-9 h-9 rounded-full" />
-                </div>
+              <div className="flex items-center gap-3.5 mb-5">
+                <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-14 h-14 object-contain rounded-full hover:scale-105 transition-transform shrink-0" />
                 <span className="text-lg font-black tracking-tight text-slate-900">RANBIDGE SOLUTIONS</span>
               </div>
               <p className="leading-relaxed text-slate-600 font-medium text-sm max-w-sm mb-6">
