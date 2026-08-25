@@ -1200,29 +1200,29 @@ const App: React.FC = () => {
       )}
 
       {view === 'one-on-one-mentorship' && (
-        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black mb-8 tracking-widest uppercase">
-              <GraduationCap size={14} /> Personal Guidance
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-black mb-4 tracking-widest uppercase">
+              <GraduationCap size={13} /> Personal Guidance
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
               One-on-One <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-600">Mentorship</span> Program
             </h1>
-            <p className="text-xl text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Get personalized guidance from industry experts. Accelerate your learning with dedicated mentorship tailored to your career goals and skill level.
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Get personalized guidance from industry experts. Accelerate your learning with dedicated mentorship tailored to your career goals.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={MENTORSHIP_LINK} target="_blank" className="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black hover:bg-indigo-700 transition-all shadow-xl flex items-center gap-3">
-                <GraduationCap size={20} /> Apply for Mentorship
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={MENTORSHIP_LINK} target="_blank" className="px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-700 transition-all shadow-md flex items-center gap-2">
+                <GraduationCap size={16} /> Apply for Mentorship
               </a>
-              <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
+              <button className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
                 Learn More
               </button>
             </div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
             {[
               { icon: <HandHeart className="text-indigo-600" />, title: "Personal Attention", desc: "1-on-1 guidance tailored to your goals." },
               { icon: <Target className="text-indigo-600" />, title: "Goal-Oriented", desc: "Set clear milestones & track progress." },
@@ -1242,10 +1242,10 @@ const App: React.FC = () => {
           </div>
 
           {/* Mentorship Programs */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">Featured <span className="text-indigo-600">Mentorship</span> Tracks</h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose your area of focus and get expert guidance</p>
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Featured <span className="text-indigo-600">Mentorship</span> Tracks</h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">Choose your area of focus and get expert guidance</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {/* Full Stack Development Mentorship */}
@@ -1337,47 +1337,47 @@ const App: React.FC = () => {
           </div>
 
           {/* Program Details */}
-          <div className="bg-slate-900 rounded-[3rem] p-12 text-white mb-20">
-            <h2 className="text-3xl font-black mb-8 text-center">Mentorship Benefits</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
+            <h2 className="text-2xl font-black mb-6 text-center">Mentorship Benefits</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-black mb-4 text-indigo-400">What You'll Receive</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-indigo-400">What You'll Receive</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Weekly 1-on-1 video sessions with mentors</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Personalized learning roadmap</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Code reviews and project feedback</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Access to exclusive resources and materials</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-black mb-4 text-indigo-400">Requirements</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-indigo-400">Requirements</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Clear learning goals and objectives</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Commitment to regular sessions (2-3 hours/week)</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Basic knowledge in chosen field</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Enthusiasm to learn and implement feedback</span>
                   </li>
                 </ul>
@@ -1386,49 +1386,49 @@ const App: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-indigo-600 to-violet-700 rounded-[3rem] p-12 text-white">
-            <h2 className="text-3xl font-black mb-4">Ready to Transform Your Career?</h2>
-            <p className="text-xl mb-8 text-indigo-100">Get personalized guidance from industry experts who care about your success.</p>
-            <a href={MENTORSHIP_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-indigo-700 rounded-2xl font-black hover:bg-indigo-50 transition-all shadow-xl">
+          <div className="text-center bg-gradient-to-r from-indigo-600 to-violet-700 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
+            <h2 className="text-2xl font-black mb-2">Ready to Transform Your Career?</h2>
+            <p className="text-xs md:text-sm mb-5 text-indigo-100 max-w-xl mx-auto">Get personalized guidance from industry experts who care about your success.</p>
+            <a href={MENTORSHIP_LINK} target="_blank" className="inline-block px-6 py-3 bg-white text-indigo-700 rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-50 transition-all shadow-md">
               Apply for Mentorship - Limited Spots
             </a>
           </div>
 
-          <div className="mt-16 pt-8 flex justify-center">
+          <div className="mt-8 pt-4 flex justify-center">
             <button 
               onClick={() => setView('home')} 
-              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
             >
-              <Home size={20} /> Return to Home
+              <Home size={16} /> Return to Home
             </button>
           </div>
         </main>
       )}
 
       {view === 'paid-internship' && (
-        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-xs font-black mb-8 tracking-widest uppercase">
-              <DollarSign size={14} /> Earn While You Learn
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-green-700 text-[11px] font-black mb-4 tracking-widest uppercase">
+              <DollarSign size={13} /> Earn While You Learn
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
               Paid <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-green-600">Internship</span> Program
             </h1>
-            <p className="text-xl text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Get paid while gaining valuable industry experience. Our paid internship program offers competitive stipends along with comprehensive training and real-world project exposure.
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Get paid while gaining valuable industry experience. Offers competitive stipends with real client project exposure.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={PAID_INTERNSHIP_LINK} target="_blank" className="px-8 py-4 bg-green-600 text-white rounded-2xl font-black hover:bg-green-700 transition-all shadow-xl flex items-center gap-3">
-                <DollarSign size={20} /> Apply for Paid Internship
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={PAID_INTERNSHIP_LINK} target="_blank" className="px-6 py-3 bg-green-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-green-700 transition-all shadow-md flex items-center gap-2">
+                <DollarSign size={16} /> Apply for Paid Internship
               </a>
-              <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
+              <button className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
                 Learn More
               </button>
             </div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
             {[
               { icon: <DollarSign className="text-green-600" />, title: "Monthly Stipend", desc: "Competitive stipends based on performance." },
               { icon: <Award className="text-green-600" />, title: "Performance Bonuses", desc: "Earn extra bonuses for milestone delivery." },
@@ -1448,10 +1448,10 @@ const App: React.FC = () => {
           </div>
 
           {/* Paid Internship Roles */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">Available <span className="text-green-600">Paid Roles</span></h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose from our range of paid internship positions</p>
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Available <span className="text-green-600">Paid Roles</span></h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">Choose from our range of paid internship positions</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {/* Full Stack Developer */}
@@ -1545,47 +1545,47 @@ const App: React.FC = () => {
           </div>
 
           {/* Program Details */}
-          <div className="bg-slate-900 rounded-[3rem] p-12 text-white mb-20">
-            <h2 className="text-3xl font-black mb-8 text-center">Paid Internship Benefits</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
+            <h2 className="text-2xl font-black mb-6 text-center">Paid Internship Benefits</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-black mb-4 text-green-400">Financial Benefits</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-green-400">Financial Benefits</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Competitive monthly stipends (up to $800/month)</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Performance-based bonuses and rewards</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Transportation and communication allowances</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Certification and training reimbursements</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-black mb-4 text-green-400">Career Benefits</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-green-400">Career Benefits</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Priority consideration for full-time positions</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Professional portfolio with real client projects</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Industry networking and mentorship</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Performance reviews and career guidance</span>
                   </li>
                 </ul>
@@ -1593,94 +1593,48 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Final Year Projects Section */}
-          <div className="bg-white rounded-[3rem] shadow-2xl p-12 mb-20 border border-slate-100">
-            <h2 className="text-3xl font-black mb-8 text-center text-slate-900">Final Year Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <Zap className="text-white" size={24} />
-                  </div>
-                  <h3 className="text-xl font-black text-blue-900">E-Commerce Platform</h3>
-                </div>
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  Build a full-featured e-commerce platform with user authentication, payment integration, and admin dashboard. Perfect for showcasing full-stack development skills.
-                </p>
-                <ul className="space-y-2 text-sm text-slate-700">
-                  <li>• React.js frontend with modern UI/UX</li>
-                  <li>• Node.js backend with RESTful APIs</li>
-                  <li>• MongoDB database with advanced queries</li>
-                  <li>• Stripe payment integration</li>
-                  <li>• JWT authentication & authorization</li>
-                </ul>
-              </div>
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
-                    <Target className="text-white" size={24} />
-                  </div>
-                  <h3 className="text-xl font-black text-green-900">Task Management System</h3>
-                </div>
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  Develop a comprehensive task management system with real-time collaboration features. Ideal for demonstrating advanced React and state management skills.
-                </p>
-                <ul className="space-y-2 text-sm text-slate-700">
-                  <li>• Real-time collaboration features</li>
-                  <li>• Drag-and-drop task management</li>
-                  <li>• WebSocket integration</li>
-                  <li>• Advanced state management (Redux)</li>
-                  <li>• Responsive design with Tailwind CSS</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           {/* Internship Kit Section */}
-          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-[3rem] p-12 text-white mb-20">
+          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-black mb-8 text-center">Internship Kit</h2>
-              <p className="text-xl text-slate-300 mb-12 text-center">
+              <h2 className="text-2xl font-black mb-2 text-center">Internship Kit</h2>
+              <p className="text-xs sm:text-sm text-slate-300 mb-6 text-center">
                 Everything you need to succeed in your internship journey
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
-                    <BookOpen className="text-white" size={32} />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                  <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center mb-3">
+                    <BookOpen className="text-white" size={20} />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-3">Learning Resources</h3>
-                  <ul className="space-y-2 text-slate-300">
+                  <h3 className="text-base font-black text-white mb-2">Learning Resources</h3>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     <li>• Comprehensive course materials</li>
                     <li>• Video tutorials & guides</li>
                     <li>• Best practice documentation</li>
                     <li>• Code examples & templates</li>
-                    <li>• Industry-standard tools access</li>
                   </ul>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-4">
-                    <Users className="text-white" size={32} />
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                  <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center mb-3">
+                    <Users className="text-white" size={20} />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-3">Mentorship Support</h3>
-                  <ul className="space-y-2 text-slate-300">
+                  <h3 className="text-base font-black text-white mb-2">Mentorship Support</h3>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     <li>• 1-on-1 expert guidance</li>
                     <li>• Weekly progress reviews</li>
                     <li>• Career coaching sessions</li>
-                    <li>• Industry networking opportunities</li>
-                    <li>• Resume & portfolio reviews</li>
+                    <li>• Industry networking</li>
                   </ul>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                    <Award className="text-white" size={32} />
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                  <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center mb-3">
+                    <Award className="text-white" size={20} />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-3">Career Development</h3>
-                  <ul className="space-y-2 text-slate-300">
+                  <h3 className="text-base font-black text-white mb-2">Career Growth</h3>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     <li>• Certificate of completion</li>
-                    <li>• Performance-based recommendations</li>
-                    <li>• Job placement assistance</li>
-                    <li>• LinkedIn profile optimization</li>
-                    <li>• Interview preparation kit</li>
+                    <li>• Verified recommendations</li>
+                    <li>• Placement assistance</li>
+                    <li>• LinkedIn optimization</li>
                   </ul>
                 </div>
               </div>
@@ -1688,49 +1642,49 @@ const App: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-green-600 to-emerald-700 rounded-[3rem] p-12 text-white">
-            <h2 className="text-3xl font-black mb-4">Ready to Earn While You Learn?</h2>
-            <p className="text-xl mb-8 text-green-100">Join our paid internship program and kickstart your career with financial support.</p>
-            <a href={PAID_INTERNSHIP_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-green-700 rounded-2xl font-black hover:bg-green-50 transition-all shadow-xl">
+          <div className="text-center bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
+            <h2 className="text-2xl font-black mb-2">Ready to Earn While You Learn?</h2>
+            <p className="text-xs md:text-sm mb-5 text-green-100 max-w-xl mx-auto">Join our paid internship program and kickstart your career with financial support.</p>
+            <a href={PAID_INTERNSHIP_LINK} target="_blank" className="inline-block px-6 py-3 bg-white text-green-700 rounded-xl text-xs sm:text-sm font-black hover:bg-green-50 transition-all shadow-md">
               Apply for Paid Internship - Limited Positions
             </a>
           </div>
 
-          <div className="mt-16 pt-8 flex justify-center">
+          <div className="mt-8 pt-4 flex justify-center">
             <button 
               onClick={() => setView('home')} 
-              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
             >
-              <Home size={20} /> Return to Home
+              <Home size={16} /> Return to Home
             </button>
           </div>
         </main>
       )}
 
       {view === 'unpaid-internship' && (
-        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-black mb-8 tracking-widest uppercase">
-              <Heart size={14} /> Skill Building Focus
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-[11px] font-black mb-4 tracking-widest uppercase">
+              <Heart size={13} /> Skill Building Focus
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
               Unpaid <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600">Internship</span> Program
             </h1>
-            <p className="text-xl text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Focus purely on learning and skill development. Our unpaid internship program offers comprehensive training, mentorship, and portfolio-building opportunities without financial pressure.
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Focus purely on learning and skill development. Offers comprehensive training, mentorship, and portfolio-building opportunities.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={UNPAID_INTERNSHIP_LINK} target="_blank" className="px-8 py-4 bg-purple-600 text-white rounded-2xl font-black hover:bg-purple-700 transition-all shadow-xl flex items-center gap-3">
-                <Heart size={20} /> Apply for Unpaid Internship
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={UNPAID_INTERNSHIP_LINK} target="_blank" className="px-6 py-3 bg-purple-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-purple-700 transition-all shadow-md flex items-center gap-2">
+                <Heart size={16} /> Apply for Unpaid Internship
               </a>
-              <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
+              <button className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
                 Learn More
               </button>
             </div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
             {[
               { icon: <GraduationCap className="text-purple-600" />, title: "Intensive Learning", desc: "Focus entirely on skill development." },
               { icon: <Target className="text-purple-600" />, title: "Flexible Schedule", desc: "Learn at your own pace with flexible timing." },
@@ -1750,10 +1704,10 @@ const App: React.FC = () => {
           </div>
 
           {/* Learning Tracks */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">Learning <span className="text-purple-600">Tracks</span></h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose your learning path and build your foundation</p>
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Learning <span className="text-purple-600">Tracks</span></h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">Choose your learning path and build your foundation</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {/* Foundation Track */}
@@ -1845,47 +1799,47 @@ const App: React.FC = () => {
           </div>
 
           {/* Program Details */}
-          <div className="bg-slate-900 rounded-[3rem] p-12 text-white mb-20">
-            <h2 className="text-3xl font-black mb-8 text-center">Unpaid Internship Benefits</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
+            <h2 className="text-2xl font-black mb-6 text-center">Unpaid Internship Benefits</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-black mb-4 text-purple-400">Learning Benefits</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-purple-400">Learning Benefits</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Comprehensive training from basics to advanced</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Personalized mentorship and guidance</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Access to learning resources and materials</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
                     <span>Work on portfolio-building projects</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-black mb-4 text-purple-400">Career Support</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-purple-400">Career Support</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Certificate of completion and recommendation letters</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Resume building and interview preparation</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Networking opportunities with professionals</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Priority consideration for paid positions</span>
                   </li>
                 </ul>
@@ -1894,33 +1848,33 @@ const App: React.FC = () => {
           </div>
 
           {/* All Courses Section */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">Available <span className="text-purple-600">Courses</span></h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Explore all internship tracks and choose the learning path that fits your goals</p>
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Available <span className="text-purple-600">Courses</span></h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">Explore all internship tracks and choose the learning path that fits your goals</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {COURSES.map((course) => (
-                <div key={course.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 flex flex-col h-full">
-                  <div className="relative h-48 overflow-hidden bg-gray-200">
+                <div key={course.id} className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-2xl transition-all border border-slate-100 flex flex-col h-full shimmer-card transform hover:-translate-y-2">
+                  <div className="relative h-40 overflow-hidden bg-gray-100">
                     <img src={course.thumbnail} alt={course.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">{course.level}</span>
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded-full">{course.level}</span>
                     </div>
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-lg font-black text-slate-900 mb-2">{course.title}</h3>
-                    <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
-                      <Clock size={14} />
+                  <div className="p-4 flex flex-col flex-grow">
+                    <h3 className="text-sm font-black text-slate-900 mb-1.5">{course.title}</h3>
+                    <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mb-2">
+                      <Clock size={12} />
                       {course.duration}
                     </div>
-                    <p className="text-sm text-slate-600 mb-4">{course.description}</p>
-                    <div className="mb-6">
-                      <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Curriculum</h4>
+                    <p className="text-xs text-slate-600 mb-3 leading-relaxed">{course.description}</p>
+                    <div className="mb-4">
+                      <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Curriculum</h4>
                       <ul className="space-y-1">
                         {course.curriculum.slice(0, 3).map((item, idx) => (
-                          <li key={idx} className="text-xs text-slate-600 flex items-start gap-2">
-                            <span className="text-purple-600 mt-1">•</span>
+                          <li key={idx} className="text-[11px] text-slate-600 flex items-center gap-1.5">
+                            <div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -1930,7 +1884,7 @@ const App: React.FC = () => {
                       href={REGISTRATION_LINK} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full mt-auto block px-4 py-2 bg-purple-600 text-white rounded-lg font-bold hover:bg-purple-700 transition-all text-center text-sm"
+                      className="w-full mt-auto block px-3 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all text-center shadow-md"
                     >
                       Enroll Now
                     </a>
@@ -1941,60 +1895,60 @@ const App: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-purple-600 to-pink-700 rounded-[3rem] p-12 text-white">
-            <h2 className="text-3xl font-black mb-4">Ready to Build Your Skills?</h2>
-            <p className="text-xl mb-8 text-purple-100">Join our unpaid internship program and focus entirely on your learning journey.</p>
-            <a href={UNPAID_INTERNSHIP_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-purple-700 rounded-2xl font-black hover:bg-purple-50 transition-all shadow-xl">
+          <div className="text-center bg-gradient-to-r from-purple-600 to-pink-700 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
+            <h2 className="text-2xl font-black mb-2">Ready to Build Your Skills?</h2>
+            <p className="text-xs md:text-sm mb-5 text-purple-100 max-w-xl mx-auto">Join our unpaid internship program and focus entirely on your learning journey.</p>
+            <a href={UNPAID_INTERNSHIP_LINK} target="_blank" className="inline-block px-6 py-3 bg-white text-purple-700 rounded-xl text-xs sm:text-sm font-black hover:bg-purple-50 transition-all shadow-md">
               Apply for Unpaid Internship - Open Enrollment
             </a>
           </div>
 
-          <div className="mt-16 pt-8 flex justify-center">
+          <div className="mt-8 pt-4 flex justify-center">
             <button 
               onClick={() => setView('home')} 
-              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
             >
-              <Home size={20} /> Return to Home
+              <Home size={16} /> Return to Home
             </button>
           </div>
         </main>
       )}
 
       {view === 'final-year-projects' && (
-        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-black mb-8 tracking-widest uppercase">
-              <Target size={14} /> Academic Excellence
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[11px] font-black mb-4 tracking-widest uppercase">
+              <Target size={13} /> Academic Excellence
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
               Final Year <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600">Projects</span>
             </h1>
-            <p className="text-xl text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
               Complete your academic journey with industry-relevant projects that showcase your skills and launch your career.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={FINAL_YEAR_PROJECTS_LINK} target="_blank" className="px-8 py-4 bg-orange-600 text-white rounded-2xl font-black hover:bg-orange-700 transition-all shadow-xl flex items-center gap-3">
-                <Target size={20} /> Start Your Project
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={FINAL_YEAR_PROJECTS_LINK} target="_blank" className="px-6 py-3 bg-orange-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-orange-700 transition-all shadow-md flex items-center gap-2">
+                <Target size={16} /> Start Your Project
               </a>
-              <button className="px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-xl border-2 border-slate-200">
+              <button className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
                 View Projects
               </button>
               <button 
                 onClick={() => setShowAddProjectModal(true)}
-                className="px-8 py-4 bg-green-600 text-white rounded-2xl font-black hover:bg-green-700 transition-all shadow-xl flex items-center gap-3"
+                className="px-6 py-3 bg-green-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-green-700 transition-all shadow-md flex items-center gap-2"
               >
-                <Plus size={20} /> Add New Project
+                <Plus size={16} /> Add New Project
               </button>
             </div>
           </div>
 
           {/* Featured Projects */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-slate-900 mb-4">Featured <span className="text-orange-600">Projects</span></h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose from our range of comprehensive final year projects</p>
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Featured <span className="text-orange-600">Projects</span></h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">Choose from our range of comprehensive final year projects</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               
               {/* E-Commerce Platform */}
               <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
@@ -2129,47 +2083,47 @@ const App: React.FC = () => {
           </div>
 
           {/* Project Benefits */}
-          <div className="bg-slate-900 rounded-[3rem] p-12 text-white mb-20">
-            <h2 className="text-3xl font-black mb-8 text-center">Project Benefits</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
+            <h2 className="text-2xl font-black mb-6 text-center">Project Benefits</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-black mb-4 text-orange-400">Academic Excellence</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-orange-400">Academic Excellence</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-orange-400 mt-0.5 shrink-0" size={16} />
                     <span>Industry-relevant project topics</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-orange-400 mt-0.5 shrink-0" size={16} />
                     <span>Comprehensive documentation</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-orange-400 mt-0.5 shrink-0" size={16} />
                     <span>Expert guidance and mentorship</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-orange-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-orange-400 mt-0.5 shrink-0" size={16} />
                     <span>University compliance</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-black mb-4 text-orange-400">Career Advancement</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                <h3 className="text-base font-black mb-3 text-orange-400">Career Advancement</h3>
+                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Portfolio-worthy projects</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Job placement assistance</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Industry networking</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-blue-400 mt-1" size={20} />
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="text-blue-400 mt-0.5 shrink-0" size={16} />
                     <span>Certificate of completion</span>
                   </li>
                 </ul>
@@ -2178,75 +2132,75 @@ const App: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-orange-600 to-amber-700 rounded-[3rem] p-12 text-white">
-            <h2 className="text-3xl font-black mb-4">Ready to Excel in Your Final Year?</h2>
-            <p className="text-xl mb-8 text-orange-100">Complete your academic journey with a project that stands out.</p>
-            <a href={FINAL_YEAR_PROJECTS_LINK} target="_blank" className="inline-block px-8 py-4 bg-white text-orange-700 rounded-2xl font-black hover:bg-orange-50 transition-all shadow-xl">
+          <div className="text-center bg-gradient-to-r from-orange-600 to-amber-700 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
+            <h2 className="text-2xl font-black mb-2">Ready to Excel in Your Final Year?</h2>
+            <p className="text-xs md:text-sm mb-5 text-orange-100 max-w-xl mx-auto">Complete your academic journey with a project that stands out.</p>
+            <a href={FINAL_YEAR_PROJECTS_LINK} target="_blank" className="inline-block px-6 py-3 bg-white text-orange-700 rounded-xl text-xs sm:text-sm font-black hover:bg-orange-50 transition-all shadow-md">
               Start Your Final Year Project - Limited Slots
             </a>
           </div>
 
-          <div className="mt-16 pt-8 flex justify-center">
+          <div className="mt-8 pt-4 flex justify-center">
             <button 
               onClick={() => setView('home')} 
-              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
             >
-              <Home size={20} /> Return to Home
+              <Home size={16} /> Return to Home
             </button>
           </div>
         </main>
       )}
 
       {(view === 'privacy' || view === 'terms') && (
-        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-          <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-            <div className="bg-gradient-to-r from-indigo-600 to-violet-700 p-12 text-white">
-              <h1 className="text-4xl font-black flex items-center gap-4">
-                {view === 'privacy' ? <ShieldAlert size={40} /> : <FileText size={40} />}
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100">
+            <div className="bg-gradient-to-r from-indigo-600 to-violet-700 p-6 md:p-8 text-white">
+              <h1 className="text-2xl sm:text-3xl font-black flex items-center gap-3">
+                {view === 'privacy' ? <ShieldAlert size={28} /> : <FileText size={28} />}
                 {view === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
               </h1>
-              <p className="mt-4 text-indigo-100 font-bold opacity-80">Effective Date: August 15, 2025</p>
+              <p className="mt-2 text-indigo-100 text-xs font-bold opacity-90">Effective Date: August 15, 2025</p>
             </div>
             
-            <div className="p-12 text-slate-600 prose prose-indigo max-w-none">
+            <div className="p-6 md:p-8 text-slate-600 prose prose-indigo max-w-none text-xs md:text-sm">
               {view === 'privacy' ? (
                 <>
-                  <p className="text-lg">Your privacy is important to us. This Privacy Policy explains how <strong>RANBIDGE Solutions Private Limited</strong> collects, uses, and protects your information.</p>
-                  <h2 className="text-2xl font-black mt-10 mb-6 text-slate-900 flex items-center gap-2"><span className="text-indigo-600">01.</span> Information We Collect</h2>
-                  <ul className="list-disc pl-5 space-y-3">
+                  <p className="text-sm font-medium">Your privacy is important to us. This Privacy Policy explains how <strong>RANBIDGE Solutions Private Limited</strong> collects, uses, and protects your information.</p>
+                  <h2 className="text-base font-black mt-6 mb-3 text-slate-900 flex items-center gap-2"><span className="text-indigo-600">01.</span> Information We Collect</h2>
+                  <ul className="list-disc pl-5 space-y-1.5">
                     <li>Personal details such as name, email address, and contact information.</li>
                     <li>Information you provide through forms or course registrations.</li>
                     <li>Technical information like IP address, browser type, and device details.</li>
                   </ul>
-                  <h2 className="text-2xl font-black mt-10 mb-6 text-slate-900 flex items-center gap-2"><span className="text-indigo-600">02.</span> How We Use Your Information</h2>
+                  <h2 className="text-base font-black mt-6 mb-3 text-slate-900 flex items-center gap-2"><span className="text-indigo-600">02.</span> How We Use Your Information</h2>
                   <p>We use your information to provide and improve our services, process registrations, and send relevant updates about your chosen internship track.</p>
-                  <h2 className="text-2xl font-black mt-10 mb-6 text-slate-900 flex items-center gap-2"><span className="text-indigo-600">03.</span> Data Security</h2>
+                  <h2 className="text-base font-black mt-6 mb-3 text-slate-900 flex items-center gap-2"><span className="text-indigo-600">03.</span> Data Security</h2>
                   <p>We use industry-standard security measures to protect your data. However, no method of electronic storage is 100% secure.</p>
-                  <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-100">
-                    <h3 className="font-black text-slate-900 mb-2">Have questions?</h3>
-                    <p className="text-sm">Contact us at: <a href="mailto:ranbridgeserviceprivatelimited@gmail.com" className="text-indigo-600 font-black underline decoration-2 underline-offset-4">ranbridgeserviceprivatelimited@gmail.com</a></p>
+                  <div className="mt-8 p-5 bg-slate-50 rounded-xl border border-slate-100">
+                    <h3 className="font-black text-slate-900 text-xs mb-1">Have questions?</h3>
+                    <p className="text-xs">Contact us at: <a href="mailto:ranbridgeserviceprivatelimited@gmail.com" className="text-indigo-600 font-black underline decoration-2 underline-offset-4">ranbridgeserviceprivatelimited@gmail.com</a></p>
                   </div>
                 </>
               ) : (
                 <>
-                  <p className="text-lg">Welcome to RANBIDGE Solutions! These Terms of Service govern your use of our website and services.</p>
-                  <h2 className="text-2xl font-black mt-10 mb-6 text-slate-900">01. Acceptance of Terms</h2>
+                  <p className="text-sm font-medium">Welcome to RANBIDGE Solutions! These Terms of Service govern your use of our website and services.</p>
+                  <h2 className="text-base font-black mt-6 mb-3 text-slate-900">01. Acceptance of Terms</h2>
                   <p>By using our website, you agree to comply with and be bound by these terms. This agreement is legally binding.</p>
-                  <h2 className="text-2xl font-black mt-10 mb-6 text-slate-900">02. Use of Services</h2>
+                  <h2 className="text-base font-black mt-6 mb-3 text-slate-900">02. Use of Services</h2>
                   <p>You may use our services for lawful purposes only. Any unauthorized duplication of course material or curriculum is strictly prohibited.</p>
-                  <h2 className="text-2xl font-black mt-10 mb-6 text-slate-900">03. Intellectual Property</h2>
+                  <h2 className="text-base font-black mt-6 mb-3 text-slate-900">03. Intellectual Property</h2>
                   <p>All content, trademarks, code snippets, and curriculum data are owned by RANBIDGE Solutions Private Limited.</p>
-                  <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-100">
-                    <p className="text-sm font-bold">For official inquiries: <a href="mailto:ranbidgesolutionspvtltd@gmail.com" className="text-indigo-600 font-black underline decoration-2 underline-offset-4">ranbidgesolutionspvtltd@gmail.com</a></p>
+                  <div className="mt-8 p-5 bg-slate-50 rounded-xl border border-slate-100">
+                    <p className="text-xs font-bold">For official inquiries: <a href="mailto:ranbidgesolutionspvtltd@gmail.com" className="text-indigo-600 font-black underline decoration-2 underline-offset-4">ranbidgesolutionspvtltd@gmail.com</a></p>
                   </div>
                 </>
               )}
-              <div className="mt-16 pt-8 border-t border-slate-100 flex justify-center">
+              <div className="mt-8 pt-4 border-t border-slate-100 flex justify-center">
                 <button 
                   onClick={() => setView('home')} 
-                  className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black flex items-center gap-3 hover:bg-slate-800 transition-all shadow-xl"
+                  className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
                 >
-                  <Home size={20} /> Return to Home
+                  <Home size={16} /> Return to Home
                 </button>
               </div>
 
