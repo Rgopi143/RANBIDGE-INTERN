@@ -644,6 +644,7 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
           src={course.thumbnail} 
           alt={course.title} 
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+          onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80'; }}
         />
         <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
           <span className="px-2.5 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md border border-white/20">
@@ -2040,9 +2041,10 @@ const App: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
                 <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbcc31c?auto=format&fit=crop&w=800&q=80" 
-                    alt="IoT Dashboard" 
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" 
+                    alt="IoT Smart Home" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'; }}
                   />
                   <div className="absolute top-3 left-3">
                     <span className="px-2.5 py-1 bg-green-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
