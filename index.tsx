@@ -11,6 +11,7 @@ import {
   ChevronRight,
   TrendingUp,
   Award,
+  Trophy,
   MapPin,
   Mail,
   ShieldAlert,
@@ -65,6 +66,7 @@ const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd1y7_
 const MENTORSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const PAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const UNPAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
+const HACKATHON_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdrzYAVBF9rEFV7zcs_p0a_St8qGcnEsltEvdI-ZULHlO5Xbg/viewform?usp=header";
 const WHATSAPP_CHAT_LINK = "https://wa.me/8247392437?text=Hello%20RANBIDGE%21%20%F0%9F%20I%20hope%20you're%20having%20a%20great%20day.%20I'm%20interested%20in%20your%20internship%20programs%20and%20would%20love%20to%20learn%20more%20about%20the%20opportunities%20available.%20Could%20you%20please%20share%20some%20details%3F%20Thank%20you!";
 const LINKEDIN_LINK = "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376/";
 const INSTAGRAM_LINK = "https://www.instagram.com/ranbridgeserviceprivatelimited?igsh=MTYxOWU4NHJ0YzcwaA%3D%3D";
@@ -613,6 +615,20 @@ const Navigation: React.FC<{
               </div>
             )}
           </div>
+
+          {/* Hackathons Button */}
+          <a 
+            href={HACKATHON_LINK} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm font-bold flex items-center gap-1.5 text-slate-600 hover:text-indigo-600 transition-all relative group"
+          >
+            <Trophy size={16} className="text-amber-500 group-hover:scale-110 transition-transform" /> 
+            <span>Hackathons</span>
+            <span className="px-1.5 py-0.5 text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full uppercase tracking-wider animate-pulse shadow-xs">
+              Live
+            </span>
+          </a>
         </div>
         <a href={REGISTRATION_LINK} target="_blank" className="hidden sm:block px-5 py-2 bg-indigo-600 text-white rounded-full text-xs font-bold hover:bg-indigo-700 transition-all shadow-md">
           Apply Now
@@ -2331,6 +2347,7 @@ const App: React.FC = () => {
               <ul className="space-y-3.5 text-sm">
                 <li><button onClick={() => setView('one-on-one-mentorship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">1-on-1 Mentorship</button></li>
                 <li><button onClick={() => setView('final-year-projects')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Final Year Projects</button></li>
+                <li><a href={HACKATHON_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-1.5"><Trophy size={14} className="text-amber-500" /> Hackathons</a></li>
               </ul>
             </div>
 
