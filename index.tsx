@@ -1247,122 +1247,93 @@ const App: React.FC = () => {
               <h2 className="text-4xl font-black text-slate-900 mb-4">Featured <span className="text-indigo-600">Mentorship</span> Tracks</h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose your area of focus and get expert guidance</p>
             </div>
-            <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {/* Full Stack Development Mentorship */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div className="relative h-64">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80" 
                     alt="Full Stack Development" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-purple-600 text-white text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-purple-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       Comprehensive
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">Advanced</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-purple-100 text-purple-700 text-[10px] font-bold rounded-full">Advanced</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       16 Weeks
                     </div>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">Full Stack Development Mentorship</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Master both frontend and backend development with personalized 1-on-1 guidance. Build real-world applications from scratch.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">Full Stack Mentorship</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Master frontend & backend development with dedicated 1-on-1 expert guidance.
                   </p>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Technologies & Skills</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Frontend: React.js, TypeScript, Tailwind CSS
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Backend: Node.js, Express, RESTful APIs
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Database: MongoDB, PostgreSQL, Prisma ORM
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Deployment: AWS, Docker, CI/CD pipelines
-                      </li>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Skills</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" /> React.js, TypeScript, Node.js</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" /> PostgreSQL & AWS Deployment</li>
                     </ul>
                   </div>
                   <a 
                     href={MENTORSHIP_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all text-center shadow-md"
                   >
-                    Start Full Stack Mentorship
+                    Start Mentorship
                   </a>
                 </div>
               </div>
 
               {/* Embedded Systems Mentorship */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div className="relative h-64">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" 
                     alt="Embedded Systems" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-orange-600 text-white text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-orange-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       Hardware Focus
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Intermediate</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded-full">Intermediate</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       14 Weeks
                     </div>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">Embedded Systems Mentorship</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Dive into the world of embedded systems and IoT. Learn to design smart devices, work with microcontrollers, and build connected systems.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">Embedded Systems</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Dive into IoT & embedded systems. Work with microcontrollers and smart sensors.
                   </p>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Technologies & Skills</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                        Microcontrollers: Arduino, ESP32, STM32
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                        Programming: C/C++, Embedded Python, Rust
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                        Sensors & Actuators, Circuit Design
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                        IoT Protocols: MQTT, HTTP, WiFi, Bluetooth
-                      </li>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Skills</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" /> Arduino, ESP32, STM32</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" /> C/C++, IoT MQTT & Sensors</li>
                     </ul>
                   </div>
                   <a 
                     href={MENTORSHIP_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-orange-600 text-white rounded-xl text-xs font-bold hover:bg-orange-700 transition-all text-center shadow-md"
                   >
-                    Start Embedded Systems Mentorship
+                    Start Mentorship
                   </a>
                 </div>
               </div>
-
-              </div>
+            </div>
           </div>
 
           {/* Program Details */}
@@ -1482,119 +1453,91 @@ const App: React.FC = () => {
               <h2 className="text-4xl font-black text-slate-900 mb-4">Available <span className="text-green-600">Paid Roles</span></h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose from our range of paid internship positions</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {/* Full Stack Developer */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div className="relative h-64">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80" 
                     alt="Full Stack Developer" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-green-600 text-white text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-green-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       Highest Paid
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Advanced</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">Advanced</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       16 Weeks
                     </div>
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full">Stipend: $800/month</span>
+                    <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">Stipend: $800/mo</span>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">Full Stack Developer</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Build end-to-end web applications using modern technologies. Work on frontend, backend, and deployment aspects of real projects.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">Full Stack Developer</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Build end-to-end web applications with React, Node & Cloud APIs.
                   </p>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Technologies & Skills</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        React.js, Node.js, MongoDB
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        RESTful APIs and Database Design
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        Cloud deployment (AWS/Azure)
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        Version control and collaboration
-                      </li>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Tech</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0" /> React.js, Node.js, MongoDB</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0" /> RESTful APIs & Cloud (AWS)</li>
                     </ul>
                   </div>
                   <a 
                     href={PAID_INTERNSHIP_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-green-600 text-white rounded-xl text-xs font-bold hover:bg-green-700 transition-all text-center shadow-md"
                   >
-                    Apply for Full Stack Role
+                    Apply for Role
                   </a>
                 </div>
               </div>
 
               {/* Mobile App Developer */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div className="relative h-64">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" 
                     alt="Mobile Developer" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-blue-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       High Demand
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Intermediate</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full">Intermediate</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       12 Weeks
                     </div>
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full">Stipend: $600/month</span>
+                    <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">Stipend: $600/mo</span>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">Mobile App Developer</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Develop cross-platform mobile applications for iOS and Android. Work on real mobile projects with modern frameworks.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">Mobile App Developer</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Develop cross-platform iOS & Android mobile apps with React Native & Flutter.
                   </p>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">Technologies & Skills</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        React Native and Flutter
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        Mobile UI/UX design principles
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        Firebase and backend integration
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        App store deployment and optimization
-                      </li>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Tech</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0" /> React Native & Flutter</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0" /> Firebase & App Store Deployment</li>
                     </ul>
                   </div>
                   <a 
                     href={PAID_INTERNSHIP_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-green-600 text-white rounded-xl text-xs font-bold hover:bg-green-700 transition-all text-center shadow-md"
                   >
-                    Apply for Mobile Developer Role
+                    Apply for Role
                   </a>
                 </div>
               </div>
@@ -1812,119 +1755,89 @@ const App: React.FC = () => {
               <h2 className="text-4xl font-black text-slate-900 mb-4">Learning <span className="text-purple-600">Tracks</span></h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">Choose your learning path and build your foundation</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
               {/* Foundation Track */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div className="relative h-64">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" 
                     alt="Foundation Track" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-purple-600 text-white text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-purple-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       Beginner Friendly
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Beginner</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">Beginner</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       8 Weeks
                     </div>
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">No Experience Needed</span>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">Foundation Track</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Perfect for beginners. Learn the fundamentals of programming, web development, and computer science basics.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">Foundation Track</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Learn core programming, HTML/CSS, JS fundamentals & Git from scratch.
                   </p>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">What You'll Learn</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        HTML, CSS, and JavaScript fundamentals
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Basic programming concepts and logic
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Version control with Git
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Problem-solving and debugging skills
-                      </li>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Focus</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" /> HTML, CSS, JavaScript Basics</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" /> Logic Building & Git Control</li>
                     </ul>
                   </div>
                   <a 
                     href={UNPAID_INTERNSHIP_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all text-center shadow-md"
                   >
-                    Start Foundation Track
+                    Start Track
                   </a>
                 </div>
               </div>
 
               {/* Advanced Learning Track */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div className="relative h-64">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" 
                     alt="Advanced Track" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-6 left-6">
-                    <span className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-indigo-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       Skill Enhancement
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Intermediate</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full">Intermediate</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       12 Weeks
                     </div>
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">Portfolio Building</span>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">Advanced Learning Track</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    For those with basic knowledge. Deepen your skills and build impressive projects for your portfolio.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">Advanced Track</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Deepen skills in full-stack frameworks, databases, and portfolio project building.
                   </p>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-3">What You'll Learn</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Advanced JavaScript and frameworks
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Backend development and databases
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Project management and teamwork
-                      </li>
-                      <li className="flex items-center gap-2 text-slate-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                        Portfolio development and presentation
-                      </li>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Focus</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-indigo-500 rounded-full shrink-0" /> Full Stack Frameworks & DBs</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-indigo-500 rounded-full shrink-0" /> Live Portfolio Projects & Teamwork</li>
                     </ul>
                   </div>
                   <a 
                     href={UNPAID_INTERNSHIP_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all text-center shadow-md"
                   >
-                    Start Advanced Track
+                    Start Track
                   </a>
                 </div>
               </div>
@@ -2084,166 +1997,130 @@ const App: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
               
               {/* E-Commerce Platform */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
-                <div className="relative h-48">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" 
                     alt="E-Commerce Platform" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-blue-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
                       Full Stack
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-lg">
-                      Popular
-                    </span>
-                  </div>
                 </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Advanced</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded-full">Advanced</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       12 Weeks
                     </div>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">E-Commerce Platform</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Build a complete e-commerce platform with user authentication, payment processing, and admin dashboard.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">E-Commerce Platform</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Build a complete online store with payments, React & Node.js backend.
                   </p>
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      React.js & Node.js
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      MongoDB & Stripe API
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      JWT Authentication
-                    </div>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Tech Stack</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" /> React, Node.js, Stripe API</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" /> MongoDB & JWT Auth</li>
+                    </ul>
                   </div>
                   <a 
                     href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-orange-600 text-white rounded-xl text-xs font-bold hover:bg-orange-700 transition-all text-center shadow-md"
                   >
-                    Choose This Project
+                    Choose Project
                   </a>
                 </div>
               </div>
 
               {/* AI Chatbot */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
-                <div className="relative h-48">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" 
                     alt="AI Chatbot" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full shadow-lg">
-                      AI/ML
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full shadow-lg">
-                      Trending
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-purple-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
+                      AI / ML
                     </span>
                   </div>
                 </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Advanced</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded-full">Advanced</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       14 Weeks
                     </div>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">AI Chatbot System</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Develop an intelligent chatbot using natural language processing and machine learning technologies.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">AI Chatbot System</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Develop an intelligent conversational assistant with LLMs & Python.
                   </p>
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      Python & OpenAI API
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      NLP & TensorFlow
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      React Frontend
-                    </div>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Tech Stack</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" /> Python & OpenAI API</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" /> NLP, TensorFlow & React UI</li>
+                    </ul>
                   </div>
                   <a 
                     href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-orange-600 text-white rounded-xl text-xs font-bold hover:bg-orange-700 transition-all text-center shadow-md"
                   >
-                    Choose This Project
+                    Choose Project
                   </a>
                 </div>
               </div>
 
               {/* IoT Dashboard */}
-              <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-300">
-                <div className="relative h-48">
+              <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                <div className="relative h-40 overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.unsplash.com/photo-1558494949-ef010cbcc31c?auto=format&fit=crop&w=800&q=80" 
                     alt="IoT Dashboard" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-lg">
-                      IoT
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
-                      Innovative
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-green-600 text-white text-[10px] font-extrabold rounded-full shadow-md">
+                      IoT Smart
                     </span>
                   </div>
                 </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">Intermediate</span>
-                    <div className="flex items-center gap-1 text-slate-400 text-sm">
-                      <Clock size={14} />
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded-full">Intermediate</span>
+                    <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                      <Clock size={12} />
                       10 Weeks
                     </div>
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">IoT Smart Home</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Create a smart home automation system with real-time monitoring and control capabilities.
+                  <h3 className="text-sm font-black text-slate-900 mb-1.5">IoT Smart Home</h3>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Build a real-time home automation dashboard with MQTT & Microcontrollers.
                   </p>
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      Raspberry Pi & Arduino
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      MQTT Protocol
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                      React Dashboard
-                    </div>
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Tech Stack</h4>
+                    <ul className="space-y-1 text-[11px] text-slate-600">
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0" /> Raspberry Pi & Arduino</li>
+                      <li className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0" /> MQTT Protocol & React Dashboard</li>
+                    </ul>
                   </div>
                   <a 
                     href={FINAL_YEAR_PROJECTS_LINK} 
                     target="_blank"
-                    className="px-6 py-3 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2 w-fit"
+                    className="w-full mt-auto block px-3 py-2 bg-orange-600 text-white rounded-xl text-xs font-bold hover:bg-orange-700 transition-all text-center shadow-md"
                   >
-                    Choose This Project
+                    Choose Project
                   </a>
                 </div>
               </div>
