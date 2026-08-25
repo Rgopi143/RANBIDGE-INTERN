@@ -1,14 +1,14 @@
 {
-  "name": "ranbidge-intern-workspace",
+  "name": "app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5173",
+    "dev:5173": "vite --port 5173",
+    "dev:5174": "vite --port 5174",
     "build": "vite build",
-    "preview": "vite preview",
-    "dev:5173": "npm --prefix RANBIDGE-INTERN-master run dev:5173",
-    "dev:5174": "npm --prefix RANBIDGE-INTERN-master run dev:5174"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@google/genai": "^1.35.0",
