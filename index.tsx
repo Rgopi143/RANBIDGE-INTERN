@@ -109,7 +109,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-amber-600',
     badge: 'MoE Innovation Cell',
-    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://sih.gov.in/img1/slider2026/sih2026-launch-3.png',
     description: 'World’s biggest open innovation model by Ministry of Education & AICTE to solve real-world nation-building challenges.',
     techStack: ['AI & Software', 'Hardware & IoT', 'Blockchain', 'Cybersecurity', 'CleanTech'],
     link: 'https://sih.gov.in/'
