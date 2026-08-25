@@ -2312,25 +2312,23 @@ const App: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
                 {filteredHackathons.map((hack) => (
                   <div key={hack.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
-                    <div className="relative h-40 overflow-hidden bg-gray-100">
+                    <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 p-2 flex items-center justify-center">
                       <img 
                         src={hack.thumbnail} 
                         alt={hack.title} 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80'; }}
+                        className="w-full h-full object-contain rounded-xl hover:scale-105 transition-transform duration-300"
+                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'; }}
                       />
-                      <div className="absolute top-3 left-3 flex gap-1.5">
-                        <span className={`px-2 py-0.5 text-white text-[10px] font-black rounded-full shadow-md ${hack.statusColor}`}>
-                          {hack.status}
-                        </span>
-                        <span className="px-2 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md">
-                          {hack.badge}
-                        </span>
-                      </div>
                     </div>
                     
                     <div className="p-4 flex flex-col flex-grow">
                       <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                        <span className={`px-2 py-0.5 text-white text-[10px] font-black rounded-full shadow-xs ${hack.statusColor}`}>
+                          {hack.status}
+                        </span>
+                        <span className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold rounded-full">
+                          {hack.badge}
+                        </span>
                         <span className="px-2 py-0.5 bg-amber-50 text-amber-800 text-[10px] font-extrabold rounded-full border border-amber-200/80 flex items-center gap-1">
                           <Trophy size={11} className="text-amber-500" /> {hack.prizePool}
                         </span>
