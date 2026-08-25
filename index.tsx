@@ -82,7 +82,7 @@ const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd1y7_
 const MENTORSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const PAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const UNPAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
-const HACKATHON_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdrzYAVBF9rEFV7zcs_p0a_St8qGcnEsltEvdI-ZULHlO5Xbg/viewform?usp=header";
+const HACKATHON_LINK = "https://sih.gov.in/";
 const WHATSAPP_CHAT_LINK = "https://wa.me/8247392437?text=Hello%20RANBIDGE%21%20%F0%9F%20I%20hope%20you're%20having%20a%20great%20day.%20I'm%20interested%20in%20your%20internship%20programs%20and%20would%20love%20to%20learn%20more%20about%20the%20opportunities%20available.%20Could%20you%20please%20share%20some%20details%3F%20Thank%20you!";
 const LINKEDIN_LINK = "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376/";
 const INSTAGRAM_LINK = "https://www.instagram.com/ranbridgeserviceprivatelimited?igsh=MTYxOWU4NHJ0YzcwaA%3D%3D";
@@ -100,94 +100,19 @@ const HEADER_CONFIG = {
 
 const HACKATHONS: Hackathon[] = [
   {
-    id: 'ai-llm-hack',
-    title: 'National AI & LLM Challenge 2025',
-    category: 'AI / ML',
-    prizePool: '₹1,50,000 Pool',
-    duration: '48 Hours Sprint',
-    mode: 'Virtual / Online',
-    status: 'Live Now',
-    statusColor: 'bg-emerald-600',
-    badge: 'Flagship Event',
-    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
-    description: 'Build innovative generative AI apps, autonomous agents, and RAG pipelines.',
-    techStack: ['Python', 'OpenAI / LangChain', 'Vector DBs'],
-    link: HACKATHON_LINK
-  },
-  {
-    id: 'fullstack-web-sprint',
-    title: 'Full-Stack Web Dev Sprint 2025',
-    category: 'Web Dev',
-    prizePool: '₹1,00,000 Pool',
-    duration: '36 Hours Sprint',
-    mode: 'Virtual / Online',
+    id: 'smart-india-hackathon',
+    title: 'Smart India Hackathon (SIH) 2025',
+    category: 'Govt Initiative',
+    prizePool: '₹1,00,000 / Problem',
+    duration: '36 Hours Non-Stop',
+    mode: 'Nationwide & Virtual',
     status: 'Registration Open',
     statusColor: 'bg-amber-600',
-    badge: 'High Popularity',
-    thumbnail: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
-    description: 'Architect scalable SaaS web products with modern frameworks & real-time DBs.',
-    techStack: ['React / Next.js', 'Node.js', 'PostgreSQL / MongoDB'],
-    link: HACKATHON_LINK
-  },
-  {
-    id: 'iot-embedded-hack',
-    title: 'IoT Smart Automation Hack 2025',
-    category: 'IoT & Hardware',
-    prizePool: '₹80,000 + Hardware',
-    duration: '48 Hours Sprint',
-    mode: 'Hybrid / Online',
-    status: 'Registration Open',
-    statusColor: 'bg-blue-600',
-    badge: 'Hardware Focus',
-    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-    description: 'Design smart home & industrial IoT systems with sensor networks & MQTT dashboards.',
-    techStack: ['ESP32 / Arduino', 'C++', 'MQTT & React Dashboard'],
-    link: HACKATHON_LINK
-  },
-  {
-    id: 'cyber-security-ctf',
-    title: 'CyberSecurity CTF & Defense League',
-    category: 'Cyber Security',
-    prizePool: '₹1,20,000 Pool',
-    duration: '24 Hours CTF',
-    mode: 'Virtual CTF Arena',
-    status: 'Upcoming',
-    statusColor: 'bg-purple-600',
-    badge: 'Capture The Flag',
-    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
-    description: 'Test your ethical hacking, network analysis, cryptography, and reverse engineering.',
-    techStack: ['Linux', 'Wireshark & BurpSuite', 'Cryptography'],
-    link: HACKATHON_LINK
-  },
-  {
-    id: 'cloud-devops-hack',
-    title: 'Cloud Native & DevOps Sprint',
-    category: 'Cloud & DevOps',
-    prizePool: '₹90,000 + AWS Credits',
-    duration: '36 Hours Sprint',
-    mode: 'Virtual / Online',
-    status: 'Registration Open',
-    statusColor: 'bg-indigo-600',
-    badge: 'Cloud Native',
-    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-    description: 'Deploy resilient microservices pipelines using Docker, Kubernetes, and CI/CD.',
-    techStack: ['Docker & K8s', 'Terraform', 'AWS & GitHub Actions'],
-    link: HACKATHON_LINK
-  },
-  {
-    id: 'mobile-app-cup',
-    title: 'Mobile App Innovation Cup 2025',
-    category: 'Mobile Dev',
-    prizePool: '₹1,10,000 Pool',
-    duration: '48 Hours Sprint',
-    mode: 'Virtual / Online',
-    status: 'Upcoming',
-    statusColor: 'bg-pink-600',
-    badge: 'Mobile App',
-    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-    description: 'Build sleek mobile apps for Android and iOS tackling healthcare, edtech, or fintech.',
-    techStack: ['React Native / Flutter', 'Firebase', 'Mobile UI/UX'],
-    link: HACKATHON_LINK
+    badge: 'MoE Innovation Cell',
+    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    description: 'World’s biggest open innovation model by Ministry of Education & AICTE to solve real-world nation-building challenges.',
+    techStack: ['AI & Software', 'Hardware & IoT', 'Blockchain', 'Cybersecurity', 'CleanTech'],
+    link: 'https://sih.gov.in/'
   }
 ];
 
@@ -2347,7 +2272,7 @@ const App: React.FC = () => {
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {['All', 'AI / ML', 'Web Dev', 'IoT & Hardware', 'Cyber Security', 'Cloud & DevOps', 'Mobile Dev'].map(cat => (
+                {['All', 'Govt Initiative', 'Software Edition', 'Hardware Edition'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setHackathonCategory(cat)}
