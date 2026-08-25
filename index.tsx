@@ -535,7 +535,7 @@ const Navigation: React.FC<{
 
   return (
   <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? HEADER_CONFIG.transparentBg : HEADER_CONFIG.solidBg}`}>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-16">
         <button onClick={() => setView('home')} className="flex items-center gap-3">
           <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-10 h-10 rounded-full border-2 border-indigo-100 shadow-sm" />
@@ -814,7 +814,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center z-10">
+                <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 relative text-center z-10">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-indigo-100 text-indigo-700 text-xs font-extrabold mb-8 tracking-wide shadow-sm hover:scale-105 transition-transform">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -885,7 +885,7 @@ const App: React.FC = () => {
 
           {/* Course Filter Bar */}
           <div className="bg-white border-b border-slate-100 py-4 sticky top-16 z-40">
-            <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="flex flex-wrap gap-2">
@@ -911,7 +911,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <main className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+          <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
             {/* Catalog Grid */}
             <div id="courses-section" className="w-full">
               <div className="flex items-center justify-between mb-8">
@@ -923,7 +923,7 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
                 {filteredCourses.map(course => (
                   <CourseCard key={course.id} course={course} />
                 ))}
@@ -968,7 +968,7 @@ const App: React.FC = () => {
       )}
 
       {view === 'virtual-internship' && (
-        <main className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black mb-8 tracking-widest uppercase">
               <Briefcase size={14} /> Remote Work
@@ -1063,7 +1063,7 @@ const App: React.FC = () => {
 
             {/* Virtual Internship Grid */}
             {filteredVirtualPrograms.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6">
                 {filteredVirtualPrograms.map((prog) => (
                   <div key={prog.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
                     <div className="relative h-44">
@@ -2470,7 +2470,7 @@ const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3.5 mb-5">
