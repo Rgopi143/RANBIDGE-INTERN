@@ -2524,7 +2524,7 @@ const App: React.FC = () => {
                 href={LINKEDIN_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#0077B5] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-[#0077B5]/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-[#0077B5] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-[#0077B5]/30 transition-all shadow-sm"
                 title="LinkedIn"
               >
                 <Linkedin size={18} />
@@ -2533,7 +2533,7 @@ const App: React.FC = () => {
                 href={INSTAGRAM_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-pink-500/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-pink-500/30 transition-all shadow-sm"
                 title="Instagram"
               >
                 <Instagram size={18} />
@@ -2542,7 +2542,7 @@ const App: React.FC = () => {
                 href={YOUTUBE_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-red-500/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-red-500/30 transition-all shadow-sm"
                 title="YouTube"
               >
                 <Youtube size={18} />
@@ -2551,7 +2551,7 @@ const App: React.FC = () => {
                 href={FACEBOOK_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 transition-all shadow-sm"
                 title="Facebook"
               >
                 <Facebook size={18} />
@@ -2560,7 +2560,7 @@ const App: React.FC = () => {
                 href={WHATSAPP_CHAT_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/30 transition-all shadow-sm"
                 title="WhatsApp"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -2569,7 +2569,7 @@ const App: React.FC = () => {
               </a>
               <a 
                 href="mailto:ranbidgesolutionspvtltd@gmail.com" 
-                className="w-10 h-10 rounded-xl bg-[#6366F1] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-[#6366F1] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/30 transition-all shadow-sm"
                 title="Email Us"
               >
                 <Mail size={18} />
@@ -2578,7 +2578,7 @@ const App: React.FC = () => {
                 href={LOCATION_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#EA4335] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-rose-500/30 transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-[#EA4335] text-white flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-rose-500/30 transition-all shadow-sm"
                 title="Office Location: Narasaraopet, Andhra Pradesh, India"
               >
                 <MapPin size={18} />
