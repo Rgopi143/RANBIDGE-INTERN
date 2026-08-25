@@ -2312,11 +2312,11 @@ const App: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
                 {filteredHackathons.map((hack) => (
                   <div key={hack.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
-                    <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 p-2 flex items-center justify-center">
+                    <div className="relative w-full overflow-hidden bg-white border-b border-slate-100 flex items-center justify-center">
                       <img 
                         src={hack.thumbnail} 
                         alt={hack.title} 
-                        className="w-full h-full object-contain rounded-xl hover:scale-105 transition-transform duration-300"
+                        className="w-full h-auto max-h-52 object-cover hover:scale-105 transition-transform duration-300"
                         onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'; }}
                       />
                     </div>
