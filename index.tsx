@@ -2471,28 +2471,42 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center p-1">
-                  <img src={LOGO_URL} alt="Logo" className="w-10 h-10 rounded-full" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="md:col-span-1">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center p-1">
+                  <img src={LOGO_URL} alt="Logo" className="w-8 h-8 rounded-full" />
                 </div>
-                <span className="text-lg font-bold tracking-tight text-slate-800">RANBIDGE SOLUTIONS PVT LTD</span>
+                <span className="text-base font-bold tracking-tight text-slate-800">RANBIDGE SOLUTIONS</span>
               </div>
-              <p className="max-w-sm mb-10 leading-relaxed text-slate-500 font-normal text-sm">
+              <p className="leading-relaxed text-slate-500 font-normal text-xs mb-6">
                 We're building the bridge between academic knowledge and industry excellence. Join the most intensive internship program in India.
               </p>
             </div>
+            
             <div>
-              <h4 className="text-slate-800 font-bold text-sm mb-6 uppercase tracking-wider">Quick Links</h4>
-              <ul className="space-y-3">
-                <li><button onClick={() => setView('unpaid-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><Heart size={14} className="text-indigo-500" /> Unpaid Internship</button></li>
-                <li><button onClick={() => setView('paid-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><DollarSign size={14} className="text-indigo-500" /> Paid Internship</button></li>
-                <li><button onClick={() => setView('virtual-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><Briefcase size={14} className="text-indigo-500" /> Virtual Internship</button></li>
-                <li><button onClick={() => setView('one-on-one-mentorship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><GraduationCap size={14} className="text-indigo-500" /> One-on-One Mentorship</button></li>
-                <li><button onClick={() => setView('final-year-projects')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><Target size={14} className="text-indigo-500" /> Final Year Projects</button></li>
-                <li><button onClick={() => setView('privacy')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><ShieldAlert size={14} className="text-indigo-500" /> Privacy Policy</button></li>
-                <li><button onClick={() => setView('terms')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-2"><FileText size={14} className="text-indigo-500" /> Terms of Service</button></li>
+              <h4 className="text-slate-800 font-bold text-xs mb-4 uppercase tracking-wider">Internships</h4>
+              <ul className="space-y-2.5 text-xs">
+                <li><button onClick={() => setView('unpaid-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Unpaid Internship</button></li>
+                <li><button onClick={() => setView('paid-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Paid Internship</button></li>
+                <li><button onClick={() => setView('virtual-internship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Virtual Internship</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-slate-800 font-bold text-xs mb-4 uppercase tracking-wider">Programs</h4>
+              <ul className="space-y-2.5 text-xs">
+                <li><button onClick={() => setView('one-on-one-mentorship')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">1-on-1 Mentorship</button></li>
+                <li><button onClick={() => setView('final-year-projects')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Final Year Projects</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-slate-800 font-bold text-xs mb-4 uppercase tracking-wider">Legal & Support</h4>
+              <ul className="space-y-2.5 text-xs">
+                <li><button onClick={() => setView('privacy')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Privacy Policy</button></li>
+                <li><button onClick={() => setView('terms')} className="font-medium text-slate-600 hover:text-indigo-600 transition-colors">Terms of Service</button></li>
+                <li><a href={REGISTRATION_LINK} target="_blank" className="font-medium text-indigo-600 hover:underline">Apply Now →</a></li>
               </ul>
             </div>
           </div>
