@@ -638,59 +638,59 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
   const isComingSoon = comingSoonCourses.includes(course.id);
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 ease-out border border-slate-100 hover:border-indigo-300 shimmer-card transform hover:-translate-y-2 flex flex-col h-full">
-      <div className="relative h-44 overflow-hidden">
+    <div className="group bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-2xl transition-all duration-500 ease-out border border-slate-100 hover:border-indigo-300 shimmer-card transform hover:-translate-y-2 flex flex-col h-full">
+      <div className="relative h-40 overflow-hidden">
         <img 
           src={course.thumbnail} 
           alt={course.title} 
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
         />
-        <div className="absolute top-3 left-3 flex items-center gap-2">
-          <span className="px-2.5 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold rounded-full shadow-lg border border-white/20">
+        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+          <span className="px-2.5 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md border border-white/20">
             {course.category}
           </span>
         </div>
       </div>
-      <div className="p-5 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 mb-2.5">
-          <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+      <div className="p-4 flex flex-col flex-grow">
+        <div className="flex items-center gap-2 mb-2">
+          <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
             course.level === 'Beginner' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
             course.level === 'Intermediate' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
             'bg-purple-50 text-purple-700 border border-purple-200'
           }`}>
             {course.level}
           </span>
-          <div className="flex items-center gap-1 text-slate-500 text-xs font-semibold">
-            <Clock size={12} className="text-indigo-500" />
+          <div className="flex items-center gap-1 text-slate-500 text-[11px] font-semibold">
+            <Clock size={11} className="text-indigo-500" />
             {course.duration}
           </div>
         </div>
-        <h3 className="text-lg font-extrabold text-slate-900 mb-1.5 leading-snug group-hover:text-indigo-600 transition-colors">
+        <h3 className="text-base font-extrabold text-slate-900 mb-1 leading-snug group-hover:text-indigo-600 transition-colors">
           {course.title}
         </h3>
-        <p className="text-slate-600 text-xs line-clamp-2 mb-4 leading-relaxed">
+        <p className="text-slate-600 text-[11px] line-clamp-2 mb-3 leading-relaxed">
           {course.description}
         </p>
         
-        <div className="mb-5 bg-slate-50 p-3.5 rounded-xl border border-slate-100/80">
-          <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Key Curriculum Modules</p>
+        <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100/80">
+          <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Curriculum Modules</p>
           <ul className="space-y-1">
             {course.curriculum.map((item, i) => (
-              <li key={i} className="text-[11px] text-slate-600 font-medium flex items-center gap-1.5">
-                <CheckCircle2 size={12} className="text-indigo-500 shrink-0" />
+              <li key={i} className="text-[10px] text-slate-600 font-medium flex items-center gap-1.5">
+                <CheckCircle2 size={11} className="text-indigo-500 shrink-0" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="flex items-center justify-between mt-auto pt-3 border-t border-slate-100">
-          <div className="flex items-center gap-2">
-            <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-7 h-7 rounded-full border border-indigo-100" />
-            <span className="text-[11px] font-bold text-slate-600">Ranbidge Solutions</span>
+        <div className="flex items-center justify-between mt-auto pt-2.5 border-t border-slate-100">
+          <div className="flex items-center gap-1.5">
+            <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-6 h-6 rounded-full border border-indigo-100" />
+            <span className="text-[10px] font-bold text-slate-600">Ranbidge</span>
           </div>
           {isComingSoon && course.id === 'paper-writing' ? (
-            <span className="px-3.5 py-1.5 bg-blue-500 text-white rounded-lg text-xs font-bold hover:bg-blue-600 transition-all shadow-sm">
+            <span className="px-3 py-1 bg-blue-500 text-white rounded-lg text-[11px] font-bold hover:bg-blue-600 transition-all shadow-xs">
               <a 
                 href={WHATSAPP_CHAT_LINK}
                 target="_blank"
@@ -704,9 +704,9 @@ const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
               href={REGISTRATION_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-black hover:bg-indigo-700 shadow-md group-hover:shadow-indigo-500/20 active:scale-95 transition-all flex items-center gap-1.5"
+              className="px-3.5 py-1.5 bg-indigo-600 text-white rounded-xl text-[11px] font-black hover:bg-indigo-700 shadow-xs group-hover:shadow-indigo-500/20 active:scale-95 transition-all flex items-center gap-1"
             >
-              Enroll Now <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+              Enroll Now <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
           )}
         </div>
@@ -885,7 +885,7 @@ const App: React.FC = () => {
 
           {/* Course Filter Bar */}
           <div className="bg-white border-b border-slate-100 py-4 sticky top-16 z-40">
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="flex flex-wrap gap-2">
@@ -911,7 +911,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <main className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+          <main className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
             {/* Catalog Grid */}
             <div id="courses-section" className="w-full">
               <div className="flex items-center justify-between mb-8">
@@ -923,7 +923,7 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {filteredCourses.map(course => (
                   <CourseCard key={course.id} course={course} />
                 ))}
@@ -968,7 +968,7 @@ const App: React.FC = () => {
       )}
 
       {view === 'virtual-internship' && (
-        <main className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <main className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black mb-8 tracking-widest uppercase">
               <Briefcase size={14} /> Remote Work
@@ -990,21 +990,21 @@ const App: React.FC = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-16">
             {[
-              { icon: <Zap className="text-indigo-600" />, title: "Flexible Schedule", desc: "Work at your own pace with flexible hours that fit your lifestyle." },
-              { icon: <Users className="text-indigo-600" />, title: "Global Team", desc: "Collaborate with diverse team members from around the world." },
-              { icon: <Award className="text-indigo-600" />, title: "Certified Program", desc: "Receive industry-recognized certificates upon completion." },
-              { icon: <MessageSquare className="text-indigo-600" />, title: "Live Mentorship", desc: "Get real-time guidance from industry professionals." },
-              { icon: <Star className="text-indigo-600" />, title: "Portfolio Projects", desc: "Build impressive projects for your professional portfolio." },
-              { icon: <TrendingUp className="text-indigo-600" />, title: "Career Growth", desc: "Access job opportunities and career advancement support." }
+              { icon: <Zap className="text-indigo-600" />, title: "Flexible Schedule", desc: "Work at your own pace with flexible hours." },
+              { icon: <Users className="text-indigo-600" />, title: "Global Team", desc: "Collaborate with diverse team members." },
+              { icon: <Award className="text-indigo-600" />, title: "Certified Program", desc: "Receive industry-recognized certificates." },
+              { icon: <MessageSquare className="text-indigo-600" />, title: "Live Mentorship", desc: "Get real-time guidance from experts." },
+              { icon: <Star className="text-indigo-600" />, title: "Portfolio Projects", desc: "Build impressive portfolio projects." },
+              { icon: <TrendingUp className="text-indigo-600" />, title: "Career Growth", desc: "Access job opportunities & placement." }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="mb-4 w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center">
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-black text-slate-900 mb-2">{feature.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{feature.desc}</p>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -1063,9 +1063,9 @@ const App: React.FC = () => {
 
             {/* Virtual Internship Grid */}
             {filteredVirtualPrograms.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {filteredVirtualPrograms.map((prog) => (
-                  <div key={prog.id} className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                  <div key={prog.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
                     <div className="relative h-44">
                       <img 
                         src={prog.thumbnail} 
