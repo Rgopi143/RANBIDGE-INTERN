@@ -119,6 +119,40 @@ const HACKATHONS: Hackathon[] = [
     targetDate: '2026-08-31T23:59:59'
   },
   {
+    id: 'nasa-space-apps',
+    title: 'NASA International Space Apps Challenge 2026',
+    category: 'Global Space & AI',
+    prizePool: 'NASA Global Awards & Mentorship',
+    duration: '48 Hours Global Sprint',
+    mode: 'Worldwide & Virtual',
+    status: 'Registration Open',
+    statusColor: 'bg-blue-600',
+    badge: 'NASA & Space Partners',
+    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    description: 'The world’s largest open space & science hackathon by NASA to solve challenges on Earth and space using open NASA data.',
+    techStack: ['Space Tech', 'AI & Data Science', 'Earth Observation', 'Aerospace'],
+    link: 'https://www.spaceappschallenge.org/',
+    deadline: '14th Nov 2026',
+    targetDate: '2026-11-14T23:59:59'
+  },
+  {
+    id: '5g-telecom-hackathon',
+    title: '5G & 6G Telecom Innovation Hackathon 2026',
+    category: 'Telecom & IoT',
+    prizePool: '₹10,00,000 Prizes & ₹1L Prototype Funding',
+    duration: '12-Week Prototype Sprint',
+    mode: 'Hybrid & DoT Labs',
+    status: 'Live Now',
+    statusColor: 'bg-emerald-600',
+    badge: 'Dept of Telecom (DoT)',
+    thumbnail: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80',
+    description: 'National 5G/6G use case hackathon by Department of Telecommunications (DoT) for AI/ML, IoT, Network Slicing & Next-Gen Telecom.',
+    techStack: ['5G / 6G Networks', 'Telecom AI/ML', 'IoT & Smart Cities', 'Network Slicing'],
+    link: 'https://eservices.dot.gov.in/5ghackathon/',
+    deadline: '26th April 2026',
+    targetDate: '2026-04-26T23:59:59'
+  },
+  {
     id: 'smart-india-hackathon',
     title: 'Smart India Hackathon (SIH) 2025',
     category: 'Govt Initiative',
@@ -2341,7 +2375,7 @@ const App: React.FC = () => {
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {['All', 'Cyber Security', 'Govt Initiative', 'Software Edition', 'Hardware Edition'].map(cat => (
+                {['All', 'Cyber Security', 'Global Space & AI', 'Telecom & IoT', 'Govt Initiative'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setHackathonCategory(cat)}
