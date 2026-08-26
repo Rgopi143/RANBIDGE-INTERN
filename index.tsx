@@ -719,39 +719,31 @@ const HackathonTimer: React.FC<{ targetDate?: string; deadline?: string }> = ({ 
 
   if (!timeLeft) {
     return (
-      <div className="mb-3 flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-200/80 rounded-xl text-[10px] font-bold">
-        <Clock size={12} className="text-amber-600 animate-pulse shrink-0" />
-        <span>Deadline: {deadline || 'Active'}</span>
+      <div className="mb-3 flex items-center justify-between gap-2 px-3 py-1.5 bg-slate-900 text-white rounded-xl border border-slate-800 shadow-sm">
+        <div className="flex items-center gap-1.5 text-xs font-mono font-black text-amber-400">
+          <Clock size={13} className="text-amber-400 animate-pulse shrink-0" />
+          <span>Active Event</span>
+        </div>
+        {deadline && (
+          <span className="text-[10px] font-bold text-amber-300 bg-amber-950/90 border border-amber-700/60 px-2 py-0.5 rounded-md truncate max-w-[140px]">
+            {deadline}
+          </span>
+        )}
       </div>
     );
   }
 
   return (
-    <div className="mb-3 bg-slate-900 text-white p-2.5 rounded-xl border border-slate-800 shadow-inner">
-      <div className="flex items-center justify-between gap-1 mb-1.5">
-        <span className="text-[9px] font-extrabold uppercase tracking-widest text-amber-400 flex items-center gap-1">
-          <Clock size={10} className="animate-spin text-amber-400" style={{ animationDuration: '3s' }} /> Countdown Timer
+    <div className="mb-3 flex items-center justify-between gap-2 px-3 py-1.5 bg-slate-900 text-white rounded-xl border border-slate-800 shadow-sm">
+      <div className="flex items-center gap-1.5 text-xs font-mono font-black text-amber-400">
+        <Clock size={13} className="text-amber-400 animate-spin shrink-0" style={{ animationDuration: '4s' }} />
+        <span>{String(timeLeft.days).padStart(2, '0')}d : {String(timeLeft.hours).padStart(2, '0')}h : {String(timeLeft.mins).padStart(2, '0')}m : {String(timeLeft.secs).padStart(2, '0')}s</span>
+      </div>
+      {deadline && (
+        <span className="text-[10px] font-bold text-amber-300 bg-amber-950/90 border border-amber-700/60 px-2 py-0.5 rounded-md truncate max-w-[140px]">
+          {deadline}
         </span>
-        {deadline && <span className="text-[9px] font-extrabold text-amber-300 bg-amber-950/80 border border-amber-700/60 px-1.5 py-0.5 rounded">{deadline}</span>}
-      </div>
-      <div className="grid grid-cols-4 gap-1.5 text-center font-mono font-black text-xs">
-        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
-          <div className="text-amber-400 leading-none">{String(timeLeft.days).padStart(2, '0')}</div>
-          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Days</div>
-        </div>
-        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
-          <div className="text-amber-400 leading-none">{String(timeLeft.hours).padStart(2, '0')}</div>
-          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Hours</div>
-        </div>
-        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
-          <div className="text-amber-400 leading-none">{String(timeLeft.mins).padStart(2, '0')}</div>
-          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Mins</div>
-        </div>
-        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
-          <div className="text-amber-400 leading-none">{String(timeLeft.secs).padStart(2, '0')}</div>
-          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Secs</div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
