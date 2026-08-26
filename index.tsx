@@ -100,6 +100,21 @@ const HEADER_CONFIG = {
 
 const HACKATHONS: Hackathon[] = [
   {
+    id: 'terrier-cyber-quest',
+    title: 'Terrier Cyber Quest (TCQ) 2026',
+    category: 'Cyber Security',
+    prizePool: '₹1,500,000+ Pool',
+    duration: 'National Cyber Sprint',
+    mode: 'Virtual CTF & Finals',
+    status: 'Live Now',
+    statusColor: 'bg-indigo-600',
+    badge: 'Indian Army TA',
+    thumbnail: 'https://cdn.prod.website-files.com/65e805010a6848c49c0187ed/6a6991cedfaeaa73d0b90867_OGICard%20-%20AI%20Network%20Sphere%20Hero%20(2)%20(1).jpg',
+    description: 'Flagship cyber security innovation challenge by the Indian Army Territorial Army to foster national ethical hacking & defense skills.',
+    techStack: ['Cyber Defense', 'CTF / Ethical Hacking', 'AI Security', 'Network Analysis'],
+    link: 'https://www.cyberchallenge.in/tcq2026'
+  },
+  {
     id: 'smart-india-hackathon',
     title: 'Smart India Hackathon (SIH) 2025',
     category: 'Govt Initiative',
@@ -2272,7 +2287,7 @@ const App: React.FC = () => {
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {['All', 'Govt Initiative', 'Software Edition', 'Hardware Edition'].map(cat => (
+                {['All', 'Cyber Security', 'Govt Initiative', 'Software Edition', 'Hardware Edition'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setHackathonCategory(cat)}
