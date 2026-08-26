@@ -70,6 +70,8 @@ interface Hackathon {
   description: string;
   techStack: string[];
   link: string;
+  deadline?: string;
+  targetDate?: string;
 }
 
 type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons';
@@ -112,7 +114,9 @@ const HACKATHONS: Hackathon[] = [
     thumbnail: 'https://cdn.prod.website-files.com/65e805010a6848c49c0187ed/6a6991cedfaeaa73d0b90867_OGICard%20-%20AI%20Network%20Sphere%20Hero%20(2)%20(1).jpg',
     description: 'Flagship cyber security innovation challenge by the Indian Army Territorial Army to foster national ethical hacking & defense skills.',
     techStack: ['Cyber Defense', 'CTF / Ethical Hacking', 'AI Security', 'Network Analysis'],
-    link: 'https://www.cyberchallenge.in/tcq2026'
+    link: 'https://www.cyberchallenge.in/tcq2026',
+    deadline: '31st Aug 2026 (Extended)',
+    targetDate: '2026-08-31T23:59:59'
   },
   {
     id: 'smart-india-hackathon',
@@ -127,7 +131,9 @@ const HACKATHONS: Hackathon[] = [
     thumbnail: 'https://sih.gov.in/img1/slider2026/sih2026-launch-3.png',
     description: 'World’s biggest open innovation model by Ministry of Education & AICTE to solve real-world nation-building challenges.',
     techStack: ['AI & Software', 'Hardware & IoT', 'Blockchain', 'Cybersecurity', 'CleanTech'],
-    link: 'https://sih.gov.in/'
+    link: 'https://sih.gov.in/',
+    deadline: 'Submissions Active',
+    targetDate: '2026-09-30T23:59:59'
   }
 ];
 
@@ -686,6 +692,68 @@ const Navigation: React.FC<{
     </div>
   </nav>
 );
+};
+
+const HackathonTimer: React.FC<{ targetDate?: string; deadline?: string }> = ({ targetDate, deadline }) => {
+  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; mins: number; secs: number } | null>(null);
+
+  useEffect(() => {
+    if (!targetDate) return;
+    const calculate = () => {
+      const diff = new Date(targetDate).getTime() - new Date().getTime();
+      if (diff <= 0) {
+        setTimeLeft(null);
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / 1000 / 60) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      setTimeLeft({ days, hours, mins, secs });
+    };
+
+    calculate();
+    const interval = setInterval(calculate, 1000);
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
+  if (!timeLeft) {
+    return (
+      <div className="mb-3 flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-200/80 rounded-xl text-[10px] font-bold">
+        <Clock size={12} className="text-amber-600 animate-pulse shrink-0" />
+        <span>Deadline: {deadline || 'Active'}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-3 bg-slate-900 text-white p-2.5 rounded-xl border border-slate-800 shadow-inner">
+      <div className="flex items-center justify-between gap-1 mb-1.5">
+        <span className="text-[9px] font-extrabold uppercase tracking-widest text-amber-400 flex items-center gap-1">
+          <Clock size={10} className="animate-spin text-amber-400" style={{ animationDuration: '3s' }} /> Countdown Timer
+        </span>
+        {deadline && <span className="text-[9px] font-extrabold text-amber-300 bg-amber-950/80 border border-amber-700/60 px-1.5 py-0.5 rounded">{deadline}</span>}
+      </div>
+      <div className="grid grid-cols-4 gap-1.5 text-center font-mono font-black text-xs">
+        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
+          <div className="text-amber-400 leading-none">{String(timeLeft.days).padStart(2, '0')}</div>
+          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Days</div>
+        </div>
+        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
+          <div className="text-amber-400 leading-none">{String(timeLeft.hours).padStart(2, '0')}</div>
+          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Hours</div>
+        </div>
+        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
+          <div className="text-amber-400 leading-none">{String(timeLeft.mins).padStart(2, '0')}</div>
+          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Mins</div>
+        </div>
+        <div className="bg-slate-800/90 py-1 rounded-lg border border-slate-700/80">
+          <div className="text-amber-400 leading-none">{String(timeLeft.secs).padStart(2, '0')}</div>
+          <div className="text-[7px] text-slate-400 uppercase font-sans mt-0.5 font-bold">Secs</div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
@@ -2357,6 +2425,8 @@ const App: React.FC = () => {
                       <p className="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">
                         {hack.description}
                       </p>
+
+                      <HackathonTimer targetDate={hack.targetDate} deadline={hack.deadline} />
 
                       <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
                         <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Focus & Tech</h4>
