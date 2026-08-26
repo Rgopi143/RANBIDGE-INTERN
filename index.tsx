@@ -2412,7 +2412,7 @@ const App: React.FC = () => {
 
             {/* Hackathons Cards Grid */}
             {filteredHackathons.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                 {filteredHackathons.map((hack) => (
                   <div key={hack.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
                     <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-slate-900 border-b border-slate-100 flex items-center justify-center">
