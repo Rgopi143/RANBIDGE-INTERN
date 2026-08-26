@@ -719,28 +719,22 @@ const HackathonTimer: React.FC<{ targetDate?: string; deadline?: string }> = ({ 
 
   if (!timeLeft) {
     return (
-      <div className="mb-3 flex items-center justify-between gap-2 px-3 py-1.5 bg-slate-900 text-white rounded-xl border border-slate-800 shadow-sm">
-        <div className="flex items-center gap-1.5 text-xs font-mono font-black text-amber-400">
-          <Clock size={13} className="text-amber-400 animate-pulse shrink-0" />
-          <span>Active Event</span>
-        </div>
-        {deadline && (
-          <span className="text-[10px] font-bold text-amber-300 bg-amber-950/90 border border-amber-700/60 px-2 py-0.5 rounded-md truncate max-w-[140px]">
-            {deadline}
-          </span>
-        )}
+      <div className="mb-3 flex items-center gap-1.5 text-slate-700 text-xs font-bold whitespace-nowrap">
+        <Clock size={13} className="text-amber-500 animate-pulse shrink-0" />
+        <span className="text-amber-600 font-extrabold">Active Event</span>
+        {deadline && <span className="text-slate-400 font-normal">({deadline})</span>}
       </div>
     );
   }
 
   return (
-    <div className="mb-3 flex items-center justify-between gap-2 px-3 py-1.5 bg-slate-900 text-white rounded-xl border border-slate-800 shadow-sm">
-      <div className="flex items-center gap-1.5 text-xs font-mono font-black text-amber-400">
-        <Clock size={13} className="text-amber-400 animate-spin shrink-0" style={{ animationDuration: '4s' }} />
-        <span>{String(timeLeft.days).padStart(2, '0')}d : {String(timeLeft.hours).padStart(2, '0')}h : {String(timeLeft.mins).padStart(2, '0')}m : {String(timeLeft.secs).padStart(2, '0')}s</span>
+    <div className="mb-3 flex items-center justify-between gap-2 text-xs font-bold text-slate-700 whitespace-nowrap flex-wrap sm:flex-nowrap">
+      <div className="flex items-center gap-1.5 text-amber-600 font-mono font-extrabold">
+        <Clock size={13} className="text-amber-500 animate-spin shrink-0" style={{ animationDuration: '4s' }} />
+        <span>{String(timeLeft.days).padStart(2, '0')}d {String(timeLeft.hours).padStart(2, '0')}h {String(timeLeft.mins).padStart(2, '0')}m {String(timeLeft.secs).padStart(2, '0')}s</span>
       </div>
       {deadline && (
-        <span className="text-[10px] font-bold text-amber-300 bg-amber-950/90 border border-amber-700/60 px-2 py-0.5 rounded-md truncate max-w-[140px]">
+        <span className="text-[10px] font-bold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full shrink-0">
           {deadline}
         </span>
       )}
