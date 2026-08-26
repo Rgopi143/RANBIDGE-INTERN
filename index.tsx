@@ -1639,7 +1639,7 @@ const App: React.FC = () => {
                       <Clock size={12} />
                       16 Weeks
                     </div>
-                    <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">Stipend: $800/mo</span>
+                    <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">Stipend: ₹15,000/mo</span>
                   </div>
                   <h3 className="text-sm font-black text-slate-900 mb-1.5">Full Stack Developer</h3>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
@@ -1683,7 +1683,7 @@ const App: React.FC = () => {
                       <Clock size={12} />
                       12 Weeks
                     </div>
-                    <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">Stipend: $600/mo</span>
+                    <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">Stipend: ₹12,000/mo</span>
                   </div>
                   <h3 className="text-sm font-black text-slate-900 mb-1.5">Mobile App Developer</h3>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
@@ -1717,7 +1717,7 @@ const App: React.FC = () => {
                 <ul className="space-y-2 text-xs md:text-sm text-slate-300">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
-                    <span>Competitive monthly stipends (up to $800/month)</span>
+                    <span>Competitive monthly stipends (up to ₹25,000/month)</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
