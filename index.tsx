@@ -167,7 +167,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-blue-600',
     badge: 'Microsoft Club SIST',
-    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
     description: 'National hackathon with grand finale at Sathyabama Institute, Chennai. Tracks: Oceanic AI, ZK Blockchain, Climate-Tech / Remote Sensing, and Open Innovation.',
     techStack: ['Oceanic AI', 'ZK Blockchain', 'Climate-Tech', 'Open Innovation'],
     link: REGISTRATION_LINK,
