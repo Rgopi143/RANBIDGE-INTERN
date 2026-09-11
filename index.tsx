@@ -928,7 +928,7 @@ const Navigation: React.FC<{
   <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? HEADER_CONFIG.transparentBg : HEADER_CONFIG.solidBg}`}>
     <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-16">
-        <button onClick={() => setView('home')} className="flex items-center gap-3">
+        <button onClick={() => setView('home')} className="hidden md:flex items-center gap-3">
           <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-10 h-10 rounded-full border-2 border-indigo-100 shadow-sm" />
           <span className="text-lg font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 tracking-tight">
             RANBIDGE SOLUTIONS
