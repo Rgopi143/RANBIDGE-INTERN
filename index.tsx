@@ -979,10 +979,12 @@ const Navigation: React.FC<{
 }> = ({ view, setView, scrolled }) => {
   const [isInternshipDropdownOpen, setIsInternshipDropdownOpen] = useState(false);
 
-  // Close dropdown when clicking outside or moving away
+  // Close dropdown on click outside or when page scrolls
   useEffect(() => {
+    if (!isInternshipDropdownOpen) return;
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (isInternshipDropdownOpen && event.target instanceof Element) {
+      if (event.target instanceof Element) {
         const dropdown = event.target.closest('.internship-dropdown');
         if (!dropdown) {
           setIsInternshipDropdownOpen(false);
@@ -990,8 +992,17 @@ const Navigation: React.FC<{
       }
     };
 
+    const handleScroll = () => {
+      setIsInternshipDropdownOpen(false);
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [isInternshipDropdownOpen]);
 
   return (
@@ -1020,7 +1031,10 @@ const Navigation: React.FC<{
             </button>
             
             {isInternshipDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5">
+              <div 
+                className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5 overscroll-contain"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <div className="px-4 py-1 border-b border-slate-100 mb-1">
                   <span className="text-[10px] font-black tracking-widest text-slate-400 uppercase">Internship Tracks</span>
                 </div>
