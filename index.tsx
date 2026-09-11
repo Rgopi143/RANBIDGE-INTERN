@@ -102,6 +102,40 @@ const HEADER_CONFIG = {
 
 const HACKATHONS: Hackathon[] = [
   {
+    id: 'iqoo-hackathon',
+    title: 'iQOO Hackathon 2026 · City Battles',
+    category: 'Mobile & AI',
+    prizePool: '₹40,00,000 Pool',
+    duration: '30-Hr Cities + 48-Hr Finale',
+    mode: '4 Cities & Bengaluru Finale',
+    status: 'Registration Open',
+    statusColor: 'bg-amber-600',
+    badge: 'iQOO & Reskilll',
+    thumbnail: 'https://content.reskilll.com/uploads/1780056936687-28286456.png',
+    description: "India's biggest phone-first hackathon series across Bengaluru, Pune, Chennai & Hyderabad with a ₹40 Lakh prize pool & Grand Finale in Bengaluru.",
+    techStack: ['Mobile App Dev', 'On-Device AI', 'Android / iOS', 'Phone-First Tech'],
+    link: 'https://iqoo.reskilll.com/',
+    deadline: '26th Sep 2026',
+    targetDate: '2026-09-26T23:59:59'
+  },
+  {
+    id: 'hacker-house-goa',
+    title: 'Hacker House Goa 2026',
+    category: 'AI & Web3',
+    prizePool: '$50,000+ Bounties',
+    duration: '4-Day Builder Residency',
+    mode: 'Goa (Beach Resort)',
+    status: 'Registration Open',
+    statusColor: 'bg-purple-600',
+    badge: 'Devfolio & 2:47PM Studio',
+    thumbnail: 'https://assets.devfolio.co/hackathons/6b8701ece63444619285ea50db89a8bc/assets/cover/64.png',
+    description: "World's largest AI x Crypto Hacker House bringing 247 top builders to a private beach resort in Goa for 4 days of shipping, VC mentorship, and live demos.",
+    techStack: ['AI x Crypto', 'Web3 / Multichain', 'Full Stack', 'On-Chain Voting'],
+    link: 'https://hacker-house-goa-2026.devfolio.co/',
+    deadline: '28th Oct 2026',
+    targetDate: '2026-10-28T23:59:59'
+  },
+  {
     id: 'terrier-cyber-quest',
     title: 'Terrier Cyber Quest (TCQ) 2026',
     category: 'Cyber Security',
@@ -2375,7 +2409,7 @@ const App: React.FC = () => {
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {['All', 'Cyber Security', 'Global Space & AI', 'Telecom & IoT', 'Govt Initiative'].map(cat => (
+                {['All', 'Mobile & AI', 'AI & Web3', 'Cyber Security', 'Global Space & AI', 'Telecom & IoT', 'Govt Initiative'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setHackathonCategory(cat)}
