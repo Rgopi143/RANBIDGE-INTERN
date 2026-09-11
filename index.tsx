@@ -104,6 +104,142 @@ const HEADER_CONFIG = {
 
 const HACKATHONS: Hackathon[] = [
   {
+    id: 'build-next-2026',
+    title: 'Build Next 2026 – ZIROH LABS',
+    category: 'AI & Software',
+    prizePool: '₹7.5 Lakh Total Pool',
+    duration: 'National AI Challenge',
+    mode: 'Online / India',
+    status: 'Registration Open',
+    statusColor: 'bg-indigo-600',
+    badge: 'ZIROH LABS',
+    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    description: 'National AI challenge focused on next-generation AI applications. Open for students and working professionals in teams of 1–5.',
+    techStack: ['Next-Gen AI', 'LLM Apps', 'Machine Learning', 'Full Stack'],
+    link: REGISTRATION_LINK,
+    deadline: '18th Sep 2026',
+    targetDate: '2026-09-18T23:59:59'
+  },
+  {
+    id: 'codemyfyp-virtual-hackathon',
+    title: 'CodeMyFYP National Virtual Hackathon',
+    category: 'Virtual Hackathon',
+    prizePool: 'Internships + Certificates',
+    duration: 'Rolling 48-Hour Build',
+    mode: 'Fully Online (Across India)',
+    status: 'Registration Open',
+    statusColor: 'bg-emerald-600',
+    badge: 'CodeMyFYP',
+    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+    description: 'Fully online national hackathon open across India for solo builders or teams up to 4. Rolling 48-hour build with internship opportunities.',
+    techStack: ['Software Dev', 'AI & Web Apps', 'Final Year Projects', 'Full Stack'],
+    link: REGISTRATION_LINK,
+    deadline: '18th Sep 2026, 11:59 PM IST',
+    targetDate: '2026-09-18T23:59:59'
+  },
+  {
+    id: 'orion-1-microsoft-sist',
+    title: 'ORION 1.0 – Microsoft Club SIST',
+    category: 'Multi-Track Hackathon',
+    prizePool: '₹1,00,000 Prize Pool',
+    duration: 'Grand Finale 18–19 Sept',
+    mode: 'Sathyabama Institute, Chennai',
+    status: 'Registration Open',
+    statusColor: 'bg-blue-600',
+    badge: 'Microsoft Club SIST',
+    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    description: 'National hackathon with grand finale at Sathyabama Institute, Chennai. Tracks: Oceanic AI, ZK Blockchain, Climate-Tech / Remote Sensing, and Open Innovation.',
+    techStack: ['Oceanic AI', 'ZK Blockchain', 'Climate-Tech', 'Open Innovation'],
+    link: REGISTRATION_LINK,
+    deadline: '18th - 19th Sep 2026',
+    targetDate: '2026-09-18T23:59:59'
+  },
+  {
+    id: 'techsurge-2k26-bvrit',
+    title: 'TECHSURGE 2K26 – BVRIT, Telangana',
+    category: '28-Hour Hackathon',
+    prizePool: '₹1,00,000+ Prizes',
+    duration: '28-Hour Hackathon',
+    mode: 'BVRIT Narsapur, Telangana',
+    status: 'Registration Open',
+    statusColor: 'bg-purple-600',
+    badge: 'BVRIT Telangana',
+    thumbnail: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+    description: '28-hour national hackathon across 5 tech domains hosted at BVRIT Narsapur with ₹1 Lakh+ in cash prizes.',
+    techStack: ['5 Tech Domains', 'AI/ML', 'IoT & Embedded', 'Web Dev'],
+    link: REGISTRATION_LINK,
+    deadline: '18th - 19th Sep 2026',
+    targetDate: '2026-09-18T23:59:59'
+  },
+  {
+    id: 'semicon-india-hackathon-2026',
+    title: 'SEMICON India Hackathon 2026',
+    category: 'Semiconductor & Hardware',
+    prizePool: 'Top 10 Teams Awards',
+    duration: '17th - 19th Sept',
+    mode: 'Industry-Defined Problems',
+    status: 'Live Now',
+    statusColor: 'bg-amber-600',
+    badge: 'Semiconductor India',
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    description: 'Semiconductor & electronics focused hackathon for UG, PG, and PhD students solving industry-defined hardware and IoT problems.',
+    techStack: ['Semiconductors', 'Electronics', 'Embedded Systems', 'IoT'],
+    link: REGISTRATION_LINK,
+    deadline: '17th - 19th Sep 2026',
+    targetDate: '2026-09-19T23:59:59'
+  },
+  {
+    id: 'algonation-2026',
+    title: 'AlgoNation 2026',
+    category: 'Software & AI Challenge',
+    prizePool: 'Cash & National Ranking',
+    duration: 'Multi-category Challenge',
+    mode: 'Online / Virtual',
+    status: 'Registration Open',
+    statusColor: 'bg-sky-600',
+    badge: 'AlgoNation',
+    thumbnail: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+    description: 'Categories include Software Development, Vibe Coding, Digital Marketing, Core AI, and Startup Idea Challenge.',
+    techStack: ['Software Dev', 'Vibe Coding', 'Core AI', 'Startup Idea'],
+    link: REGISTRATION_LINK,
+    deadline: '20th Sep 2026',
+    targetDate: '2026-09-20T23:59:59'
+  },
+  {
+    id: 'hackronyx-2026',
+    title: 'HackRonyX 2.0',
+    category: 'National Hackathon',
+    prizePool: '₹1,00,000 Prize Pool',
+    duration: 'National Level Sprint',
+    mode: 'Virtual & On-site',
+    status: 'Upcoming',
+    statusColor: 'bg-rose-600',
+    badge: 'HackRonyX',
+    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    description: 'National-level hackathon featuring a ₹1 Lakh prize pool for student innovators and developer teams across India.',
+    techStack: ['Web3', 'AI Solutions', 'Open Innovation', 'App Dev'],
+    link: REGISTRATION_LINK,
+    deadline: '26th Sep 2026',
+    targetDate: '2026-09-26T23:59:59'
+  },
+  {
+    id: 'mindcraft-2k26',
+    title: 'MINDCRAFT 2K26 – CSI × D.Y. Patil',
+    category: 'College Hackathon',
+    prizePool: '₹1,00,000 Prize Pool',
+    duration: '24-Hour Code Sprint',
+    mode: 'CSI × D.Y. Patil College',
+    status: 'Upcoming',
+    statusColor: 'bg-violet-600',
+    badge: 'CSI × D.Y. Patil',
+    thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    description: 'Flagship tech hackathon by CSI in collaboration with D.Y. Patil College featuring ₹1 Lakh in rewards.',
+    techStack: ['Full Stack', 'Cloud & AI', 'Problem Solving', 'Innovation'],
+    link: REGISTRATION_LINK,
+    deadline: '4th Oct 2026',
+    targetDate: '2026-10-04T23:59:59'
+  },
+  {
     id: 'iqoo-hackathon',
     title: 'iQOO Hackathon 2026 · City Battles',
     category: 'Mobile & AI',
@@ -136,74 +272,6 @@ const HACKATHONS: Hackathon[] = [
     link: 'https://hacker-house-goa-2026.devfolio.co/',
     deadline: '28th Oct 2026',
     targetDate: '2026-10-28T23:59:59'
-  },
-  {
-    id: 'terrier-cyber-quest',
-    title: 'Terrier Cyber Quest (TCQ) 2026',
-    category: 'Cyber Security',
-    prizePool: '₹1,500,000+ Pool',
-    duration: 'National Cyber Sprint',
-    mode: 'Virtual CTF & Finals',
-    status: 'Live Now',
-    statusColor: 'bg-indigo-600',
-    badge: 'Indian Army TA',
-    thumbnail: 'https://cdn.prod.website-files.com/65e805010a6848c49c0187ed/6a6991cedfaeaa73d0b90867_OGICard%20-%20AI%20Network%20Sphere%20Hero%20(2)%20(1).jpg',
-    description: 'Flagship cyber security innovation challenge by the Indian Army Territorial Army to foster national ethical hacking & defense skills.',
-    techStack: ['Cyber Defense', 'CTF / Ethical Hacking', 'AI Security', 'Network Analysis'],
-    link: 'https://www.cyberchallenge.in/tcq2026',
-    deadline: '31st Aug 2026 (Extended)',
-    targetDate: '2026-08-31T23:59:59'
-  },
-  {
-    id: 'nasa-space-apps',
-    title: 'NASA International Space Apps Challenge 2026',
-    category: 'Global Space & AI',
-    prizePool: 'NASA Global Awards & Mentorship',
-    duration: '48 Hours Global Sprint',
-    mode: 'Worldwide & Virtual',
-    status: 'Registration Open',
-    statusColor: 'bg-blue-600',
-    badge: 'NASA & Space Partners',
-    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-    description: 'The world’s largest open space & science hackathon by NASA to solve challenges on Earth and space using open NASA data.',
-    techStack: ['Space Tech', 'AI & Data Science', 'Earth Observation', 'Aerospace'],
-    link: 'https://www.spaceappschallenge.org/',
-    deadline: '14th Nov 2026',
-    targetDate: '2026-11-14T23:59:59'
-  },
-  {
-    id: '5g-telecom-hackathon',
-    title: '5G & 6G Telecom Innovation Hackathon 2026',
-    category: 'Telecom & IoT',
-    prizePool: '₹10,00,000 Prizes & ₹1L Prototype Funding',
-    duration: '12-Week Prototype Sprint',
-    mode: 'Hybrid & DoT Labs',
-    status: 'Live Now',
-    statusColor: 'bg-emerald-600',
-    badge: 'Dept of Telecom (DoT)',
-    thumbnail: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80',
-    description: 'National 5G/6G use case hackathon by Department of Telecommunications (DoT) for AI/ML, IoT, Network Slicing & Next-Gen Telecom.',
-    techStack: ['5G / 6G Networks', 'Telecom AI/ML', 'IoT & Smart Cities', 'Network Slicing'],
-    link: 'https://eservices.dot.gov.in/5ghackathon/',
-    deadline: '26th April 2026',
-    targetDate: '2026-04-26T23:59:59'
-  },
-  {
-    id: 'smart-india-hackathon',
-    title: 'Smart India Hackathon (SIH) 2025',
-    category: 'Govt Initiative',
-    prizePool: '₹1,00,000 / Problem',
-    duration: '36 Hours Non-Stop',
-    mode: 'Nationwide & Virtual',
-    status: 'Registration Open',
-    statusColor: 'bg-amber-600',
-    badge: 'MoE Innovation Cell',
-    thumbnail: 'https://sih.gov.in/img1/slider2026/sih2026-launch-3.png',
-    description: 'World’s biggest open innovation model by Ministry of Education & AICTE to solve real-world nation-building challenges.',
-    techStack: ['AI & Software', 'Hardware & IoT', 'Blockchain', 'Cybersecurity', 'CleanTech'],
-    link: 'https://sih.gov.in/',
-    deadline: 'Submissions Active',
-    targetDate: '2026-09-30T23:59:59'
   }
 ];
 
@@ -2774,14 +2842,14 @@ const App: React.FC = () => {
 
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {['All', 'Mobile & AI', 'AI & Web3', 'Cyber Security', 'Global Space & AI', 'Telecom & IoT', 'Govt Initiative'].map(cat => (
+              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full md:w-auto shrink-0">
+                {['All', 'AI & Software', 'Virtual Hackathon', 'Multi-Track Hackathon', '28-Hour Hackathon', 'Semiconductor & Hardware', 'Software & AI Challenge', 'National Hackathon', 'College Hackathon', 'Mobile & AI', 'AI & Web3'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setHackathonCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all shrink-0 active:scale-95 ${
                       hackathonCategory === cat
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md scale-105'
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md scale-105 animate-spring-pop'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
@@ -3007,14 +3075,14 @@ const App: React.FC = () => {
 
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full md:w-auto shrink-0">
                 {['All', 'AI & Data', 'Web Dev', 'Cybersecurity', 'Cloud & DevOps', 'Design'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setWorkshopCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all shrink-0 active:scale-95 ${
                       workshopCategory === cat
-                        ? 'bg-indigo-600 text-white shadow-md scale-105'
+                        ? 'bg-indigo-600 text-white shadow-md scale-105 animate-spring-pop'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
@@ -3188,14 +3256,14 @@ const App: React.FC = () => {
 
             {/* Filter & Search Bar */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full md:w-auto shrink-0">
                 {['All', 'Summits', 'Competitions', 'Webinars', 'Meetups'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setEventCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all shrink-0 active:scale-95 ${
                       eventCategory === cat
-                        ? 'bg-purple-600 text-white shadow-md scale-105'
+                        ? 'bg-purple-600 text-white shadow-md scale-105 animate-spring-pop'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
@@ -3704,6 +3772,96 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Floating Bottom Navigation Dock */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden w-[94vw] max-w-md">
+        <div className="bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-full px-3 py-2 shadow-2xl flex items-center justify-around animate-dock-glow">
+          <button
+            onClick={() => {
+              setView('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
+              view === 'home'
+                ? 'text-indigo-400 font-black animate-spring-pop'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <div className={`p-1.5 rounded-full transition-colors ${view === 'home' ? 'bg-indigo-500/20 text-indigo-400 ring-2 ring-indigo-500/50' : ''}`}>
+              <Home size={18} />
+            </div>
+            <span className="text-[10px] tracking-tight font-extrabold">Home</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setView('workshops');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
+              view === 'workshops'
+                ? 'text-indigo-400 font-black animate-spring-pop'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <div className={`p-1.5 rounded-full transition-colors ${view === 'workshops' ? 'bg-indigo-500/20 text-indigo-400 ring-2 ring-indigo-500/50' : ''}`}>
+              <BookOpen size={18} />
+            </div>
+            <span className="text-[10px] tracking-tight font-extrabold">Workshops</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setView('events');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
+              view === 'events'
+                ? 'text-purple-400 font-black animate-spring-pop'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <div className={`p-1.5 rounded-full transition-colors ${view === 'events' ? 'bg-purple-500/20 text-purple-400 ring-2 ring-purple-500/50' : ''}`}>
+              <Calendar size={18} />
+            </div>
+            <span className="text-[10px] tracking-tight font-extrabold">Events</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setView('hackathons');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
+              view === 'hackathons'
+                ? 'text-amber-400 font-black animate-spring-pop'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <div className={`p-1.5 rounded-full transition-colors ${view === 'hackathons' ? 'bg-amber-500/20 text-amber-400 ring-2 ring-amber-500/50' : ''}`}>
+              <Trophy size={18} />
+            </div>
+            <span className="text-[10px] tracking-tight font-extrabold">Hackathons</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setView('careers');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
+              view === 'careers'
+                ? 'text-emerald-400 font-black animate-spring-pop'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <div className={`p-1.5 rounded-full transition-colors ${view === 'careers' ? 'bg-emerald-500/20 text-emerald-400 ring-2 ring-emerald-500/50' : ''}`}>
+              <Briefcase size={18} />
+            </div>
+            <span className="text-[10px] tracking-tight font-extrabold">Careers</span>
+          </button>
+        </div>
+      </div>
       </div>
     </div>
   );
