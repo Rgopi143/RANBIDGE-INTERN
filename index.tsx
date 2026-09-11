@@ -995,7 +995,7 @@ const Navigation: React.FC<{
   }, [isInternshipDropdownOpen]);
 
   return (
-  <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? HEADER_CONFIG.transparentBg : HEADER_CONFIG.solidBg}`}>
+  <nav className={`sticky top-0 z-[100] transition-all duration-300 ${scrolled ? HEADER_CONFIG.transparentBg : HEADER_CONFIG.solidBg}`}>
     <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-16">
         <button onClick={() => setView('home')} className="hidden md:flex items-center gap-3">
@@ -1004,71 +1004,88 @@ const Navigation: React.FC<{
             RANBIDGE SOLUTIONS
           </span>
         </button>
-        <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-7 overflow-x-auto no-scrollbar py-1">
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-7 overflow-visible py-1">
           <button onClick={() => setView('home')} className={`text-sm font-bold flex items-center gap-2 transition-all shrink-0 ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
             <Home size={16} /> Home
           </button>
           
           {/* Internship Dropdown */}
-          <div className="relative internship-dropdown shrink-0">
+          <div className="relative internship-dropdown shrink-0 z-50">
             <button 
               onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
-              className={`text-sm font-bold flex items-center gap-2 transition-all ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}
+              className={`text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer py-1.5 ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'}`}
             >
               <Briefcase size={16} /> Internship
-              <ChevronDown size={14} className={`transition-transform ${isInternshipDropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={14} className={`transition-transform duration-200 ${isInternshipDropdownOpen ? 'rotate-180 text-indigo-600' : ''}`} />
             </button>
             
             {isInternshipDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50 animate-dropdown-fade">
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5">
+                <div className="px-4 py-1 border-b border-slate-100 mb-1">
+                  <span className="text-[10px] font-black tracking-widest text-slate-400 uppercase">Internship Tracks</span>
+                </div>
                 <button 
                   onClick={() => { setView('unpaid-internship'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'unpaid-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-3 hover:bg-indigo-50/80 transition-colors ${view === 'unpaid-internship' ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-slate-700'}`}
                 >
-                  <Heart size={16} />
+                  <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+                    <Heart size={16} />
+                  </div>
                   <div>
-                    <div className="font-semibold">Unpaid Internship</div>
-                    <div className="text-xs text-slate-500">Focus on skill building</div>
+                    <div className="font-extrabold text-xs text-slate-900">Unpaid Internship</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Focus on skill building</div>
                   </div>
                 </button>
+
                 <button 
                   onClick={() => { setView('paid-internship'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'paid-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-3 hover:bg-indigo-50/80 transition-colors ${view === 'paid-internship' ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-slate-700'}`}
                 >
-                  <DollarSign size={16} />
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                    <DollarSign size={16} />
+                  </div>
                   <div>
-                    <div className="font-semibold">Paid Internship</div>
-                    <div className="text-xs text-slate-500">Earn while you learn</div>
+                    <div className="font-extrabold text-xs text-slate-900">Paid Internship</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Earn stipend while learning</div>
                   </div>
                 </button>
+
                 <button 
                   onClick={() => { setView('virtual-internship'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'virtual-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-3 hover:bg-indigo-50/80 transition-colors ${view === 'virtual-internship' ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-slate-700'}`}
                 >
-                  <Briefcase size={16} />
+                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <Briefcase size={16} />
+                  </div>
                   <div>
-                    <div className="font-semibold">Virtual Internship</div>
-                    <div className="text-xs text-slate-500">Remote work opportunities</div>
+                    <div className="font-extrabold text-xs text-slate-900">Virtual Internship</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Remote work opportunities</div>
                   </div>
                 </button>
+
                 <button 
                   onClick={() => { setView('one-on-one-mentorship'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'one-on-one-mentorship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-3 hover:bg-indigo-50/80 transition-colors ${view === 'one-on-one-mentorship' ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-slate-700'}`}
                 >
-                  <GraduationCap size={16} />
+                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                    <GraduationCap size={16} />
+                  </div>
                   <div>
-                    <div className="font-semibold">One-on-One Mentorship</div>
-                    <div className="text-xs text-slate-500">Personalized guidance</div>
+                    <div className="font-extrabold text-xs text-slate-900">One-on-One Mentorship</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Personalized guidance</div>
                   </div>
                 </button>
+
                 <button 
                   onClick={() => { setView('final-year-projects'); setIsInternshipDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'final-year-projects' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-3 hover:bg-indigo-50/80 transition-colors ${view === 'final-year-projects' ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-slate-700'}`}
                 >
-                  <Target size={16} />
+                  <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+                    <Target size={16} />
+                  </div>
                   <div>
-                    <div className="font-semibold">Final Year Projects</div>
-                    <div className="text-xs text-slate-500">Academic project development</div>
+                    <div className="font-extrabold text-xs text-slate-900">Final Year Projects</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Academic project build</div>
                   </div>
                 </button>
               </div>
