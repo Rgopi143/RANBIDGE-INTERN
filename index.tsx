@@ -81,6 +81,7 @@ type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-me
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
 const REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdrzYAVBF9rEFV7zcs_p0a_St8qGcnEsltEvdI-ZULHlO5Xbg/viewform?usp=header";
+const WORKSHOP_REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSez8fRKT6lnom84WEM58Qo8epokcgb5pZsKyaJHpVE_tAqMxQ/viewform?usp=dialog";
 const FINAL_YEAR_PROJECTS_LINK = "https://forms.gle/DHavgijonoyLcLfG6";
 const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd1y7_LR5N5bBTdIq8C_icunlUbh0h0SQNj6ukiHXAOZSVKHA/viewform?usp=dialog";
 const MENTORSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
@@ -324,7 +325,7 @@ const WORKSHOPS: Workshop[] = [
     thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
     description: 'Build real-world AI applications using LangChain, OpenAI APIs, and Vector Databases in a live coding masterclass.',
     keyTopics: ['Prompt Engineering & Fine-tuning', 'LangChain & Vector Databases', 'RAG Architecture Implementation', 'Deploying AI Chatbots'],
-    link: REGISTRATION_LINK
+    link: WORKSHOP_REGISTRATION_LINK
   },
   {
     id: 'fullstack-mern-bootcamp',
@@ -340,7 +341,7 @@ const WORKSHOPS: Workshop[] = [
     thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
     description: 'Learn modern React 19, Node.js microservices, MongoDB schema design, and Dockerized cloud deployment.',
     keyTopics: ['React 19 & Next.js App Router', 'Node.js & Express REST APIs', 'Authentication & JWT Tokens', 'Cloud Deployment on Vercel/AWS'],
-    link: REGISTRATION_LINK
+    link: WORKSHOP_REGISTRATION_LINK
   },
   {
     id: 'cybersecurity-hands-on',
@@ -356,7 +357,7 @@ const WORKSHOPS: Workshop[] = [
     thumbnail: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
     description: 'Master OWASP Top 10 vulnerabilities, penetration testing tools, Kali Linux command line, and defense mechanisms.',
     keyTopics: ['Web Pen-Testing & Vulnerabilities', 'Burp Suite & Wireshark Labs', 'SQL Injection & XSS Attack Defense', 'Security Hardening Checklist'],
-    link: REGISTRATION_LINK
+    link: WORKSHOP_REGISTRATION_LINK
   },
   {
     id: 'powerbi-data-analytics',
@@ -372,7 +373,7 @@ const WORKSHOPS: Workshop[] = [
     thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
     description: 'Transform raw datasets into actionable executive dashboards using Advanced Excel, SQL, and Power BI DAX formulas.',
     keyTopics: ['SQL Queries & Data Cleaning', 'Power BI Data Modeling', 'DAX Measures & KPI Charts', 'Interactive Business Dashboards'],
-    link: REGISTRATION_LINK
+    link: WORKSHOP_REGISTRATION_LINK
   },
   {
     id: 'cloud-devops-bootcamp',
@@ -388,7 +389,7 @@ const WORKSHOPS: Workshop[] = [
     thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
     description: 'Hands-on session covering Docker containers, GitHub Actions CI/CD pipelines, EC2 deployment, and Kubernetes basics.',
     keyTopics: ['Dockerization of Web Apps', 'AWS EC2, S3 & CloudFront', 'CI/CD with GitHub Actions', 'Kubernetes Architecture Basics'],
-    link: REGISTRATION_LINK
+    link: WORKSHOP_REGISTRATION_LINK
   },
   {
     id: 'uiux-figma-masterclass',
@@ -404,7 +405,7 @@ const WORKSHOPS: Workshop[] = [
     thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
     description: 'Learn wireframing, Auto-Layout 5.0 in Figma, component tokens, user testing, and smooth developer handoff.',
     keyTopics: ['Figma Auto-Layout & Variants', 'Building Design Systems', 'User Research & Wireframing', 'Interactive Micro-Animations'],
-    link: REGISTRATION_LINK
+    link: WORKSHOP_REGISTRATION_LINK
   }
 ];
 
@@ -3030,7 +3031,7 @@ const App: React.FC = () => {
               Elevate your practical skills through intensive live coding workshops led by senior industry engineers and architects.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href={REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-700 transition-all shadow-md flex items-center gap-2">
+              <a href={WORKSHOP_REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-700 transition-all shadow-md flex items-center gap-2">
                 <BookOpen size={16} /> Register for Workshop
               </a>
               <button onClick={() => setView('home')} className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
