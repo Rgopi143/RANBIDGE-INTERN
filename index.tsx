@@ -934,13 +934,13 @@ const Navigation: React.FC<{
             RANBIDGE SOLUTIONS
           </span>
         </button>
-        <div className="hidden md:flex items-center gap-5 lg:gap-7">
-          <button onClick={() => setView('home')} className={`text-sm font-bold flex items-center gap-2 transition-all ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-7 overflow-x-auto no-scrollbar py-1">
+          <button onClick={() => setView('home')} className={`text-sm font-bold flex items-center gap-2 transition-all shrink-0 ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
             <Home size={16} /> Home
           </button>
           
           {/* Internship Dropdown */}
-          <div className="relative internship-dropdown">
+          <div className="relative internship-dropdown shrink-0">
             <button 
               onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
               className={`text-sm font-bold flex items-center gap-2 transition-all ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}
@@ -1008,7 +1008,7 @@ const Navigation: React.FC<{
           {/* Hackathons Button */}
           <button 
             onClick={() => setView('hackathons')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
               view === 'hackathons' ? 'text-amber-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-amber-600'
             }`}
           >
@@ -1022,7 +1022,7 @@ const Navigation: React.FC<{
           {/* Workshops Button */}
           <button 
             onClick={() => setView('workshops')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
               view === 'workshops' ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'
             }`}
           >
@@ -1036,7 +1036,7 @@ const Navigation: React.FC<{
           {/* Events Button */}
           <button 
             onClick={() => setView('events')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
               view === 'events' ? 'text-purple-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-purple-600'
             }`}
           >
@@ -1050,7 +1050,7 @@ const Navigation: React.FC<{
           {/* Careers Button */}
           <button 
             onClick={() => setView('careers')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
               view === 'careers' ? 'text-emerald-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-emerald-600'
             }`}
           >
