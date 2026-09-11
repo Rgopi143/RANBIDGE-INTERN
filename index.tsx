@@ -117,7 +117,7 @@ const HACKATHONS: Hackathon[] = [
     thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
     description: 'National AI challenge focused on next-generation AI applications. Open for students and working professionals in teams of 1–5.',
     techStack: ['Next-Gen AI', 'LLM Apps', 'Machine Learning', 'Full Stack'],
-    link: REGISTRATION_LINK,
+    link: 'https://www.ziroh.com/hackathon?utm_source=chatgpt.com',
     deadline: '18th Sep 2026',
     targetDate: '2026-09-18T23:59:59'
   },
@@ -134,7 +134,7 @@ const HACKATHONS: Hackathon[] = [
     thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
     description: 'Fully online national hackathon open across India for solo builders or teams up to 4. Rolling 48-hour build with internship opportunities.',
     techStack: ['Software Dev', 'AI & Web Apps', 'Final Year Projects', 'Full Stack'],
-    link: REGISTRATION_LINK,
+    link: 'https://hackathon.codemyfyp.com/?utm_source=chatgpt.com',
     deadline: '18th Sep 2026, 11:59 PM IST',
     targetDate: '2026-09-18T23:59:59'
   },
@@ -185,7 +185,7 @@ const HACKATHONS: Hackathon[] = [
     thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
     description: 'Semiconductor & electronics focused hackathon for UG, PG, and PhD students solving industry-defined hardware and IoT problems.',
     techStack: ['Semiconductors', 'Electronics', 'Embedded Systems', 'IoT'],
-    link: REGISTRATION_LINK,
+    link: 'https://www.semiconindia.org/special-features-2026/Hackathon?utm_source=chatgpt.com',
     deadline: '17th - 19th Sep 2026',
     targetDate: '2026-09-19T23:59:59'
   },
@@ -202,7 +202,7 @@ const HACKATHONS: Hackathon[] = [
     thumbnail: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
     description: 'Categories include Software Development, Vibe Coding, Digital Marketing, Core AI, and Startup Idea Challenge.',
     techStack: ['Software Dev', 'Vibe Coding', 'Core AI', 'Startup Idea'],
-    link: REGISTRATION_LINK,
+    link: 'https://www.algonation.org/register?utm_source=chatgpt.com',
     deadline: '20th Sep 2026',
     targetDate: '2026-09-20T23:59:59'
   },
