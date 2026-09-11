@@ -76,7 +76,7 @@ interface Hackathon {
   targetDate?: string;
 }
 
-type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons' | 'workshops' | 'events' | 'careers';
+type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'research-internship' | 'final-year-projects' | 'hackathons' | 'workshops' | 'events' | 'careers';
 
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
@@ -88,6 +88,7 @@ const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd1y7_
 const MENTORSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const PAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const UNPAID_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
+const RESEARCH_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
 const HACKATHON_LINK = "https://sih.gov.in/";
 const WHATSAPP_CHAT_LINK = "https://wa.me/8247392437?text=Hello%20RANBIDGE%21%20%F0%9F%20I%20hope%20you're%20having%20a%20great%20day.%20I'm%20interested%20in%20your%20internship%20programs%20and%20would%20love%20to%20learn%20more%20about%20the%20opportunities%20available.%20Could%20you%20please%20share%20some%20details%3F%20Thank%20you!";
 const LINKEDIN_LINK = "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376/";
@@ -105,6 +106,23 @@ const HEADER_CONFIG = {
 };
 
 const HACKATHONS: Hackathon[] = [
+  {
+    id: 'smart-india-hackathon-2026',
+    title: 'Smart India Hackathon 2026 (SIH)',
+    category: 'Government & Open Innovation',
+    prizePool: '₹1 Lakh per Problem Statement',
+    duration: '36-Hour Non-stop Build',
+    mode: 'Pan-India (Nodal Centers)',
+    status: 'Registration Open',
+    statusColor: 'bg-emerald-600',
+    badge: 'Ministry of Education & AICTE',
+    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    description: 'World\'s biggest open innovation initiative by Govt. of India to solve pressing challenges of ministries, departments, industries, and PSUs.',
+    techStack: ['Hardware Edition', 'Software Edition', 'AI/ML', 'Govt Tech', 'IoT'],
+    link: HACKATHON_LINK,
+    deadline: 'Pan-India Annual Edition',
+    targetDate: '2026-10-15T23:59:59'
+  },
   {
     id: 'build-next-2026',
     title: 'Build Next 2026 – ZIROH LABS',
@@ -1024,7 +1042,7 @@ const Navigation: React.FC<{
           <div className="relative internship-dropdown shrink-0 z-50">
             <button 
               onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
-              className={`text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer py-1.5 ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'}`}
+              className={`text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer py-1.5 ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'research-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'}`}
             >
               <Briefcase size={16} /> Internship
               <ChevronDown size={14} className={`transition-transform duration-200 ${isInternshipDropdownOpen ? 'rotate-180 text-indigo-600' : ''}`} />
@@ -1061,6 +1079,19 @@ const Navigation: React.FC<{
                   <div>
                     <div className="font-extrabold text-xs text-slate-900">Paid Internship</div>
                     <div className="text-[11px] text-slate-500 font-medium">Earn stipend while learning</div>
+                  </div>
+                </button>
+
+                <button 
+                  onClick={() => { setView('research-internship'); setIsInternshipDropdownOpen(false); }}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-3 hover:bg-indigo-50/80 transition-colors ${view === 'research-internship' ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-slate-700'}`}
+                >
+                  <div className="w-8 h-8 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center shrink-0">
+                    <Sparkles size={16} />
+                  </div>
+                  <div>
+                    <div className="font-extrabold text-xs text-slate-900">Research Internship</div>
+                    <div className="text-[11px] text-slate-500 font-medium">IEEE/Springer papers & AI labs</div>
                   </div>
                 </button>
 
@@ -1185,7 +1216,7 @@ const MobileDock: React.FC<{ view: View; setView: (view: View) => void }> = ({ v
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden w-[92vw] max-w-md bg-slate-900/95 backdrop-blur-xl border border-white/20 rounded-full px-3 py-2 text-white shadow-2xl animate-dock-glow flex items-center justify-around">
       {dockItems.map((item) => {
         const isActive = view === item.id || 
-          (item.id === 'virtual-internship' && ['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view));
+          (item.id === 'virtual-internship' && ['unpaid-internship', 'paid-internship', 'virtual-internship', 'research-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view));
         
         return (
           <button
@@ -1371,7 +1402,7 @@ const App: React.FC = () => {
   // Initialize view from URL hash on component mount
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove the # symbol
-    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects', 'hackathons', 'workshops', 'events', 'careers'].includes(hash)) {
+    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'research-internship', 'final-year-projects', 'hackathons', 'workshops', 'events', 'careers'].includes(hash)) {
       setView(hash as View);
     }
   }, []);
@@ -2337,6 +2368,176 @@ const App: React.FC = () => {
             <a href={PAID_INTERNSHIP_LINK} target="_blank" className="inline-block px-6 py-3 bg-white text-green-700 rounded-xl text-xs sm:text-sm font-black hover:bg-green-50 transition-all shadow-md">
               Apply for Paid Internship - Limited Positions
             </a>
+          </div>
+
+          <div className="mt-8 pt-4 flex justify-center">
+            <button 
+              onClick={() => setView('home')} 
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
+            >
+              <Home size={16} /> Return to Home
+            </button>
+          </div>
+        </main>
+      )}
+
+      {view === 'research-internship' && (
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-[11px] font-black mb-4 tracking-widest uppercase border border-teal-200/50">
+              <Sparkles size={13} className="text-teal-600" /> Publication & R&D Focus
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+              Research <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-indigo-600 to-cyan-600">Internship</span> Program
+            </h1>
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Advance cutting-edge technologies, co-author IEEE & Springer research papers, patent novel algorithms, and build advanced AI & deep-tech solutions with guidance from top academic and industry R&D mentors.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a 
+                href={RESEARCH_INTERNSHIP_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="px-6 py-3 bg-teal-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-teal-700 transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] active:scale-95"
+              >
+                <Sparkles size={16} /> Apply for Research Track
+              </a>
+              <a 
+                href={WHATSAPP_CHAT_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-xs border border-slate-200 flex items-center gap-2 hover:border-teal-300"
+              >
+                <MessageSquare size={16} className="text-teal-600" /> Talk to Research Advisor
+              </a>
+            </div>
+          </div>
+
+          {/* Key Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
+            {[
+              { icon: <FileText className="text-teal-600" />, title: "IEEE & Springer Papers", desc: "Co-author paper submissions in Scopus-indexed conferences & journals." },
+              { icon: <Target className="text-teal-600" />, title: "Patent Guidance", desc: "Convert novel algorithms and software architectures into IP assets." },
+              { icon: <GraduationCap className="text-teal-600" />, title: "MS / PhD Mentorship", desc: "Direct guidance from experienced PhD scholars and R&D leads." },
+              { icon: <Zap className="text-teal-600" />, title: "Deep Tech & AI Labs", desc: "High-performance compute access for model training & dataset experiments." },
+              { icon: <Award className="text-teal-600" />, title: "Academic LOR & Credit", desc: "Official Letter of Recommendation and university thesis support." },
+              { icon: <Users className="text-teal-600" />, title: "Peer Collaboration", desc: "Work alongside passionate student researchers and research engineers." }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all group">
+                <div className="mb-3 w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-all">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Research Domains */}
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Research <span className="text-teal-600">Domains</span></h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">Explore key focus areas where our interns conduct breakthrough research</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                {
+                  title: "Generative AI & LLM Systems",
+                  badge: "AI Research",
+                  img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                  desc: "Investigate transformer architectures, prompt optimization, RAG evaluation, and parameter-efficient fine-tuning (LoRA).",
+                  topics: ["LLM Evaluation Metrics", "Retrieval Augmented Generation", "Vision-Language Models"]
+                },
+                {
+                  title: "Cybersecurity & Cryptography",
+                  badge: "Security R&D",
+                  img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                  desc: "Explore post-quantum cryptographic primitives, zero-knowledge proofs (zk-SNARKs), and privacy-preserving ML.",
+                  topics: ["Zero-Knowledge Proofs", "Post-Quantum Algorithms", "Federated Learning Privacy"]
+                },
+                {
+                  title: "BioInformatics & Healthcare AI",
+                  badge: "Medical Tech",
+                  img: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+                  desc: "Apply deep learning to medical image segmentation, protein structure prediction, and electronic health record forecasting.",
+                  topics: ["3D Medical Segmentation", "Genomic Pattern Analysis", "Predictive Clinical AI"]
+                },
+                {
+                  title: "Autonomous Robotics & Edge Vision",
+                  badge: "Embedded AI",
+                  img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+                  desc: "Develop lightweight computer vision models for edge devices, SLAM navigation, and real-time sensor fusion systems.",
+                  topics: ["Real-time Object Detection", "Visual SLAM & Mapping", "TinyML Edge Optimization"]
+                }
+              ].map((domain, idx) => (
+                <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-2xl transition-all border border-slate-100 flex flex-col h-full transform hover:-translate-y-1">
+                  <div className="relative h-44 overflow-hidden bg-slate-100">
+                    <img src={domain.img} alt={domain.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 bg-teal-600/90 backdrop-blur-md text-white text-[10px] font-bold rounded-full">{domain.badge}</span>
+                    </div>
+                  </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-base font-black text-slate-900 mb-2">{domain.title}</h3>
+                    <p className="text-xs text-slate-600 mb-4 leading-relaxed">{domain.desc}</p>
+                    <div className="mt-auto">
+                      <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Key Focus Areas</h4>
+                      <ul className="space-y-1.5 mb-4">
+                        {domain.topics.map((t, tIdx) => (
+                          <li key={tIdx} className="text-[11px] text-slate-700 font-medium flex items-center gap-1.5">
+                            <div className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0" />
+                            {t}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Research Workflow */}
+          <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white mb-10 shadow-xl border border-slate-800">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="px-3 py-1 bg-teal-500/20 text-teal-300 text-[10px] font-black uppercase tracking-widest rounded-full border border-teal-500/30">
+                Step-by-Step Methodology
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black mt-3 mb-2">From Idea to Scopus Publication</h2>
+              <p className="text-xs sm:text-sm text-slate-400">Structured 4-stage research pathway designed for high acceptance rates</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { step: "01", title: "Topic & Literature Review", desc: "Identify novelty and research gaps with your PhD mentor." },
+                { step: "02", title: "Code & Dataset Building", desc: "Run experiments, evaluate benchmarks, and analyze dataset metrics." },
+                { step: "03", title: "LaTeX Manuscript Drafting", desc: "Format paper according to IEEE / Springer conference templates." },
+                { step: "04", title: "Peer Review & Publication", desc: "Address reviewer feedback and publish co-authored research paper." }
+              ].map((st, sIdx) => (
+                <div key={sIdx} className="bg-slate-800/80 p-5 rounded-2xl border border-slate-700/60 relative">
+                  <span className="text-3xl font-black text-teal-400/30 block mb-2">{st.step}</span>
+                  <h3 className="text-sm font-black text-white mb-1.5">{st.title}</h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">{st.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center bg-gradient-to-r from-teal-700 via-indigo-700 to-slate-900 rounded-3xl p-8 md:p-10 text-white mb-10 shadow-2xl relative overflow-hidden">
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-black mb-3">Begin Your Scientific Journey Today</h2>
+              <p className="text-xs sm:text-sm mb-6 text-teal-100 leading-relaxed">
+                Join our Research Internship Track, work on impactful problems, and graduate with published research papers and patents.
+              </p>
+              <a 
+                href={RESEARCH_INTERNSHIP_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-400 text-slate-950 rounded-xl text-xs sm:text-sm font-black hover:bg-teal-300 transition-all shadow-lg hover:scale-105 active:scale-95"
+              >
+                <Sparkles size={16} /> Apply for Research Internship
+              </a>
+            </div>
           </div>
 
           <div className="mt-8 pt-4 flex justify-center">
@@ -3819,6 +4020,7 @@ const App: React.FC = () => {
                 <li><button onClick={() => setView('unpaid-internship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Unpaid Internship</button></li>
                 <li><button onClick={() => setView('paid-internship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Paid Internship</button></li>
                 <li><button onClick={() => setView('virtual-internship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Virtual Internship</button></li>
+                <li><button onClick={() => setView('research-internship')} className="font-semibold text-slate-700 hover:text-teal-600 transition-colors">Research Internship</button></li>
               </ul>
             </div>
 
