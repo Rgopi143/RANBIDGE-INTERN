@@ -997,7 +997,7 @@ const Navigation: React.FC<{
 }> = ({ view, setView, scrolled }) => {
   const [isInternshipDropdownOpen, setIsInternshipDropdownOpen] = useState(false);
 
-  // Close dropdown on click outside or when page scrolls
+  // Close dropdown on click outside
   useEffect(() => {
     if (!isInternshipDropdownOpen) return;
 
@@ -1010,16 +1010,10 @@ const Navigation: React.FC<{
       }
     };
 
-    const handleScroll = () => {
-      setIsInternshipDropdownOpen(false);
-    };
-
     document.addEventListener('mousedown', handleClickOutside);
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, [isInternshipDropdownOpen]);
 
@@ -1050,7 +1044,7 @@ const Navigation: React.FC<{
             
             {isInternshipDropdownOpen && (
               <div 
-                className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5 overscroll-contain"
+                className="absolute top-full left-0 mt-2 w-68 sm:w-72 max-h-[calc(100vh-90px)] sm:max-h-[80vh] overflow-y-auto dropdown-scrollable bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5 overscroll-contain"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="px-4 py-1 border-b border-slate-100 mb-1">

@@ -45,6 +45,29 @@
       scrollbar-width: none;  /* Firefox */
     }
 
+    /* Dropdown Scrollbar Utility */
+    .dropdown-scrollable {
+      -ms-overflow-style: auto !important;
+      scrollbar-width: thin !important;
+      scrollbar-color: rgba(99, 102, 241, 0.4) transparent !important;
+    }
+    .dropdown-scrollable::-webkit-scrollbar {
+      width: 5px !important;
+      height: 5px !important;
+      display: block !important;
+    }
+    .dropdown-scrollable::-webkit-scrollbar-track {
+      background: rgba(241, 245, 249, 0.6) !important;
+      border-radius: 8px !important;
+    }
+    .dropdown-scrollable::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.6) !important;
+      border-radius: 8px !important;
+    }
+    .dropdown-scrollable::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.9) !important;
+    }
+
     /* Ambient Animated Mesh Background */
     .bg-mesh-pattern {
       background-image: 
