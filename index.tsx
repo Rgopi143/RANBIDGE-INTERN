@@ -3290,54 +3290,7 @@ const App: React.FC = () => {
             )}
           </div>
 
-          {/* Highlights & Benefits */}
-          <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mb-10 border border-slate-800">
-            <h2 className="text-2xl font-black mb-6 text-center">Why Participate in RANBIDGE Hackathons?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-base font-black mb-3 text-amber-400">Winner Rewards & Perks</h3>
-                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
-                    <span>Cash prizes & hardware kits worth up to ₹1,50,000</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
-                    <span>Direct pre-placement interview (PPI) offers</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
-                    <span>National certificate of excellence for winners & participants</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-green-400 mt-0.5 shrink-0" size={16} />
-                    <span>Featured spotlight on RANBIDGE LinkedIn & media channels</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-base font-black mb-3 text-amber-400">Rules & Eligibility</h3>
-                <ul className="space-y-2 text-xs md:text-sm text-slate-300">
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
-                    <span>Open to all college students, graduates, and working professionals</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
-                    <span>Individual or team participation (1 to 4 members)</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
-                    <span>Original code built during the hackathon sprint timeframe</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="text-amber-400 mt-0.5 shrink-0" size={16} />
-                    <span>Live code repository submission & video demo pitch</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+
 
           {/* CTA Banner */}
           <div className="text-center bg-gradient-to-r from-amber-500 via-orange-600 to-amber-600 rounded-2xl p-6 md:p-8 text-white mb-10 shadow-lg">
