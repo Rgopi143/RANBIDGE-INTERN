@@ -116,7 +116,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-emerald-600',
     badge: 'Ministry of Education & AICTE',
-    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://sih.gov.in/img1/slider2026/sih-ps-added.png',
     description: 'World\'s biggest open innovation initiative by Govt. of India to solve pressing challenges of ministries, departments, industries, and PSUs.',
     techStack: ['Hardware Edition', 'Software Edition', 'AI/ML', 'Govt Tech', 'IoT'],
     link: HACKATHON_LINK,
