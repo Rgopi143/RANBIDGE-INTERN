@@ -82,6 +82,7 @@ type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-me
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
 const REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdrzYAVBF9rEFV7zcs_p0a_St8qGcnEsltEvdI-ZULHlO5Xbg/viewform?usp=header";
 const WORKSHOP_REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSez8fRKT6lnom84WEM58Qo8epokcgb5pZsKyaJHpVE_tAqMxQ/viewform?usp=dialog";
+const EVENT_REGISTRATION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSez8fRKT6lnom84WEM58Qo8epokcgb5pZsKyaJHpVE_tAqMxQ/viewform?usp=dialog";
 const FINAL_YEAR_PROJECTS_LINK = "https://forms.gle/DHavgijonoyLcLfG6";
 const VIRTUAL_INTERNSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd1y7_LR5N5bBTdIq8C_icunlUbh0h0SQNj6ukiHXAOZSVKHA/viewform?usp=dialog";
 const MENTORSHIP_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeJ9tBwnyC4MQ0Mmy5AzbG9L04o4B-3wQ5qALtsbIqluT9I3A/viewform?usp=header";
@@ -424,7 +425,7 @@ const EVENTS: EventItem[] = [
     thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80',
     description: 'Annual technology conference bringing together students, software engineers, mentors, and startups for keynotes, workshops, and networking.',
     highlights: ['Keynote Talks by Industry CTOs', 'Live Innovation Expo', 'Career & Job Opportunities', 'Networking Lunch & Networking Badges'],
-    link: REGISTRATION_LINK
+    link: EVENT_REGISTRATION_LINK
   },
   {
     id: 'startup-pitch-fest',
@@ -440,7 +441,7 @@ const EVENTS: EventItem[] = [
     thumbnail: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80',
     description: 'Pitch your innovative tech idea or final-year project to industry mentors and investors for grant funding and incubation support.',
     highlights: ['₹1,00,000 Prototype Seed Fund', '1-on-1 Investor Pitching', 'Startup Incubation Mentorship', 'Certificates & Pitch Feedback'],
-    link: REGISTRATION_LINK
+    link: EVENT_REGISTRATION_LINK
   },
   {
     id: 'career-resume-webinar',
@@ -456,7 +457,7 @@ const EVENTS: EventItem[] = [
     thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
     description: 'Expert strategies for building ATS-friendly resumes, optimizing your GitHub/LinkedIn profiles, and tackling coding interview rounds.',
     highlights: ['ATS Resume Template Distribution', 'Mock Technical Interview Demos', 'LinkedIn Profile Optimization Guide', 'Live Q&A Session'],
-    link: REGISTRATION_LINK
+    link: EVENT_REGISTRATION_LINK
   },
   {
     id: 'open-source-code-night',
@@ -472,7 +473,7 @@ const EVENTS: EventItem[] = [
     thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
     description: 'Join hundreds of student developers live online to contribute to popular open source repositories, fix issues, and submit Pull Requests.',
     highlights: ['First PR Guidance for Beginners', 'Swag Kits for Top Contributors', 'Live Code Collaboration Rooms', 'Digital Badge of Open Source Contributor'],
-    link: REGISTRATION_LINK
+    link: EVENT_REGISTRATION_LINK
   }
 ];
 
@@ -3212,7 +3213,7 @@ const App: React.FC = () => {
               Connect with top tech leaders, pitch innovation startups, join webinars, and participate in community code nights.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href={REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-purple-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-purple-700 transition-all shadow-md flex items-center gap-2">
+              <a href={EVENT_REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-purple-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-purple-700 transition-all shadow-md flex items-center gap-2">
                 <Calendar size={16} /> Join Upcoming Event
               </a>
               <button onClick={() => setView('home')} className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
