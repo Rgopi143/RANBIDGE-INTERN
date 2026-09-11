@@ -184,7 +184,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-purple-600',
     badge: 'BVRIT Telangana',
-    thumbnail: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80',
     description: '28-hour national hackathon across 5 tech domains hosted at BVRIT Narsapur with ₹1 Lakh+ in cash prizes.',
     techStack: ['5 Tech Domains', 'AI/ML', 'IoT & Embedded', 'Web Dev'],
     link: REGISTRATION_LINK,
