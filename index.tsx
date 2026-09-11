@@ -3396,12 +3396,7 @@ const App: React.FC = () => {
           </div>
           <div className="mt-14 pt-8 border-t border-slate-200/80 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-semibold text-slate-600">
-              <p>© 2025 - 2026  RANBIDGE Solutions Private Limited. All rights reserved.</p>
-              <div className="flex items-center gap-3 text-xs text-slate-400">
-                <button onClick={() => setView('privacy')} className="hover:text-indigo-600 transition-colors font-medium">Privacy Policy</button>
-                <span>•</span>
-                <button onClick={() => setView('terms')} className="hover:text-indigo-600 transition-colors font-medium">Terms of Service</button>
-              </div>
+              <p>© 2025 - 2026 RANBIDGE Solutions Private Limited. All rights reserved.</p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <a 
