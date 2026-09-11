@@ -1070,6 +1070,43 @@ const Navigation: React.FC<{
 );
 };
 
+const MobileDock: React.FC<{ view: View; setView: (view: View) => void }> = ({ view, setView }) => {
+  const dockItems = [
+    { id: 'home' as View, label: 'Home', icon: <Home size={16} /> },
+    { id: 'virtual-internship' as View, label: 'Internships', icon: <Briefcase size={16} /> },
+    { id: 'hackathons' as View, label: 'Hackathons', icon: <Trophy size={16} /> },
+    { id: 'workshops' as View, label: 'Workshops', icon: <BookOpen size={16} /> },
+    { id: 'events' as View, label: 'Events', icon: <Calendar size={16} /> },
+    { id: 'careers' as View, label: 'Careers', icon: <GraduationCap size={16} /> },
+  ];
+
+  return (
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden w-[92vw] max-w-md bg-slate-900/95 backdrop-blur-xl border border-white/20 rounded-full px-3 py-2 text-white shadow-2xl animate-dock-glow flex items-center justify-around">
+      {dockItems.map((item) => {
+        const isActive = view === item.id || 
+          (item.id === 'virtual-internship' && ['unpaid-internship', 'paid-internship', 'virtual-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view));
+        
+        return (
+          <button
+            key={item.id}
+            onClick={() => setView(item.id)}
+            className={`flex flex-col items-center justify-center p-1 rounded-full transition-all relative active:scale-90 ${
+              isActive ? 'scale-105 -translate-y-0.5' : 'opacity-70 hover:opacity-100'
+            }`}
+          >
+            <div className={`p-2 rounded-full transition-all ${isActive ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/50 animate-spring-pop' : 'hover:bg-white/10'}`}>
+              {item.icon}
+            </div>
+            <span className={`text-[9px] font-extrabold mt-0.5 ${isActive ? 'text-indigo-300' : 'text-slate-400'}`}>
+              {item.label}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
 const HackathonTimer: React.FC<{ targetDate?: string; deadline?: string }> = ({ targetDate, deadline }) => {
   const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; mins: number; secs: number } | null>(null);
 
@@ -1297,6 +1334,7 @@ const App: React.FC = () => {
 
       {/* Navigation */}
       <Navigation view={view} setView={setView} scrolled={scrolled} />
+      <MobileDock view={view} setView={setView} />
 
       <div key={view} className="animate-fade-in-up">
           {view === 'home' && (
