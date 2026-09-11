@@ -133,7 +133,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-indigo-600',
     badge: 'ZIROH LABS',
-    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://www.ziroh.com/public/assets/hackathon/Ziroh_web_img/1.21%201.png',
     description: 'National AI challenge focused on next-generation AI applications. Open for students and working professionals in teams of 1–5.',
     techStack: ['Next-Gen AI', 'LLM Apps', 'Machine Learning', 'Full Stack'],
     link: 'https://www.ziroh.com/hackathon?utm_source=chatgpt.com',
