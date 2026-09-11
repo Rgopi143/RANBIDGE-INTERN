@@ -2843,8 +2843,8 @@ const App: React.FC = () => {
             </div>
 
             {/* Filter & Search Bar */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full md:w-auto shrink-0">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-full overflow-hidden">
+              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full max-w-full min-w-0 shrink pr-2">
                 {['All', 'AI & Software', 'Virtual Hackathon', 'Multi-Track Hackathon', '28-Hour Hackathon', 'Semiconductor & Hardware', 'Software & AI Challenge', 'National Hackathon', 'College Hackathon', 'Mobile & AI', 'AI & Web3'].map(cat => (
                   <button
                     key={cat}
@@ -3076,8 +3076,8 @@ const App: React.FC = () => {
             </div>
 
             {/* Filter & Search Bar */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full md:w-auto shrink-0">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-full overflow-hidden">
+              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full max-w-full min-w-0 shrink pr-2">
                 {['All', 'AI & Data', 'Web Dev', 'Cybersecurity', 'Cloud & DevOps', 'Design'].map(cat => (
                   <button
                     key={cat}
@@ -3257,8 +3257,8 @@ const App: React.FC = () => {
             </div>
 
             {/* Filter & Search Bar */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full md:w-auto shrink-0">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-full overflow-hidden">
+              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full max-w-full min-w-0 shrink pr-2">
                 {['All', 'Summits', 'Competitions', 'Webinars', 'Meetups'].map(cat => (
                   <button
                     key={cat}
