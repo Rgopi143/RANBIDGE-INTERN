@@ -150,7 +150,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-emerald-600',
     badge: 'CodeMyFYP',
-    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://hackathon.codemyfyp.com/codemyfyp-logo.webp',
     description: 'Fully online national hackathon open across India for solo builders or teams up to 4. Rolling 48-hour build with internship opportunities.',
     techStack: ['Software Dev', 'AI & Web Apps', 'Final Year Projects', 'Full Stack'],
     link: 'https://hackathon.codemyfyp.com/?utm_source=chatgpt.com',
