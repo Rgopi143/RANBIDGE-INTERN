@@ -77,6 +77,49 @@
       100% { background-position: 0% 50%; }
     }
 
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes scale-up {
+      0% {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes dropdown-fade {
+      0% {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes shimmer-move {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
     /* Utility Classes for Animations */
     .animate-float-slow {
       animation: float-slow 5s ease-in-out infinite;
@@ -108,6 +151,22 @@
       animation: gradient-shift 6s ease infinite;
     }
 
+    .animate-fade-in-up {
+      animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.4s ease-out forwards;
+    }
+
+    .animate-scale-up {
+      animation: scale-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-dropdown-fade {
+      animation: dropdown-fade 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
     /* Glassmorphism Cards */
     .glass-card {
       background: rgba(255, 255, 255, 0.85);
@@ -120,6 +179,7 @@
     .shimmer-card {
       position: relative;
       overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
     }
 
     .shimmer-card::after {
@@ -142,6 +202,11 @@
 
     .shimmer-card:hover::after {
       transform: translateX(100%) rotate(25deg);
+    }
+
+    /* Global Micro-interactions */
+    button, a {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
   </style>
   <script type="importmap">

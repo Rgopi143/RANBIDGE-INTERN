@@ -950,7 +950,7 @@ const Navigation: React.FC<{
             </button>
             
             {isInternshipDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50 animate-dropdown-fade">
                 <button 
                   onClick={() => { setView('unpaid-internship'); setIsInternshipDropdownOpen(false); }}
                   className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 hover:bg-slate-50 transition-colors ${view === 'unpaid-internship' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-700'}`}
@@ -1298,7 +1298,7 @@ const App: React.FC = () => {
       {/* Navigation */}
       <Navigation view={view} setView={setView} scrolled={scrolled} />
 
-      <>
+      <div key={view} className="animate-fade-in-up">
           {view === 'home' && (
             <>
               {/* Hero Section */}
@@ -3666,7 +3666,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
-      </>
+      </div>
     </div>
   );
 };
