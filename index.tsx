@@ -1324,6 +1324,10 @@ const App: React.FC = () => {
   const [virtualCategory, setVirtualCategory] = useState('All');
   const [virtualSearch, setVirtualSearch] = useState('');
   const [hackathonCategory, setHackathonCategory] = useState('All');
+  const [hackathonType, setHackathonType] = useState('All');
+  const [hackathonLocation, setHackathonLocation] = useState('All');
+  const [hackathonTimeline, setHackathonTimeline] = useState('All');
+  const [hackathonTeamSize, setHackathonTeamSize] = useState('All');
   const [hackathonSearch, setHackathonSearch] = useState('');
   const [workshopCategory, setWorkshopCategory] = useState('All');
   const [workshopSearch, setWorkshopSearch] = useState('');
@@ -1371,11 +1375,31 @@ const App: React.FC = () => {
   });
 
   const filteredHackathons = HACKATHONS.filter(hack => {
-    const matchesCat = hackathonCategory === 'All' || hack.category === hackathonCategory;
     const matchesSearch = hack.title.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
                           hack.description.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
-                          hack.techStack.some(t => t.toLowerCase().includes(hackathonSearch.toLowerCase()));
-    return matchesCat && matchesSearch;
+                          hack.techStack.some(t => t.toLowerCase().includes(hackathonSearch.toLowerCase())) ||
+                          hack.badge.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
+                          hack.category.toLowerCase().includes(hackathonSearch.toLowerCase());
+    
+    const matchesType = hackathonType === 'All' || 
+                        hack.category.toLowerCase().includes(hackathonType.toLowerCase()) || 
+                        hack.badge.toLowerCase().includes(hackathonType.toLowerCase());
+
+    const matchesLocation = hackathonLocation === 'All' ||
+      (hackathonLocation === 'Online' && (hack.mode.toLowerCase().includes('online') || hack.mode.toLowerCase().includes('virtual') || hack.mode.toLowerCase().includes('worldwide'))) ||
+      (hackathonLocation === 'Chennai' && hack.mode.toLowerCase().includes('chennai')) ||
+      (hackathonLocation === 'Telangana' && hack.mode.toLowerCase().includes('telangana')) ||
+      (hackathonLocation === 'Goa' && hack.mode.toLowerCase().includes('goa')) ||
+      (hackathonLocation === 'Bengaluru' && (hack.mode.toLowerCase().includes('bengaluru') || hack.mode.toLowerCase().includes('cities')));
+
+    const matchesTimeline = hackathonTimeline === 'All' || hack.status === hackathonTimeline;
+
+    const matchesTeamSize = hackathonTeamSize === 'All' ||
+      (hackathonTeamSize === '1-4' && (hack.description.includes('up to 4') || hack.description.includes('1–4') || hack.description.includes('solo'))) ||
+      (hackathonTeamSize === '1-5' && (hack.description.includes('1–5') || hack.description.includes('students'))) ||
+      (hackathonTeamSize === '2-6' && hack.description.includes('2–6'));
+
+    return matchesSearch && matchesType && matchesLocation && matchesTimeline && matchesTeamSize;
   });
 
   const filteredWorkshops = WORKSHOPS.filter(ws => {
@@ -2843,38 +2867,128 @@ const App: React.FC = () => {
             </div>
 
             {/* Filter & Search Bar */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-full overflow-hidden">
-              <div className="flex overflow-x-auto no-scrollbar pb-1 md:pb-0 md:flex-wrap items-center gap-2 w-full max-w-full min-w-0 shrink pr-2">
-                {['All', 'AI & Software', 'Virtual Hackathon', 'Multi-Track Hackathon', '28-Hour Hackathon', 'Semiconductor & Hardware', 'Software & AI Challenge', 'National Hackathon', 'College Hackathon', 'Mobile & AI', 'AI & Web3'].map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => setHackathonCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all shrink-0 active:scale-95 ${
-                      hackathonCategory === cat
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md scale-105 animate-spring-pop'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                    }`}
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-md mb-8 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+              {/* Dropdowns Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-grow">
+                {/* 1. Type of Hackathon */}
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <Filter size={11} className="text-amber-500" /> Type
+                  </label>
+                  <select
+                    value={hackathonType}
+                    onChange={(e) => setHackathonType(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all cursor-pointer shadow-xs"
                   >
-                    {cat}
-                  </button>
-                ))}
+                    <option value="All">All Types</option>
+                    <option value="AI & Software">AI & Software</option>
+                    <option value="Virtual Hackathon">Virtual Hackathon</option>
+                    <option value="Multi-Track">Multi-Track</option>
+                    <option value="28-Hour">28-Hour Hackathon</option>
+                    <option value="Semiconductor">Semiconductor & Hardware</option>
+                    <option value="Software & AI Challenge">Software & AI Challenge</option>
+                    <option value="Mobile & AI">Mobile & AI</option>
+                    <option value="AI & Web3">AI & Web3</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Global Space & AI">Global Space & AI</option>
+                    <option value="Telecom & IoT">Telecom & IoT</option>
+                    <option value="Govt Initiative">Govt Initiative</option>
+                  </select>
+                </div>
+
+                {/* 2. Location */}
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <MapPin size={11} className="text-amber-500" /> Location
+                  </label>
+                  <select
+                    value={hackathonLocation}
+                    onChange={(e) => setHackathonLocation(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all cursor-pointer shadow-xs"
+                  >
+                    <option value="All">All Locations</option>
+                    <option value="Online">Online / Virtual</option>
+                    <option value="Chennai">Chennai (Sathyabama)</option>
+                    <option value="Telangana">Telangana (BVRIT)</option>
+                    <option value="Goa">Goa (Beach Resort)</option>
+                    <option value="Bengaluru">Bengaluru & City Battles</option>
+                  </select>
+                </div>
+
+                {/* 3. Timeline / Status */}
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <Clock size={11} className="text-amber-500" /> Timeline / Status
+                  </label>
+                  <select
+                    value={hackathonTimeline}
+                    onChange={(e) => setHackathonTimeline(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all cursor-pointer shadow-xs"
+                  >
+                    <option value="All">All Timelines</option>
+                    <option value="Registration Open">Registration Open</option>
+                    <option value="Live Now">Live Now</option>
+                    <option value="Upcoming">Upcoming</option>
+                  </select>
+                </div>
+
+                {/* 4. Team Size */}
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <Users size={11} className="text-amber-500" /> Team Size
+                  </label>
+                  <select
+                    value={hackathonTeamSize}
+                    onChange={(e) => setHackathonTeamSize(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all cursor-pointer shadow-xs"
+                  >
+                    <option value="All">All Team Sizes</option>
+                    <option value="1-4">Solo / Teams (Up to 4)</option>
+                    <option value="1-5">Teams (1–5 Members)</option>
+                    <option value="2-6">Teams (2–6 Members)</option>
+                  </select>
+                </div>
               </div>
 
-              <div className="relative w-full md:w-80">
-                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search hackathons (e.g., AI, CTF, Web)..."
-                  value={hackathonSearch}
-                  onChange={(e) => setHackathonSearch(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all"
-                />
-                {hackathonSearch && (
+              {/* Search & Reset */}
+              <div className="flex items-end gap-2 w-full lg:w-72 shrink-0">
+                <div className="relative w-full flex-grow">
+                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1">
+                    Search Keyword
+                  </label>
+                  <div className="relative">
+                    <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input
+                      type="text"
+                      placeholder="Search AI, CTF, Web..."
+                      value={hackathonSearch}
+                      onChange={(e) => setHackathonSearch(e.target.value)}
+                      className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all"
+                    />
+                    {hackathonSearch && (
+                      <button
+                        onClick={() => setHackathonSearch('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                      >
+                        <X size={14} />
+                      </button>
+                    )}
+                  </div>
+                </div>
+                
+                {(hackathonType !== 'All' || hackathonLocation !== 'All' || hackathonTimeline !== 'All' || hackathonTeamSize !== 'All' || hackathonSearch !== '') && (
                   <button
-                    onClick={() => setHackathonSearch('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                    onClick={() => {
+                      setHackathonType('All');
+                      setHackathonLocation('All');
+                      setHackathonTimeline('All');
+                      setHackathonTeamSize('All');
+                      setHackathonSearch('');
+                    }}
+                    className="px-3 py-2 bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 border border-amber-200"
+                    title="Reset all filters"
                   >
-                    <X size={14} />
+                    Reset
                   </button>
                 )}
               </div>
