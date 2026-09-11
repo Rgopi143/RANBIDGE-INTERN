@@ -3112,9 +3112,9 @@ const App: React.FC = () => {
             {filteredEvents.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
                 {filteredEvents.map((evt) => (
-                  <div key={evt.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col md:flex-row hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-1">
-                    {/* Picture - First element on mobile (top of card) */}
-                    <div className="relative w-full h-52 sm:h-60 md:w-2/5 md:h-auto overflow-hidden bg-slate-100 flex items-center justify-center shrink-0">
+                  <div key={evt.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                    {/* Cover Picture - Full Width Top Banner */}
+                    <div className="relative w-full h-48 sm:h-56 overflow-hidden bg-slate-100 flex items-center justify-center shrink-0 border-b border-slate-100">
                       <img 
                         src={evt.thumbnail} 
                         alt={evt.title} 
@@ -3128,8 +3128,8 @@ const App: React.FC = () => {
                       </div>
                     </div>
                     
-                    {/* Related Content - Positioned below the picture on mobile */}
-                    <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                    {/* Related Content - Positioned below the cover photo */}
+                    <div className="p-5 flex flex-col flex-grow">
                       <div className="flex items-center gap-1.5 mb-2 flex-wrap">
                         <span className="px-2.5 py-0.5 bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-bold rounded-full">
                           {evt.badge}
