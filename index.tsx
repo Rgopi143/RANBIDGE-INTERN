@@ -76,7 +76,7 @@ interface Hackathon {
   targetDate?: string;
 }
 
-type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons' | 'workshops' | 'events';
+type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons' | 'workshops' | 'events' | 'careers';
 
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
@@ -403,6 +403,70 @@ const EVENTS: EventItem[] = [
     thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
     description: 'Join hundreds of student developers live online to contribute to popular open source repositories, fix issues, and submit Pull Requests.',
     highlights: ['First PR Guidance for Beginners', 'Swag Kits for Top Contributors', 'Live Code Collaboration Rooms', 'Digital Badge of Open Source Contributor'],
+    link: REGISTRATION_LINK
+  }
+];
+
+interface JobOpening {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  experience: string;
+  badge: string;
+  description: string;
+  requirements: string[];
+  link: string;
+}
+
+const CAREER_OPENINGS: JobOpening[] = [
+  {
+    id: 'fullstack-dev-role',
+    title: 'Full Stack Software Engineer',
+    department: 'Engineering',
+    location: 'Remote / Narasaraopet, AP',
+    type: 'Full-Time / Internship',
+    experience: '0 - 2 Years',
+    badge: 'Urgent Need',
+    description: 'Join our core product development team to build high-scale React, Node.js, and cloud microservice platforms.',
+    requirements: ['Proficiency in React.js, Node.js, and MongoDB/PostgreSQL', 'Understanding of REST APIs and Git workflows', 'Strong problem solving and team collaboration'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'ai-ml-engineer-role',
+    title: 'AI & Generative AI Research Associate',
+    department: 'AI Labs',
+    location: 'Remote',
+    type: 'Full-Time',
+    experience: '1 - 3 Years',
+    badge: 'High Impact',
+    description: 'Work on cutting-edge LLM integrations, RAG pipeline engineering, LangChain frameworks, and autonomous AI agents.',
+    requirements: ['Experience with Python, PyTorch/TensorFlow, and OpenAI/HuggingFace APIs', 'Knowledge of Vector DBs (ChromaDB, Pinecone)', 'Passion for building AI apps'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'uiux-designer-role',
+    title: 'Product & UI/UX Designer',
+    department: 'Design Studio',
+    location: 'Remote / Hybrid',
+    type: 'Full-Time / Internship',
+    experience: '0 - 2 Years',
+    badge: 'Creative Role',
+    description: 'Craft beautiful user experiences, design systems, interactive prototypes, and modern marketing graphics.',
+    requirements: ['Mastery of Figma, Auto-Layout, and Component Systems', 'Understanding of UX research & mobile responsiveness', 'Strong visual portfolio'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'business-dev-role',
+    title: 'Business Development & Growth Specialist',
+    department: 'Growth & Ops',
+    location: 'Narasaraopet / Remote',
+    type: 'Full-Time',
+    experience: '0 - 3 Years',
+    badge: 'Hiring Fast',
+    description: 'Drive university partnerships, student outreach, and institutional growth for RANBIDGE programs across India.',
+    requirements: ['Excellent communication and presentation skills', 'Proven track record in sales, marketing, or community building', 'Ability to lead university campaigns'],
     link: REGISTRATION_LINK
   }
 ];
@@ -982,6 +1046,20 @@ const Navigation: React.FC<{
               Live
             </span>
           </button>
+
+          {/* Careers Button */}
+          <button 
+            onClick={() => setView('careers')} 
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+              view === 'careers' ? 'text-emerald-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-emerald-600'
+            }`}
+          >
+            <Briefcase size={16} className="text-emerald-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <span>Careers</span>
+            <span className="px-1.5 py-0.5 text-[9px] font-black bg-emerald-100 text-emerald-700 rounded-full uppercase tracking-wider shadow-xs">
+              Hiring
+            </span>
+          </button>
         </div>
         <a href={REGISTRATION_LINK} target="_blank" className="hidden sm:block px-5 py-2 bg-indigo-600 text-white rounded-full text-xs font-bold hover:bg-indigo-700 transition-all shadow-md">
           Apply Now
@@ -1151,7 +1229,7 @@ const App: React.FC = () => {
   // Initialize view from URL hash on component mount
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove the # symbol
-    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects', 'hackathons', 'workshops', 'events'].includes(hash)) {
+    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects', 'hackathons', 'workshops', 'events', 'careers'].includes(hash)) {
       setView(hash as View);
     }
   }, []);
@@ -3199,6 +3277,127 @@ const App: React.FC = () => {
         </main>
       )}
 
+      {view === 'careers' && (
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-black mb-4 tracking-widest uppercase border border-emerald-200/60 shadow-xs">
+              <Briefcase size={13} className="text-emerald-500" /> Join Our Team • Build The Future
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+              RANBIDGE <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700">Careers</span> & Opportunities
+            </h1>
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              We are on a mission to empower the next generation of engineers and builders. Explore full-time roles, research fellowships, and internship opportunities.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-emerald-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-emerald-700 transition-all shadow-md flex items-center gap-2">
+                <Briefcase size={16} /> Apply for Open Role
+              </a>
+              <a href={WHATSAPP_CHAT_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
+                Contact HR Team
+              </a>
+            </div>
+          </div>
+
+          {/* Perks & Benefits Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
+            {[
+              { icon: <TrendingUp className="text-emerald-600" />, title: "Rapid Growth", desc: "Fast-track career advancement opportunities." },
+              { icon: <Users className="text-emerald-600" />, title: "Great Culture", desc: "Collaborative, remote-friendly team." },
+              { icon: <Award className="text-emerald-600" />, title: "Mentorship", desc: "Learn directly from tech architects." },
+              { icon: <Zap className="text-emerald-600" />, title: "Modern Tech", desc: "Work with React 19, Node, AI & Cloud." },
+              { icon: <Gift className="text-emerald-600" />, title: "Competitive Pay", desc: "Stipends & attractive compensation." },
+              { icon: <Briefcase className="text-emerald-600" />, title: "Flexibility", desc: "Remote and hybrid work arrangements." }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Open Positions List */}
+          <div className="mb-10 max-w-7xl mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
+                Open <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Positions</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Explore available roles and apply to become part of the RANBIDGE team.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {CAREER_OPENINGS.map((job) => (
+                <div key={job.id} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between shimmer-card transform hover:-translate-y-1">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                      <span className="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-extrabold rounded-full">
+                        {job.badge}
+                      </span>
+                      <span className="px-2.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold rounded-full">
+                        {job.department}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-black text-slate-900 mb-2">{job.title}</h3>
+                    <p className="text-xs text-slate-600 mb-4 leading-relaxed">{job.description}</p>
+
+                    <div className="flex flex-wrap gap-4 text-xs text-slate-500 font-semibold mb-4">
+                      <div className="flex items-center gap-1.5">
+                        <MapPin size={13} className="text-emerald-500 shrink-0" />
+                        <span>{job.location}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Briefcase size={13} className="text-emerald-500 shrink-0" />
+                        <span>{job.type}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Clock size={13} className="text-emerald-500 shrink-0" />
+                        <span>{job.experience}</span>
+                      </div>
+                    </div>
+
+                    <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Requirements & Responsibilities</h4>
+                      <ul className="space-y-1">
+                        {job.requirements.map((req, idx) => (
+                          <li key={idx} className="text-[10px] text-slate-600 font-medium flex items-center gap-1.5">
+                            <CheckCircle2 size={11} className="text-emerald-500 shrink-0" />
+                            <span>{req}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <a 
+                    href={job.link} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-2 py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
+                  >
+                    <Briefcase size={13} /> Apply for Position
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 pt-4 flex justify-center">
+            <button 
+              onClick={() => setView('home')} 
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
+            >
+              <Home size={16} /> Return to Home
+            </button>
+          </div>
+        </main>
+      )}
+
       {(view === 'privacy' || view === 'terms') && (
         <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
           <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100">
@@ -3380,6 +3579,7 @@ const App: React.FC = () => {
                 <li><button onClick={() => setView('hackathons')} className="font-semibold text-slate-700 hover:text-amber-600 transition-colors flex items-center gap-1.5"><Trophy size={14} className="text-amber-500" /> Hackathons</button></li>
                 <li><button onClick={() => setView('workshops')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-1.5"><BookOpen size={14} className="text-indigo-500" /> Workshops</button></li>
                 <li><button onClick={() => setView('events')} className="font-semibold text-slate-700 hover:text-purple-600 transition-colors flex items-center gap-1.5"><Calendar size={14} className="text-purple-500" /> Events</button></li>
+                <li><button onClick={() => setView('careers')} className="font-semibold text-slate-700 hover:text-emerald-600 transition-colors flex items-center gap-1.5"><Briefcase size={14} className="text-emerald-500" /> Careers</button></li>
               </ul>
             </div>
 
