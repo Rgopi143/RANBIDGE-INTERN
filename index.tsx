@@ -40,7 +40,9 @@ import {
   BarChart3,
   Eye,
   EyeOff,
-  Users
+  Users,
+  Calendar,
+  Video
 } from 'lucide-react';
 
 // --- Types ---
@@ -74,7 +76,7 @@ interface Hackathon {
   targetDate?: string;
 }
 
-type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons';
+type View = 'home' | 'privacy' | 'terms' | 'virtual-internship' | 'one-on-one-mentorship' | 'paid-internship' | 'unpaid-internship' | 'final-year-projects' | 'hackathons' | 'workshops' | 'events';
 
 // --- Constants ---
 const LOGO_URL = "https://ik.imagekit.io/lg14qfjkg/COMPANY%20STAMP.jpeg";
@@ -202,6 +204,206 @@ const HACKATHONS: Hackathon[] = [
     link: 'https://sih.gov.in/',
     deadline: 'Submissions Active',
     targetDate: '2026-09-30T23:59:59'
+  }
+];
+
+interface Workshop {
+  id: string;
+  title: string;
+  category: string;
+  duration: string;
+  instructor: string;
+  mode: string;
+  date: string;
+  status: 'Upcoming' | 'Registration Open' | 'Live Now';
+  statusColor: string;
+  badge: string;
+  thumbnail: string;
+  description: string;
+  keyTopics: string[];
+  link: string;
+}
+
+interface EventItem {
+  id: string;
+  title: string;
+  category: string;
+  date: string;
+  time: string;
+  mode: string;
+  speaker: string;
+  status: 'Upcoming' | 'Registration Open' | 'Live Now';
+  statusColor: string;
+  badge: string;
+  thumbnail: string;
+  description: string;
+  highlights: string[];
+  link: string;
+}
+
+const WORKSHOPS: Workshop[] = [
+  {
+    id: 'ai-genai-workshop',
+    title: 'Generative AI & LLM App Development Workshop',
+    category: 'AI & Data',
+    duration: '2 Days (4 Hours/Day)',
+    instructor: 'Ranbidge AI Labs',
+    mode: 'Live Online (Interactive)',
+    date: '15th - 16th October 2026',
+    status: 'Registration Open',
+    statusColor: 'bg-indigo-600',
+    badge: 'Hands-on Coding',
+    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+    description: 'Build real-world AI applications using LangChain, OpenAI APIs, and Vector Databases in a live coding masterclass.',
+    keyTopics: ['Prompt Engineering & Fine-tuning', 'LangChain & Vector Databases', 'RAG Architecture Implementation', 'Deploying AI Chatbots'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'fullstack-mern-bootcamp',
+    title: 'Full Stack MERN Architecture & Deployment Workshop',
+    category: 'Web Dev',
+    duration: '3 Days Intensive',
+    instructor: 'Ranbidge Web Team',
+    mode: 'Hybrid / Virtual',
+    date: '22nd - 24th October 2026',
+    status: 'Live Now',
+    statusColor: 'bg-emerald-600',
+    badge: 'Project Certificate',
+    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+    description: 'Learn modern React 19, Node.js microservices, MongoDB schema design, and Dockerized cloud deployment.',
+    keyTopics: ['React 19 & Next.js App Router', 'Node.js & Express REST APIs', 'Authentication & JWT Tokens', 'Cloud Deployment on Vercel/AWS'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'cybersecurity-hands-on',
+    title: 'Ethical Hacking & Web Vulnerability Hands-on',
+    category: 'Cybersecurity',
+    duration: '1 Day Masterclass',
+    instructor: 'Ranbidge CyberSec',
+    mode: 'Live Lab Workshop',
+    date: '5th November 2026',
+    status: 'Upcoming',
+    statusColor: 'bg-red-600',
+    badge: 'Ethical Hacking Lab',
+    thumbnail: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
+    description: 'Master OWASP Top 10 vulnerabilities, penetration testing tools, Kali Linux command line, and defense mechanisms.',
+    keyTopics: ['Web Pen-Testing & Vulnerabilities', 'Burp Suite & Wireshark Labs', 'SQL Injection & XSS Attack Defense', 'Security Hardening Checklist'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'powerbi-data-analytics',
+    title: 'Data Analytics & Power BI Dashboard Masterclass',
+    category: 'AI & Data',
+    duration: '2 Days Bootcamp',
+    instructor: 'Ranbidge Analytics',
+    mode: 'Live Virtual Workshop',
+    date: '12th - 13th November 2026',
+    status: 'Registration Open',
+    statusColor: 'bg-amber-600',
+    badge: 'Industry Project',
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    description: 'Transform raw datasets into actionable executive dashboards using Advanced Excel, SQL, and Power BI DAX formulas.',
+    keyTopics: ['SQL Queries & Data Cleaning', 'Power BI Data Modeling', 'DAX Measures & KPI Charts', 'Interactive Business Dashboards'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'cloud-devops-bootcamp',
+    title: 'AWS Cloud Infrastructure & Docker DevOps Workshop',
+    category: 'Cloud & DevOps',
+    duration: '2 Days Bootcamp',
+    instructor: 'Ranbidge Cloud Lead',
+    mode: 'Live Hands-On Lab',
+    date: '20th - 21st November 2026',
+    status: 'Upcoming',
+    statusColor: 'bg-sky-600',
+    badge: 'DevOps Practices',
+    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    description: 'Hands-on session covering Docker containers, GitHub Actions CI/CD pipelines, EC2 deployment, and Kubernetes basics.',
+    keyTopics: ['Dockerization of Web Apps', 'AWS EC2, S3 & CloudFront', 'CI/CD with GitHub Actions', 'Kubernetes Architecture Basics'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'uiux-figma-masterclass',
+    title: 'UI/UX Design Systems & Figma Prototyping Workshop',
+    category: 'Design',
+    duration: '1 Day Intensive',
+    instructor: 'Ranbidge Design Studio',
+    mode: 'Live Design Sprint',
+    date: '28th November 2026',
+    status: 'Registration Open',
+    statusColor: 'bg-purple-600',
+    badge: 'Design Portfolio',
+    thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
+    description: 'Learn wireframing, Auto-Layout 5.0 in Figma, component tokens, user testing, and smooth developer handoff.',
+    keyTopics: ['Figma Auto-Layout & Variants', 'Building Design Systems', 'User Research & Wireframing', 'Interactive Micro-Animations'],
+    link: REGISTRATION_LINK
+  }
+];
+
+const EVENTS: EventItem[] = [
+  {
+    id: 'ranbidge-tech-summit',
+    title: 'RANBIDGE National Tech Summit 2026',
+    category: 'Summits',
+    date: '18th October 2026',
+    time: '10:00 AM - 5:00 PM IST',
+    mode: 'Hybrid (Narasaraopet & Online)',
+    speaker: 'Industry Tech Leaders & Founders',
+    status: 'Registration Open',
+    statusColor: 'bg-purple-600',
+    badge: 'National Summit',
+    thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80',
+    description: 'Annual technology conference bringing together students, software engineers, mentors, and startups for keynotes, workshops, and networking.',
+    highlights: ['Keynote Talks by Industry CTOs', 'Live Innovation Expo', 'Career & Job Opportunities', 'Networking Lunch & Networking Badges'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'startup-pitch-fest',
+    title: 'Innovation & Student Startup Pitch Competition',
+    category: 'Competitions',
+    date: '30th October 2026',
+    time: '2:00 PM - 6:00 PM IST',
+    mode: 'Virtual Auditorium',
+    speaker: 'VC Investors & Angel Mentors',
+    status: 'Registration Open',
+    statusColor: 'bg-emerald-600',
+    badge: 'Incubation & Grants',
+    thumbnail: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80',
+    description: 'Pitch your innovative tech idea or final-year project to industry mentors and investors for grant funding and incubation support.',
+    highlights: ['₹1,00,000 Prototype Seed Fund', '1-on-1 Investor Pitching', 'Startup Incubation Mentorship', 'Certificates & Pitch Feedback'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'career-resume-webinar',
+    title: 'Cracking Top Tech Interviews & Resume Masterclass',
+    category: 'Webinars',
+    date: '8th November 2026',
+    time: '6:00 PM - 8:00 PM IST',
+    mode: 'Live YouTube & Zoom',
+    speaker: 'Ranbidge Placement Cell',
+    status: 'Upcoming',
+    statusColor: 'bg-blue-600',
+    badge: 'Career Guidance',
+    thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    description: 'Expert strategies for building ATS-friendly resumes, optimizing your GitHub/LinkedIn profiles, and tackling coding interview rounds.',
+    highlights: ['ATS Resume Template Distribution', 'Mock Technical Interview Demos', 'LinkedIn Profile Optimization Guide', 'Live Q&A Session'],
+    link: REGISTRATION_LINK
+  },
+  {
+    id: 'open-source-code-night',
+    title: 'Open Source Hack Night & Community Meetup',
+    category: 'Meetups',
+    date: '18th November 2026',
+    time: '7:00 PM - 11:00 PM IST',
+    mode: 'Discord & Virtual Lounge',
+    speaker: 'Open Source Maintainers',
+    status: 'Registration Open',
+    statusColor: 'bg-amber-600',
+    badge: 'Community Code Night',
+    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    description: 'Join hundreds of student developers live online to contribute to popular open source repositories, fix issues, and submit Pull Requests.',
+    highlights: ['First PR Guidance for Beginners', 'Swag Kits for Top Contributors', 'Live Code Collaboration Rooms', 'Digital Badge of Open Source Contributor'],
+    link: REGISTRATION_LINK
   }
 ];
 
@@ -668,7 +870,7 @@ const Navigation: React.FC<{
             RANBIDGE SOLUTIONS
           </span>
         </button>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5 lg:gap-7">
           <button onClick={() => setView('home')} className={`text-sm font-bold flex items-center gap-2 transition-all ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
             <Home size={16} /> Home
           </button>
@@ -749,6 +951,34 @@ const Navigation: React.FC<{
             <Trophy size={16} className="text-amber-500 group-hover:scale-110 transition-transform shrink-0" /> 
             <span>Hackathons</span>
             <span className="px-1.5 py-0.5 text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full uppercase tracking-wider animate-pulse shadow-xs">
+              Live
+            </span>
+          </button>
+
+          {/* Workshops Button */}
+          <button 
+            onClick={() => setView('workshops')} 
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+              view === 'workshops' ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'
+            }`}
+          >
+            <BookOpen size={16} className="text-indigo-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <span>Workshops</span>
+            <span className="px-1.5 py-0.5 text-[9px] font-black bg-indigo-100 text-indigo-700 rounded-full uppercase tracking-wider shadow-xs">
+              New
+            </span>
+          </button>
+
+          {/* Events Button */}
+          <button 
+            onClick={() => setView('events')} 
+            className={`text-sm font-bold flex items-center gap-1.5 transition-all relative group ${
+              view === 'events' ? 'text-purple-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-purple-600'
+            }`}
+          >
+            <Calendar size={16} className="text-purple-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <span>Events</span>
+            <span className="px-1.5 py-0.5 text-[9px] font-black bg-purple-100 text-purple-700 rounded-full uppercase tracking-wider shadow-xs">
               Live
             </span>
           </button>
@@ -910,6 +1140,10 @@ const App: React.FC = () => {
   const [virtualSearch, setVirtualSearch] = useState('');
   const [hackathonCategory, setHackathonCategory] = useState('All');
   const [hackathonSearch, setHackathonSearch] = useState('');
+  const [workshopCategory, setWorkshopCategory] = useState('All');
+  const [workshopSearch, setWorkshopSearch] = useState('');
+  const [eventCategory, setEventCategory] = useState('All');
+  const [eventSearch, setEventSearch] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [showAddProjectModal, setShowAddProjectModal] = useState(false);
@@ -917,7 +1151,7 @@ const App: React.FC = () => {
   // Initialize view from URL hash on component mount
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove the # symbol
-    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects', 'hackathons'].includes(hash)) {
+    if (hash && ['home', 'privacy', 'terms', 'virtual-internship', 'one-on-one-mentorship', 'paid-internship', 'unpaid-internship', 'final-year-projects', 'hackathons', 'workshops', 'events'].includes(hash)) {
       setView(hash as View);
     }
   }, []);
@@ -956,6 +1190,22 @@ const App: React.FC = () => {
     const matchesSearch = hack.title.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
                           hack.description.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
                           hack.techStack.some(t => t.toLowerCase().includes(hackathonSearch.toLowerCase()));
+    return matchesCat && matchesSearch;
+  });
+
+  const filteredWorkshops = WORKSHOPS.filter(ws => {
+    const matchesCat = workshopCategory === 'All' || ws.category === workshopCategory;
+    const matchesSearch = ws.title.toLowerCase().includes(workshopSearch.toLowerCase()) ||
+                          ws.description.toLowerCase().includes(workshopSearch.toLowerCase()) ||
+                          ws.keyTopics.some(t => t.toLowerCase().includes(workshopSearch.toLowerCase()));
+    return matchesCat && matchesSearch;
+  });
+
+  const filteredEvents = EVENTS.filter(evt => {
+    const matchesCat = eventCategory === 'All' || evt.category === eventCategory;
+    const matchesSearch = evt.title.toLowerCase().includes(eventSearch.toLowerCase()) ||
+                          evt.description.toLowerCase().includes(eventSearch.toLowerCase()) ||
+                          evt.highlights.some(h => h.toLowerCase().includes(eventSearch.toLowerCase()));
     return matchesCat && matchesSearch;
   });
 
@@ -2583,6 +2833,370 @@ const App: React.FC = () => {
         </main>
       )}
 
+      {view === 'workshops' && (
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-black mb-4 tracking-widest uppercase border border-indigo-200/60 shadow-xs">
+              <BookOpen size={13} className="text-indigo-500" /> Interactive Hands-on Bootcamps
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+              Tech <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700">Workshops</span> & Bootcamps
+            </h1>
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Elevate your practical skills through intensive live coding workshops led by senior industry engineers and architects.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-indigo-700 transition-all shadow-md flex items-center gap-2">
+                <BookOpen size={16} /> Register for Workshop
+              </a>
+              <button onClick={() => setView('home')} className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
+                Explore Internship Tracks
+              </button>
+            </div>
+          </div>
+
+          {/* Key Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
+            {[
+              { icon: <BookOpen className="text-indigo-600" />, title: "Live Coding", desc: "Build real projects in real-time." },
+              { icon: <Award className="text-indigo-600" />, title: "Certificates", desc: "Verified skill certificates issued." },
+              { icon: <Users className="text-indigo-600" />, title: "Expert Mentors", desc: "Taught by active tech architects." },
+              { icon: <Zap className="text-indigo-600" />, title: "Hands-on Labs", desc: "Access sandbox & lab environments." },
+              { icon: <Briefcase className="text-indigo-600" />, title: "Portfolio Ready", desc: "Add live projects to your CV." },
+              { icon: <Gift className="text-indigo-600" />, title: "Code Resources", desc: "Get full source code & slide decks." }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Workshop Section Content */}
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-extrabold mb-2 uppercase tracking-widest">
+                <Filter size={12} /> Filter Workshops
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
+                Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Workshops</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Choose a workshop domain to level up your technical knowledge.
+              </p>
+            </div>
+
+            {/* Filter & Search Bar */}
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                {['All', 'AI & Data', 'Web Dev', 'Cybersecurity', 'Cloud & DevOps', 'Design'].map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setWorkshopCategory(cat)}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
+                      workshopCategory === cat
+                        ? 'bg-indigo-600 text-white shadow-md scale-105'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full md:w-80">
+                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search workshops (e.g., GenAI, MERN, AWS)..."
+                  value={workshopSearch}
+                  onChange={(e) => setWorkshopSearch(e.target.value)}
+                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                />
+                {workshopSearch && (
+                  <button
+                    onClick={() => setWorkshopSearch('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Workshops Cards Grid */}
+            {filteredWorkshops.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                {filteredWorkshops.map((ws) => (
+                  <div key={ws.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
+                    <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-white border-b border-slate-100 flex items-center justify-center">
+                      <img 
+                        src={ws.thumbnail} 
+                        alt={ws.title} 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out"
+                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'; }}
+                      />
+                      <div className="absolute top-3 left-3 flex gap-2">
+                        <span className={`px-2.5 py-1 text-white text-[10px] font-black rounded-full shadow-md ${ws.statusColor}`}>
+                          {ws.status}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 flex flex-col flex-grow">
+                      <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                        <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 text-[10px] font-bold rounded-full">
+                          {ws.category}
+                        </span>
+                        <span className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold rounded-full">
+                          {ws.badge}
+                        </span>
+                        <div className="flex items-center gap-1 text-slate-400 text-[11px] ml-auto">
+                          <Clock size={12} className="text-indigo-500" />
+                          {ws.duration}
+                        </div>
+                      </div>
+
+                      <h3 className="text-sm font-black text-slate-900 mb-1.5">{ws.title}</h3>
+                      <p className="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">
+                        {ws.description}
+                      </p>
+
+                      <div className="mb-3 text-xs font-bold text-indigo-600 flex items-center gap-1.5">
+                        <Calendar size={13} className="text-indigo-500 shrink-0" />
+                        <span>Date: {ws.date}</span>
+                      </div>
+
+                      <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Workshop Agenda</h4>
+                        <ul className="space-y-1">
+                          {ws.keyTopics.map((topic, idx) => (
+                            <li key={idx} className="text-[10px] text-slate-600 font-medium flex items-center gap-1.5">
+                              <CheckCircle2 size={11} className="text-indigo-500 shrink-0" />
+                              <span>{topic}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <a 
+                        href={ws.link} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full mt-auto py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
+                      >
+                        <BookOpen size={13} /> Reserve Workshop Seat
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
+                <Search size={32} className="mx-auto text-slate-300 mb-3" />
+                <h3 className="text-base font-black text-slate-800 mb-1">No Workshops Found</h3>
+                <p className="text-slate-500 text-xs">Try searching for another topic or select a different category filter.</p>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-8 pt-4 flex justify-center">
+            <button 
+              onClick={() => setView('home')} 
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
+            >
+              <Home size={16} /> Return to Home
+            </button>
+          </div>
+        </main>
+      )}
+
+      {view === 'events' && (
+        <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-[11px] font-black mb-4 tracking-widest uppercase border border-purple-200/60 shadow-xs">
+              <Calendar size={13} className="text-purple-500" /> Keynotes, Summits & Meetups
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+              Tech <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700">Events</span> & Summits
+            </h1>
+            <p className="text-sm md:text-base text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
+              Connect with top tech leaders, pitch innovation startups, join webinars, and participate in community code nights.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={REGISTRATION_LINK} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-purple-600 text-white rounded-xl text-xs sm:text-sm font-black hover:bg-purple-700 transition-all shadow-md flex items-center gap-2">
+                <Calendar size={16} /> Join Upcoming Event
+              </a>
+              <button onClick={() => setView('home')} className="px-6 py-3 bg-white text-slate-900 rounded-xl text-xs sm:text-sm font-black hover:bg-slate-50 transition-all shadow-sm border border-slate-200">
+                Explore Internship Tracks
+              </button>
+            </div>
+          </div>
+
+          {/* Key Event Highlights Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
+            {[
+              { icon: <Calendar className="text-purple-600" />, title: "Annual Summits", desc: "Keynotes by CTOs & tech founders." },
+              { icon: <Users className="text-purple-600" />, title: "Networking", desc: "Connect with peers & recruiters." },
+              { icon: <Trophy className="text-purple-600" />, title: "Pitch Contests", desc: "Win prototype incubation grants." },
+              { icon: <Video className="text-purple-600" />, title: "Live Webinars", desc: "Resume & interview strategy sessions." },
+              { icon: <Sparkles className="text-purple-600" />, title: "Community Meets", desc: "Open-source hack nights & meetups." },
+              { icon: <Award className="text-purple-600" />, title: "Certificates", desc: "Delegate participation certificates." }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs hover:shadow-xl transition-all">
+                <div className="mb-3 w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base font-black text-slate-900 mb-1.5">{feature.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Events Section Content */}
+          <div className="mb-10">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-extrabold mb-2 uppercase tracking-widest">
+                <Filter size={12} /> Filter Events
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
+                Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Events</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Discover upcoming summits, webinars, and developer meetups.
+              </p>
+            </div>
+
+            {/* Filter & Search Bar */}
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                {['All', 'Summits', 'Competitions', 'Webinars', 'Meetups'].map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setEventCategory(cat)}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
+                      eventCategory === cat
+                        ? 'bg-purple-600 text-white shadow-md scale-105'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full md:w-80">
+                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search events (e.g., Summit, Pitch, Interview)..."
+                  value={eventSearch}
+                  onChange={(e) => setEventSearch(e.target.value)}
+                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all"
+                />
+                {eventSearch && (
+                  <button
+                    onClick={() => setEventSearch('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Events Cards Grid */}
+            {filteredEvents.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+                {filteredEvents.map((evt) => (
+                  <div key={evt.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col md:flex-row hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-1">
+                    <div className="relative w-full md:w-2/5 h-48 md:h-auto overflow-hidden bg-slate-100 flex items-center justify-center shrink-0">
+                      <img 
+                        src={evt.thumbnail} 
+                        alt={evt.title} 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out"
+                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80'; }}
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className={`px-2.5 py-1 text-white text-[10px] font-black rounded-full shadow-md ${evt.statusColor}`}>
+                          {evt.status}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-5 flex flex-col flex-grow">
+                      <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                        <span className="px-2.5 py-0.5 bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-bold rounded-full">
+                          {evt.badge}
+                        </span>
+                        <span className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold rounded-full">
+                          {evt.category}
+                        </span>
+                      </div>
+
+                      <h3 className="text-base font-black text-slate-900 mb-1.5">{evt.title}</h3>
+                      <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                        {evt.description}
+                      </p>
+
+                      <div className="space-y-1 mb-3 text-xs text-slate-600 font-semibold">
+                        <div className="flex items-center gap-1.5 text-purple-600 font-bold">
+                          <Calendar size={13} className="text-purple-500 shrink-0" />
+                          <span>{evt.date} • {evt.time}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                          <MapPin size={12} className="text-slate-400 shrink-0" />
+                          <span>Mode: {evt.mode}</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Event Highlights</h4>
+                        <ul className="space-y-1">
+                          {evt.highlights.map((hl, idx) => (
+                            <li key={idx} className="text-[10px] text-slate-600 font-medium flex items-center gap-1.5">
+                              <CheckCircle2 size={11} className="text-purple-500 shrink-0" />
+                              <span>{hl}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <a 
+                        href={evt.link} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full mt-auto py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
+                      >
+                        <Calendar size={13} /> Register for Event
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
+                <Search size={32} className="mx-auto text-slate-300 mb-3" />
+                <h3 className="text-base font-black text-slate-800 mb-1">No Events Found</h3>
+                <p className="text-slate-500 text-xs">Try tweaking your search term or select a different category filter.</p>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-8 pt-4 flex justify-center">
+            <button 
+              onClick={() => setView('home')} 
+              className="px-6 py-3 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 hover:bg-slate-800 transition-all shadow-md"
+            >
+              <Home size={16} /> Return to Home
+            </button>
+          </div>
+        </main>
+      )}
+
       {(view === 'privacy' || view === 'terms') && (
         <main className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
           <div className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100">
@@ -2762,6 +3376,8 @@ const App: React.FC = () => {
                 <li><button onClick={() => setView('one-on-one-mentorship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">1-on-1 Mentorship</button></li>
                 <li><button onClick={() => setView('final-year-projects')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Final Year Projects</button></li>
                 <li><button onClick={() => setView('hackathons')} className="font-semibold text-slate-700 hover:text-amber-600 transition-colors flex items-center gap-1.5"><Trophy size={14} className="text-amber-500" /> Hackathons</button></li>
+                <li><button onClick={() => setView('workshops')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-1.5"><BookOpen size={14} className="text-indigo-500" /> Workshops</button></li>
+                <li><button onClick={() => setView('events')} className="font-semibold text-slate-700 hover:text-purple-600 transition-colors flex items-center gap-1.5"><Calendar size={14} className="text-purple-500" /> Events</button></li>
               </ul>
             </div>
 
@@ -2778,7 +3394,7 @@ const App: React.FC = () => {
           </div>
           <div className="mt-14 pt-8 border-t border-slate-200/80 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-semibold text-slate-600">
-              <p>© 2025 RANBIDGE Solutions Private Limited. All rights reserved.</p>
+              <p>© 2025 - 2026  RANBIDGE Solutions Private Limited. All rights reserved.</p>
               <div className="flex items-center gap-3 text-xs text-slate-400">
                 <button onClick={() => setView('privacy')} className="hover:text-indigo-600 transition-colors font-medium">Privacy Policy</button>
                 <span>•</span>
