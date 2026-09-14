@@ -12,6 +12,7 @@ import {
   TrendingUp,
   Award,
   Trophy,
+  Lock,
   MapPin,
   Mail,
   ShieldAlert,
@@ -105,39 +106,86 @@ const HEADER_CONFIG = {
   solidBg: 'bg-white/80 backdrop-blur-md border-b border-slate-200'
 };
 
+// Helper functions for Hackathon lifecycle management
+const isRegistrationClosed = (targetDate?: string, status?: string): boolean => {
+  if (status === 'Closed' || status === 'Registration Closed') return true;
+  if (!targetDate) return false;
+  return new Date().getTime() > new Date(targetDate).getTime();
+};
+
+const isExpiredAfter3Days = (targetDate?: string): boolean => {
+  if (!targetDate) return false;
+  const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+  return new Date().getTime() > (new Date(targetDate).getTime() + THREE_DAYS_MS);
+};
+
 const HACKATHONS: Hackathon[] = [
   {
-    id: 'smart-india-hackathon-2026',
-    title: 'Smart India Hackathon 2026 (SIH)',
-    category: 'Government & Open Innovation',
-    prizePool: '₹1 Lakh per Problem Statement',
-    duration: '36-Hour Non-stop Build',
-    mode: 'Pan-India (Nodal Centers)',
+    id: 'supernova-space-hackathon-2026',
+    title: 'Supernova 2026 – Beyond the Cosmos',
+    category: 'Space Tech & AI',
+    prizePool: '₹50,000 + Swag & Free Stay',
+    duration: '30-Hour Space Hackathon',
+    mode: 'IIT Kharagpur Research Park, Kolkata',
+    status: 'Registration Open',
+    statusColor: 'bg-cyan-600',
+    badge: 'UEMK Space Observatory',
+    thumbnail: 'https://super-nova.tech/images/event-16x9.png',
+    description: 'East India\'s premier space hackathon organized by UEMK Space Observatory (SPIE & Optica). Solve challenges in AI/ML, Satellite Tech, Earth Observation, Robotics & IoT. Free entry with accommodation provided for finalists.',
+    techStack: ['Space Tech', 'Satellite Tech', 'AI/ML', 'Robotics & IoT', 'Geospatial'],
+    link: 'https://www.super-nova.tech/?utm_source=chatgpt.com',
+    deadline: '11th Sep 2026 (Prelims)',
+    targetDate: '2026-09-11T23:59:59'
+  },
+  {
+    id: 'archscale-intern-hackathon',
+    title: 'ArchScale Guild — Intern Tech Hackathon',
+    category: 'Architecture & Software',
+    prizePool: 'Remote Internship + ₹9k–12k/mo Stipend',
+    duration: 'Real Industry Problem Challenge',
+    mode: 'Online / Remote (Individual)',
     status: 'Registration Open',
     statusColor: 'bg-emerald-600',
-    badge: 'Ministry of Education & AICTE',
-    thumbnail: 'https://sih.gov.in/img1/slider2026/sih-ps-added.png',
-    description: 'World\'s biggest open innovation initiative by Govt. of India to solve pressing challenges of ministries, departments, industries, and PSUs.',
-    techStack: ['Hardware Edition', 'Software Edition', 'AI/ML', 'Govt Tech', 'IoT'],
-    link: HACKATHON_LINK,
-    deadline: 'Pan-India Annual Edition',
-    targetDate: '2026-10-15T23:59:59'
+    badge: 'ArchScale Guild',
+    thumbnail: 'https://hackathon.archscale.in/og.png',
+    description: 'Nine real industry problems across architecture, construction, design & software. Pick 1 problem, prototype an intelligent intervention using AI (Cursor, Claude, ChatGPT). Top builders get remote 3–6 month internships.',
+    techStack: ['AI-Assisted Dev', 'Full Stack', 'System Architecture', 'Product Design'],
+    link: 'https://hackathon.archscale.in/?utm_source=chatgpt.com',
+    deadline: '16th Sep 2026',
+    targetDate: '2026-09-16T23:59:59'
+  },
+  {
+    id: 'codeheist-hackathon-lpu',
+    title: 'CODE HEIST Hackathon \'26 – THRYVE @ LPU',
+    category: '24-Hour Code Sprint',
+    prizePool: '₹20,000+ Prizes + SectorX Gear',
+    duration: '24-Hour Non-stop Sprint',
+    mode: 'LPU Campus, Punjab',
+    status: 'Registration Open',
+    statusColor: 'bg-red-600',
+    badge: 'THRYVE × OSEN × SectorX',
+    thumbnail: 'https://clubthryve.in/assets/code-heist-poster.jpg',
+    description: 'Premier 24-hour student hackathon presented by THRYVE at Lovely Professional University (LPU). Features 1-on-1 mentorship, ₹20k+ rewards, SectorX mechanical gear, and 100-mark scorecard across tech domains.',
+    techStack: ['Software Dev', 'Web & Mobile', 'AI Solutions', 'Open Innovation'],
+    link: 'https://clubthryve.in/?utm_source=chatgpt.com',
+    deadline: '18th Sep 2026',
+    targetDate: '2026-09-18T17:00:00'
   },
   {
     id: 'build-next-2026',
-    title: 'Build Next 2026 – ZIROH LABS',
-    category: 'AI & Software',
-    prizePool: '₹7.5 Lakh Total Pool',
-    duration: 'National AI Challenge',
-    mode: 'Online / India',
+    title: 'Build Next 2026 – Kompact AI Challenge (ZIROH LABS)',
+    category: 'Sustainable AI & Software',
+    prizePool: '₹7.5 Lakh Total Pool (3 Memorial Awards)',
+    duration: '30-Day AI Challenge (2-Phase)',
+    mode: '100% Online (Across India)',
     status: 'Registration Open',
     statusColor: 'bg-indigo-600',
     badge: 'ZIROH LABS',
     thumbnail: 'https://www.ziroh.com/public/assets/hackathon/Ziroh_web_img/1.21%201.png',
-    description: 'National AI challenge focused on next-generation AI applications. Open for students and working professionals in teams of 1–5.',
-    techStack: ['Next-Gen AI', 'LLM Apps', 'Machine Learning', 'Full Stack'],
+    description: 'India\'s premier sustainable AI challenge hosted by ZIROH LABS. Compete for ₹7,50,000 across 3 Signature Memorial Awards (₹2.5L each). Build next-gen AI agents, RAG systems, and predictive applications using Kompact AI Runtime. Open for students and working professionals in teams of 1–5.',
+    techStack: ['Kompact AI Runtime', 'Next-Gen AI', 'RAG Systems', 'AI Agents', 'LLMs'],
     link: 'https://www.ziroh.com/hackathon?utm_source=chatgpt.com',
-    deadline: '18th Sep 2026',
+    deadline: '18th Sep 2026 (Phase 1)',
     targetDate: '2026-09-18T23:59:59'
   },
   {
@@ -167,7 +215,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-blue-600',
     badge: 'Microsoft Club SIST',
-    thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://www.knowafest.com/files/uploads/Untitled%20design%20(1)-2026083107.png',
     description: 'National hackathon with grand finale at Sathyabama Institute, Chennai. Tracks: Oceanic AI, ZK Blockchain, Climate-Tech / Remote Sensing, and Open Innovation.',
     techStack: ['Oceanic AI', 'ZK Blockchain', 'Climate-Tech', 'Open Innovation'],
     link: REGISTRATION_LINK,
@@ -184,7 +232,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-purple-600',
     badge: 'BVRIT Telangana',
-    thumbnail: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://khajana.blob.core.windows.net/hackindia/events/1787133033627_opf3aq_cropped-banner.webp',
     description: '28-hour national hackathon across 5 tech domains hosted at BVRIT Narsapur with ₹1 Lakh+ in cash prizes.',
     techStack: ['5 Tech Domains', 'AI/ML', 'IoT & Embedded', 'Web Dev'],
     link: REGISTRATION_LINK,
@@ -201,7 +249,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Live Now',
     statusColor: 'bg-amber-600',
     badge: 'Semiconductor India',
-    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://www.semiconindia.org/sites/semiconindia.org/files/styles/2100x600/public/2026-03/2026-03-05-WEBSITE-GUIDELINES-INDIA-PRIMARY-BANNER.png.webp',
     description: 'Semiconductor & electronics focused hackathon for UG, PG, and PhD students solving industry-defined hardware and IoT problems.',
     techStack: ['Semiconductors', 'Electronics', 'Embedded Systems', 'IoT'],
     link: 'https://www.semiconindia.org/special-features-2026/Hackathon?utm_source=chatgpt.com',
@@ -209,19 +257,36 @@ const HACKATHONS: Hackathon[] = [
     targetDate: '2026-09-19T23:59:59'
   },
   {
-    id: 'algonation-2026',
-    title: 'AlgoNation 2026',
-    category: 'Software & AI Challenge',
-    prizePool: 'Cash & National Ranking',
-    duration: 'Multi-category Challenge',
-    mode: 'Online / Virtual',
+    id: 'et-ai-hackathon-agentic-edition',
+    title: 'ET AI Hackathon: Agentic Edition (Accenture × Economic Times)',
+    category: 'Agentic AI & Enterprise',
+    prizePool: '₹2 Lakh Prize Pool + Accenture Career Opportunities',
+    duration: 'Enterprise AI Challenge',
+    mode: 'Pan-India (Online / Hybrid)',
     status: 'Registration Open',
-    statusColor: 'bg-sky-600',
-    badge: 'AlgoNation',
-    thumbnail: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
-    description: 'Categories include Software Development, Vibe Coding, Digital Marketing, Core AI, and Startup Idea Challenge.',
-    techStack: ['Software Dev', 'Vibe Coding', 'Core AI', 'Startup Idea'],
-    link: 'https://www.algonation.org/register?utm_source=chatgpt.com',
+    statusColor: 'bg-cyan-600',
+    badge: 'Accenture × Economic Times',
+    thumbnail: 'https://img.etimg.com/thumb/msid-133999003,width-1200,height-630,imgsize-147208,overlay-economictimes/articleshow.jpg',
+    description: 'Brings experienced AI professionals (3+ yrs exp) together with Accenture as Presenting Partner to build Agentic AI solutions for enterprise challenges. Features ₹2 Lakh prize pool and direct interview opportunities with Accenture.',
+    techStack: ['Agentic AI', 'AI Agents', 'LLMs & RAG', 'Enterprise Workflows', 'Guardrails & Safety'],
+    link: 'https://m.economictimes.com/ai/ai-insights/et-ai-hackathon-agentic-edition-accenture-joins-the-economic-times-to-champion-the-next-generation-of-ai-innovators/articleshow/133998554.cms?utm_source=chatgpt.com',
+    deadline: '20th Sep 2026',
+    targetDate: '2026-09-20T23:59:59'
+  },
+  {
+    id: 'algonation-2026',
+    title: 'AlgoNation 2026 — National Tech Championship',
+    category: 'Software & AI Challenge',
+    prizePool: 'Cash Prizes & National Rankings',
+    duration: '4 Rounds + Offline Finale',
+    mode: 'Online Rounds + Offline Finale',
+    status: 'Registration Open',
+    statusColor: 'bg-rose-600',
+    badge: 'AlgoNation 2026',
+    thumbnail: 'https://algonation.org/opengraph-image?0f75c59f87c2c36f',
+    description: 'India\'s national CS & AI talent championship featuring 6 distinct competition tracks: Software Developers (DSA), Vibe Coding, Core AI Developers, Digital Marketing, Startup Idea Challenge, and Master Rural Challenge.',
+    techStack: ['DSA & Algorithms', 'Vibe Coding', 'Core AI', 'Digital Marketing', 'Startup Challenge'],
+    link: 'https://www.algonation.org/?utm_source=chatgpt.com',
     deadline: '20th Sep 2026',
     targetDate: '2026-09-20T23:59:59'
   },
@@ -235,29 +300,12 @@ const HACKATHONS: Hackathon[] = [
     status: 'Upcoming',
     statusColor: 'bg-rose-600',
     badge: 'HackRonyX',
-    thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://d8it4huxumps7.cloudfront.net/lambda-pdfs/opportunity-bannerImages/1749706431.png',
     description: 'National-level hackathon featuring a ₹1 Lakh prize pool for student innovators and developer teams across India.',
     techStack: ['Web3', 'AI Solutions', 'Open Innovation', 'App Dev'],
     link: REGISTRATION_LINK,
     deadline: '26th Sep 2026',
     targetDate: '2026-09-26T23:59:59'
-  },
-  {
-    id: 'mindcraft-2k26',
-    title: 'MINDCRAFT 2K26 – CSI × D.Y. Patil',
-    category: 'College Hackathon',
-    prizePool: '₹1,00,000 Prize Pool',
-    duration: '24-Hour Code Sprint',
-    mode: 'CSI × D.Y. Patil College',
-    status: 'Upcoming',
-    statusColor: 'bg-violet-600',
-    badge: 'CSI × D.Y. Patil',
-    thumbnail: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-    description: 'Flagship tech hackathon by CSI in collaboration with D.Y. Patil College featuring ₹1 Lakh in rewards.',
-    techStack: ['Full Stack', 'Cloud & AI', 'Problem Solving', 'Innovation'],
-    link: REGISTRATION_LINK,
-    deadline: '4th Oct 2026',
-    targetDate: '2026-10-04T23:59:59'
   },
   {
     id: 'iqoo-hackathon',
@@ -275,6 +323,40 @@ const HACKATHONS: Hackathon[] = [
     link: 'https://iqoo.reskilll.com/',
     deadline: '26th Sep 2026',
     targetDate: '2026-09-26T23:59:59'
+  },
+  {
+    id: 'mindcraft-2k26',
+    title: 'MINDCRAFT 2K26 – CSI × D.Y. Patil',
+    category: 'College Hackathon',
+    prizePool: '₹1,00,000 Prize Pool',
+    duration: '24-Hour Code Sprint',
+    mode: 'CSI × D.Y. Patil College',
+    status: 'Upcoming',
+    statusColor: 'bg-violet-600',
+    badge: 'CSI × D.Y. Patil',
+    thumbnail: 'https://internshala-competitions.s3.ap-south-1.amazonaws.com/competitions/wp-content/uploads/2026/09/04171930/mindcraft-2026.jpg',
+    description: 'Flagship tech hackathon by CSI in collaboration with D.Y. Patil College featuring ₹1 Lakh in rewards.',
+    techStack: ['Full Stack', 'Cloud & AI', 'Problem Solving', 'Innovation'],
+    link: REGISTRATION_LINK,
+    deadline: '4th Oct 2026',
+    targetDate: '2026-10-04T23:59:59'
+  },
+  {
+    id: 'smart-india-hackathon-2026',
+    title: 'Smart India Hackathon 2026 (SIH)',
+    category: 'Government & Open Innovation',
+    prizePool: '₹1 Lakh per Problem Statement',
+    duration: '36-Hour Non-stop Build',
+    mode: 'Pan-India (Nodal Centers)',
+    status: 'Registration Open',
+    statusColor: 'bg-emerald-600',
+    badge: 'Ministry of Education & AICTE',
+    thumbnail: 'https://sih.gov.in/img1/slider2026/sih-ps-added.png',
+    description: 'World\'s biggest open innovation initiative by Govt. of India to solve pressing challenges of ministries, departments, industries, and PSUs.',
+    techStack: ['Hardware Edition', 'Software Edition', 'AI/ML', 'Govt Tech', 'IoT'],
+    link: HACKATHON_LINK,
+    deadline: 'Pan-India Annual Edition',
+    targetDate: '2026-10-15T23:59:59'
   },
   {
     id: 'hacker-house-goa',
@@ -1258,9 +1340,9 @@ const HackathonTimer: React.FC<{ targetDate?: string; deadline?: string }> = ({ 
 
   if (!timeLeft) {
     return (
-      <div className="mb-3 flex items-center gap-1.5 text-slate-700 text-xs font-bold whitespace-nowrap">
-        <Clock size={13} className="text-amber-500 animate-pulse shrink-0" />
-        <span className="text-amber-600 font-extrabold">Active Event</span>
+      <div className="mb-3 flex items-center gap-1.5 text-slate-500 text-xs font-bold whitespace-nowrap">
+        <Lock size={13} className="text-slate-400 shrink-0" />
+        <span className="text-slate-500 font-extrabold">Registration Closed</span>
         {deadline && <span className="text-slate-400 font-normal">({deadline})</span>}
       </div>
     );
@@ -1431,6 +1513,11 @@ const App: React.FC = () => {
   });
 
   const filteredHackathons = HACKATHONS.filter(hack => {
+    // Automatically remove hackathons 3 days after targetDate (registration closed + 3 days)
+    if (hack.targetDate && isExpiredAfter3Days(hack.targetDate)) {
+      return false;
+    }
+
     const matchesSearch = hack.title.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
                           hack.description.toLowerCase().includes(hackathonSearch.toLowerCase()) ||
                           hack.techStack.some(t => t.toLowerCase().includes(hackathonSearch.toLowerCase())) ||
@@ -1448,7 +1535,8 @@ const App: React.FC = () => {
       (hackathonLocation === 'Goa' && hack.mode.toLowerCase().includes('goa')) ||
       (hackathonLocation === 'Bengaluru' && (hack.mode.toLowerCase().includes('bengaluru') || hack.mode.toLowerCase().includes('cities')));
 
-    const matchesTimeline = hackathonTimeline === 'All' || hack.status === hackathonTimeline;
+    const matchesTimeline = hackathonTimeline === 'All' || 
+      (hackathonTimeline === 'Closed' ? isRegistrationClosed(hack.targetDate, hack.status) : hack.status === hackathonTimeline);
 
     const matchesTeamSize = hackathonTeamSize === 'All' ||
       (hackathonTeamSize === '1-4' && (hack.description.includes('up to 4') || hack.description.includes('1–4') || hack.description.includes('solo'))) ||
@@ -1456,7 +1544,7 @@ const App: React.FC = () => {
       (hackathonTeamSize === '2-6' && hack.description.includes('2–6'));
 
     return matchesSearch && matchesType && matchesLocation && matchesTimeline && matchesTeamSize;
-  });
+  }).sort((a, b) => new Date(a.targetDate || '9999-12-31').getTime() - new Date(b.targetDate || '9999-12-31').getTime());
 
   const filteredWorkshops = WORKSHOPS.filter(ws => {
     const matchesCat = workshopCategory === 'All' || ws.category === workshopCategory;
@@ -3236,8 +3324,10 @@ const App: React.FC = () => {
                     
                     <div className="p-4 flex flex-col flex-grow">
                       <div className="flex items-center gap-1.5 mb-2 flex-wrap">
-                        <span className={`px-2 py-0.5 text-white text-[10px] font-black rounded-full shadow-xs ${hack.statusColor}`}>
-                          {hack.status}
+                        <span className={`px-2 py-0.5 text-white text-[10px] font-black rounded-full shadow-xs ${
+                          isRegistrationClosed(hack.targetDate, hack.status) ? 'bg-slate-500' : hack.statusColor
+                        }`}>
+                          {isRegistrationClosed(hack.targetDate, hack.status) ? 'Registration Closed' : hack.status}
                         </span>
                         <span className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold rounded-full">
                           {hack.badge}
@@ -3269,14 +3359,23 @@ const App: React.FC = () => {
                         </div>
                       </div>
 
-                      <a 
-                        href={hack.link} 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full mt-auto py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl text-xs font-bold hover:from-amber-600 hover:to-orange-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
-                      >
-                        <Trophy size={13} /> Register Hackathon
-                      </a>
+                      {isRegistrationClosed(hack.targetDate, hack.status) ? (
+                        <button 
+                          disabled
+                          className="w-full mt-auto py-2 bg-slate-200 text-slate-400 border border-slate-300 rounded-xl text-xs font-bold cursor-not-allowed flex items-center justify-center gap-1.5 opacity-80 pointer-events-none"
+                        >
+                          <Lock size={13} /> Registration Closed
+                        </button>
+                      ) : (
+                        <a 
+                          href={hack.link} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full mt-auto py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl text-xs font-bold hover:from-amber-600 hover:to-orange-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
+                        >
+                          <Trophy size={13} /> Register Hackathon
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -3968,6 +4067,7 @@ const App: React.FC = () => {
                 <li><button onClick={() => setView('paid-internship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Paid Internship</button></li>
                 <li><button onClick={() => setView('virtual-internship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Virtual Internship</button></li>
                 <li><button onClick={() => setView('research-internship')} className="font-semibold text-slate-700 hover:text-teal-600 transition-colors">Research Internship</button></li>
+                <li><button onClick={() => setView('one-on-one-mentorship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">1-on-1 Mentorship</button></li>
               </ul>
             </div>
 
@@ -3976,7 +4076,6 @@ const App: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-600"></span> Programs
               </h4>
               <ul className="space-y-3.5 text-sm">
-                <li><button onClick={() => setView('one-on-one-mentorship')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">1-on-1 Mentorship</button></li>
                 <li><button onClick={() => setView('final-year-projects')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors">Final Year Projects</button></li>
                 <li><button onClick={() => setView('hackathons')} className="font-semibold text-slate-700 hover:text-amber-600 transition-colors flex items-center gap-1.5"><Trophy size={14} className="text-amber-500" /> Hackathons</button></li>
                 <li><button onClick={() => setView('workshops')} className="font-semibold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-1.5"><BookOpen size={14} className="text-indigo-500" /> Workshops</button></li>
