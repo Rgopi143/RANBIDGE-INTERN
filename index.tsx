@@ -46,6 +46,17 @@ import {
   Video
 } from 'lucide-react';
 
+import supernovaPoster from './supernova-hackathon.png';
+import archscalePoster from './archscale-hackathon.png';
+import orionPoster from './orion-hackathon.png';
+import techsurgePoster from './techsurge-hackathon.webp';
+import semiconPoster from './semicon-hackathon.webp';
+import etAiPoster from './et-ai-hackathon.jpg';
+import etAi2026Poster from './et-ai-hackathon-2026.jpg';
+import algonationPoster from './algonation-hackathon.png';
+import hackronyxPoster from './hackronyx-hackathon.png';
+import mindcraftPoster from './mindcraft-hackathon.jpg';
+
 // --- Types ---
 interface Course {
   id: string;
@@ -130,7 +141,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-cyan-600',
     badge: 'UEMK Space Observatory',
-    thumbnail: 'https://super-nova.tech/images/event-16x9.png',
+    thumbnail: supernovaPoster,
     description: 'East India\'s premier space hackathon organized by UEMK Space Observatory (SPIE & Optica). Solve challenges in AI/ML, Satellite Tech, Earth Observation, Robotics & IoT. Free entry with accommodation provided for finalists.',
     techStack: ['Space Tech', 'Satellite Tech', 'AI/ML', 'Robotics & IoT', 'Geospatial'],
     link: 'https://www.super-nova.tech/?utm_source=chatgpt.com',
@@ -147,7 +158,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-emerald-600',
     badge: 'ArchScale Guild',
-    thumbnail: 'https://hackathon.archscale.in/og.png',
+    thumbnail: archscalePoster,
     description: 'Nine real industry problems across architecture, construction, design & software. Pick 1 problem, prototype an intelligent intervention using AI (Cursor, Claude, ChatGPT). Top builders get remote 3–6 month internships.',
     techStack: ['AI-Assisted Dev', 'Full Stack', 'System Architecture', 'Product Design'],
     link: 'https://hackathon.archscale.in/?utm_source=chatgpt.com',
@@ -215,7 +226,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-blue-600',
     badge: 'Microsoft Club SIST',
-    thumbnail: 'https://www.knowafest.com/files/uploads/Untitled%20design%20(1)-2026083107.png',
+    thumbnail: orionPoster,
     description: 'National hackathon with grand finale at Sathyabama Institute, Chennai. Tracks: Oceanic AI, ZK Blockchain, Climate-Tech / Remote Sensing, and Open Innovation.',
     techStack: ['Oceanic AI', 'ZK Blockchain', 'Climate-Tech', 'Open Innovation'],
     link: REGISTRATION_LINK,
@@ -232,7 +243,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-purple-600',
     badge: 'BVRIT Telangana',
-    thumbnail: 'https://khajana.blob.core.windows.net/hackindia/events/1787133033627_opf3aq_cropped-banner.webp',
+    thumbnail: techsurgePoster,
     description: '28-hour national hackathon across 5 tech domains hosted at BVRIT Narsapur with ₹1 Lakh+ in cash prizes.',
     techStack: ['5 Tech Domains', 'AI/ML', 'IoT & Embedded', 'Web Dev'],
     link: REGISTRATION_LINK,
@@ -249,7 +260,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Live Now',
     statusColor: 'bg-amber-600',
     badge: 'Semiconductor India',
-    thumbnail: 'https://www.semiconindia.org/sites/semiconindia.org/files/styles/2100x600/public/2026-03/2026-03-05-WEBSITE-GUIDELINES-INDIA-PRIMARY-BANNER.png.webp',
+    thumbnail: semiconPoster,
     description: 'Semiconductor & electronics focused hackathon for UG, PG, and PhD students solving industry-defined hardware and IoT problems.',
     techStack: ['Semiconductors', 'Electronics', 'Embedded Systems', 'IoT'],
     link: 'https://www.semiconindia.org/special-features-2026/Hackathon?utm_source=chatgpt.com',
@@ -266,12 +277,29 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-cyan-600',
     badge: 'Accenture × Economic Times',
-    thumbnail: 'https://img.etimg.com/thumb/msid-133999003,width-1200,height-630,imgsize-147208,overlay-economictimes/articleshow.jpg',
+    thumbnail: etAiPoster,
     description: 'Brings experienced AI professionals (3+ yrs exp) together with Accenture as Presenting Partner to build Agentic AI solutions for enterprise challenges. Features ₹2 Lakh prize pool and direct interview opportunities with Accenture.',
     techStack: ['Agentic AI', 'AI Agents', 'LLMs & RAG', 'Enterprise Workflows', 'Guardrails & Safety'],
     link: 'https://m.economictimes.com/ai/ai-insights/et-ai-hackathon-agentic-edition-accenture-joins-the-economic-times-to-champion-the-next-generation-of-ai-innovators/articleshow/133998554.cms?utm_source=chatgpt.com',
     deadline: '20th Sep 2026',
     targetDate: '2026-09-20T23:59:59'
+  },
+  {
+    id: 'et-ai-hackathon-2026-2nd-edition',
+    title: 'ET AI Hackathon 2026 — 2nd Edition (The Economic Times)',
+    category: 'GenAI & AI Innovation',
+    prizePool: 'Cash Prizes & Job Opportunities',
+    duration: 'Multi-Phase Innovation Challenge',
+    mode: 'Online AI Assessment & Hybrid Finale',
+    status: 'Registration Open',
+    statusColor: 'bg-emerald-600',
+    badge: 'The Economic Times',
+    thumbnail: etAi2026Poster,
+    description: 'India\'s biggest AI innovation challenge by The Economic Times. Compete at India\'s largest GenAI Hackathon to build, innovate, and showcase your ideas to industry leaders. Multi-phase journey with online assessment, national recognition, and hiring opportunities.',
+    techStack: ['GenAI', 'LLMs', 'Agentic AI', 'Machine Learning', 'Open Innovation'],
+    link: 'https://economictimes.indiatimes.com/et-ai-hackathon/2nd-edition?utm_source=economic%20times&utm_medium=article&utm_campaign=registration',
+    deadline: 'Registration Open 2026',
+    targetDate: '2026-10-30T23:59:59'
   },
   {
     id: 'algonation-2026',
@@ -283,7 +311,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Registration Open',
     statusColor: 'bg-rose-600',
     badge: 'AlgoNation 2026',
-    thumbnail: 'https://algonation.org/opengraph-image?0f75c59f87c2c36f',
+    thumbnail: algonationPoster,
     description: 'India\'s national CS & AI talent championship featuring 6 distinct competition tracks: Software Developers (DSA), Vibe Coding, Core AI Developers, Digital Marketing, Startup Idea Challenge, and Master Rural Challenge.',
     techStack: ['DSA & Algorithms', 'Vibe Coding', 'Core AI', 'Digital Marketing', 'Startup Challenge'],
     link: 'https://www.algonation.org/?utm_source=chatgpt.com',
@@ -300,7 +328,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Upcoming',
     statusColor: 'bg-rose-600',
     badge: 'HackRonyX',
-    thumbnail: 'https://d8it4huxumps7.cloudfront.net/lambda-pdfs/opportunity-bannerImages/1749706431.png',
+    thumbnail: hackronyxPoster,
     description: 'National-level hackathon featuring a ₹1 Lakh prize pool for student innovators and developer teams across India.',
     techStack: ['Web3', 'AI Solutions', 'Open Innovation', 'App Dev'],
     link: REGISTRATION_LINK,
@@ -334,7 +362,7 @@ const HACKATHONS: Hackathon[] = [
     status: 'Upcoming',
     statusColor: 'bg-violet-600',
     badge: 'CSI × D.Y. Patil',
-    thumbnail: 'https://internshala-competitions.s3.ap-south-1.amazonaws.com/competitions/wp-content/uploads/2026/09/04171930/mindcraft-2026.jpg',
+    thumbnail: mindcraftPoster,
     description: 'Flagship tech hackathon by CSI in collaboration with D.Y. Patil College featuring ₹1 Lakh in rewards.',
     techStack: ['Full Stack', 'Cloud & AI', 'Problem Solving', 'Innovation'],
     link: REGISTRATION_LINK,
