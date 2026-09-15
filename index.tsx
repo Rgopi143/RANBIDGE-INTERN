@@ -1129,32 +1129,33 @@ const Navigation: React.FC<{
 
   return (
   <nav className={`sticky top-0 z-[100] transition-all duration-300 ${scrolled ? HEADER_CONFIG.transparentBg : HEADER_CONFIG.solidBg}`}>
-    <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between items-center h-16">
-        <button onClick={() => setView('home')} className="hidden md:flex items-center gap-3">
-          <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-10 h-10 rounded-full border-2 border-indigo-100 shadow-sm" />
-          <span className="text-lg font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 tracking-tight">
-            RANBIDGE SOLUTIONS
+    <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="flex justify-between items-center h-16 gap-2">
+        <button onClick={() => setView('home')} className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <img src={LOGO_URL} alt="RANBIDGE Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-indigo-100 shadow-sm shrink-0" />
+          <span className="text-xs sm:text-base md:text-lg font-black bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 tracking-tight whitespace-nowrap">
+            RANBIDGE <span className="hidden xs:inline sm:inline">SOLUTIONS</span>
           </span>
         </button>
-        <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-7 overflow-visible py-1">
-          <button onClick={() => setView('home')} className={`text-sm font-bold flex items-center gap-2 transition-all shrink-0 ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
-            <Home size={16} /> Home
+
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-5 lg:gap-7 overflow-x-auto no-scrollbar py-1 scroll-smooth max-w-full">
+          <button onClick={() => setView('home')} className={`text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
+            <Home size={15} /> <span>Home</span>
           </button>
           
           {/* Internship Dropdown */}
           <div className="relative internship-dropdown shrink-0 z-50">
             <button 
               onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
-              className={`text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer py-1.5 ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'research-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'}`}
+              className={`text-xs sm:text-sm font-bold flex items-center gap-1 transition-all cursor-pointer py-1.5 ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'research-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'}`}
             >
-              <Briefcase size={16} /> Internship
-              <ChevronDown size={14} className={`transition-transform duration-200 ${isInternshipDropdownOpen ? 'rotate-180 text-indigo-600' : ''}`} />
+              <Briefcase size={15} /> <span>Internship</span>
+              <ChevronDown size={13} className={`transition-transform duration-200 ${isInternshipDropdownOpen ? 'rotate-180 text-indigo-600' : ''}`} />
             </button>
             
             {isInternshipDropdownOpen && (
               <div 
-                className="absolute top-full left-0 mt-2 w-68 sm:w-72 max-h-[calc(100vh-90px)] sm:max-h-[80vh] overflow-y-auto dropdown-scrollable bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5 overscroll-contain"
+                className="absolute top-full left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 mt-2 w-72 max-h-[calc(100vh-90px)] sm:max-h-[80vh] overflow-y-auto dropdown-scrollable bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5 overscroll-contain"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="px-4 py-1 border-b border-slate-100 mb-1">
@@ -1244,11 +1245,11 @@ const Navigation: React.FC<{
           {/* Hackathons Button */}
           <button 
             onClick={() => setView('hackathons')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
+            className={`text-xs sm:text-sm font-bold flex items-center gap-1 transition-all shrink-0 relative group ${
               view === 'hackathons' ? 'text-amber-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-amber-600'
             }`}
           >
-            <Trophy size={16} className="text-amber-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <Trophy size={15} className="text-amber-500 group-hover:scale-110 transition-transform shrink-0" /> 
             <span>Hackathons</span>
             <span className="px-1.5 py-0.5 text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full uppercase tracking-wider animate-pulse shadow-xs">
               Live
@@ -1258,11 +1259,11 @@ const Navigation: React.FC<{
           {/* Workshops Button */}
           <button 
             onClick={() => setView('workshops')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
+            className={`text-xs sm:text-sm font-bold flex items-center gap-1 transition-all shrink-0 relative group ${
               view === 'workshops' ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'
             }`}
           >
-            <BookOpen size={16} className="text-indigo-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <BookOpen size={15} className="text-indigo-500 group-hover:scale-110 transition-transform shrink-0" /> 
             <span>Workshops</span>
             <span className="px-1.5 py-0.5 text-[9px] font-black bg-indigo-100 text-indigo-700 rounded-full uppercase tracking-wider shadow-xs">
               New
@@ -1272,11 +1273,11 @@ const Navigation: React.FC<{
           {/* Events Button */}
           <button 
             onClick={() => setView('events')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
+            className={`text-xs sm:text-sm font-bold flex items-center gap-1 transition-all shrink-0 relative group ${
               view === 'events' ? 'text-purple-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-purple-600'
             }`}
           >
-            <Calendar size={16} className="text-purple-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <Calendar size={15} className="text-purple-500 group-hover:scale-110 transition-transform shrink-0" /> 
             <span>Events</span>
             <span className="px-1.5 py-0.5 text-[9px] font-black bg-purple-100 text-purple-700 rounded-full uppercase tracking-wider shadow-xs">
               Live
@@ -1286,18 +1287,19 @@ const Navigation: React.FC<{
           {/* Careers Button */}
           <button 
             onClick={() => setView('careers')} 
-            className={`text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 relative group ${
+            className={`text-xs sm:text-sm font-bold flex items-center gap-1 transition-all shrink-0 relative group ${
               view === 'careers' ? 'text-emerald-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-emerald-600'
             }`}
           >
-            <Briefcase size={16} className="text-emerald-500 group-hover:scale-110 transition-transform shrink-0" /> 
+            <Briefcase size={15} className="text-emerald-500 group-hover:scale-110 transition-transform shrink-0" /> 
             <span>Careers</span>
             <span className="px-1.5 py-0.5 text-[9px] font-black bg-emerald-100 text-emerald-700 rounded-full uppercase tracking-wider shadow-xs">
               Hiring
             </span>
           </button>
         </div>
-        <a href={REGISTRATION_LINK} target="_blank" className="hidden sm:block px-5 py-2 bg-indigo-600 text-white rounded-full text-xs font-bold hover:bg-indigo-700 transition-all shadow-md">
+
+        <a href={REGISTRATION_LINK} target="_blank" className="px-3 py-1.5 sm:px-5 sm:py-2 bg-indigo-600 text-white rounded-full text-[11px] sm:text-xs font-bold hover:bg-indigo-700 transition-all shadow-md shrink-0 whitespace-nowrap">
           Apply Now
         </a>
       </div>
@@ -1591,7 +1593,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-slate-50">
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-slate-50 pb-24 md:pb-0">
       {/* Background Animation Simulation */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-200/20 blur-[120px] rounded-full animate-pulse"></div>
@@ -1606,7 +1608,7 @@ const App: React.FC = () => {
           {view === 'home' && (
             <>
               {/* Hero Section */}
-              <header className="bg-gradient-to-b from-indigo-50/40 via-white to-slate-50 border-b border-slate-100 relative pt-20 pb-24 overflow-hidden">
+              <header className="bg-gradient-to-b from-indigo-50/40 via-white to-slate-50 border-b border-slate-100 relative pt-12 sm:pt-20 pb-16 sm:pb-24 overflow-hidden">
                 {/* Floating Levitating Badges */}
                 <div className="hidden lg:block absolute top-16 left-12 animate-float-slow z-20">
                   <div className="glass-card px-4 py-2.5 rounded-2xl shadow-xl border border-indigo-100 flex items-center gap-3">
@@ -1645,28 +1647,44 @@ const App: React.FC = () => {
                 </div>
 
                 <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8 relative text-center z-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-indigo-100 text-indigo-700 text-xs font-extrabold mb-8 tracking-wide shadow-sm hover:scale-105 transition-transform">
-                    <span className="relative flex h-2 w-2">
+                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white border border-indigo-100 text-indigo-700 text-[11px] sm:text-xs font-extrabold mb-6 sm:mb-8 tracking-wide shadow-sm hover:scale-105 transition-transform max-w-full">
+                    <span className="relative flex h-2 w-2 shrink-0">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
-                    <TrendingUp size={14} className="text-indigo-600" /> Live Admissions Open • 1,250+ Interns Enrolled
+                    <TrendingUp size={14} className="text-indigo-600 shrink-0" /> <span className="truncate">Live Admissions Open • 1,250+ Interns Enrolled</span>
                   </div>
 
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
-                    Empowering the Next <br />
+                  <h1 className="text-3xl sm:text-6xl md:text-7xl font-black text-slate-900 mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1] tracking-tight">
+                    Empowering the Next <br className="hidden sm:inline" />
                     <span className="animated-gradient-text">Tech Innovators & Leaders</span>
                   </h1>
 
-                  <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+                  {/* Mobile Feature Badges Row */}
+                  <div className="flex lg:hidden items-center justify-center gap-2 overflow-x-auto no-scrollbar mb-6 max-w-full px-1">
+                    <div className="glass-card px-3 py-1.5 rounded-xl shadow-xs border border-indigo-100 flex items-center gap-2 shrink-0">
+                      <span className="text-xs">⚡</span>
+                      <span className="text-[11px] font-black text-slate-800">Web & Python</span>
+                    </div>
+                    <div className="glass-card px-3 py-1.5 rounded-xl shadow-xs border border-violet-100 flex items-center gap-2 shrink-0">
+                      <span className="text-xs">📊</span>
+                      <span className="text-[11px] font-black text-slate-800">Data Analytics</span>
+                    </div>
+                    <div className="glass-card px-3 py-1.5 rounded-xl shadow-xs border border-pink-100 flex items-center gap-2 shrink-0">
+                      <span className="text-xs">🤖</span>
+                      <span className="text-[11px] font-black text-slate-800">AI & GenAI</span>
+                    </div>
+                  </div>
+
+                  <p className="text-sm sm:text-lg md:text-xl text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
                     Unlock your potential with hands-on industrial virtual internships at RANBIDGE Solutions. Real client projects, 1-on-1 expert mentorship, and industry-recognized certificates.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
                     <a 
                       href={VIRTUAL_INTERNSHIP_LINK} 
                       target="_blank" 
-                      className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black hover:bg-indigo-700 transition-all shadow-xl hover:shadow-indigo-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group"
+                      className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-indigo-600 text-white rounded-2xl font-black text-sm sm:text-base hover:bg-indigo-700 transition-all shadow-xl hover:shadow-indigo-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group"
                     >
                       <Briefcase size={20} /> Explore Virtual Internships
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -1676,7 +1694,7 @@ const App: React.FC = () => {
                         const el = document.getElementById('courses-section');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-md hover:shadow-xl border border-slate-200 hover:scale-105 active:scale-95"
+                      className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-slate-900 rounded-2xl font-black text-sm sm:text-base hover:bg-slate-50 transition-all shadow-md hover:shadow-xl border border-slate-200 hover:scale-105 active:scale-95"
                     >
                       Browse All Tracks
                     </button>
@@ -1714,16 +1732,16 @@ const App: React.FC = () => {
               </div>
 
           {/* Course Filter Bar */}
-          <div className="bg-white border-b border-slate-100 py-4 sticky top-16 z-40">
+          <div className="bg-white border-b border-slate-100 py-3 sm:py-4 sticky top-16 z-40">
             <div className="w-full max-w-[95vw] 2xl:max-w-[92vw] mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3 w-full sm:w-auto overflow-hidden">
+                  <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0 text-xs whitespace-nowrap scroll-smooth max-w-full">
                     {CATEGORIES.map(cat => (
                       <button
                         key={cat}
                         onClick={() => setSelectedCategory(cat)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                        className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all shrink-0 active:scale-95 ${
                           selectedCategory === cat 
                             ? 'bg-indigo-600 text-white shadow-md' 
                             : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -1734,7 +1752,7 @@ const App: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                <div className="text-sm text-slate-500">
+                <div className="text-xs sm:text-sm text-slate-500 font-semibold shrink-0">
                   {filteredCourses.length} {filteredCourses.length === 1 ? 'course' : 'courses'} found
                 </div>
               </div>
@@ -4071,6 +4089,7 @@ const App: React.FC = () => {
           </div>
         </main>
       )}
+      </div>
 
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200/80">
@@ -4195,97 +4214,6 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
-
-      {/* Mobile Floating Bottom Navigation Dock */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden w-[94vw] max-w-md">
-        <div className="bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-full px-3 py-2 shadow-2xl flex items-center justify-around animate-dock-glow">
-          <button
-            onClick={() => {
-              setView('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
-              view === 'home'
-                ? 'text-indigo-400 font-black animate-spring-pop'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <div className={`p-1.5 rounded-full transition-colors ${view === 'home' ? 'bg-indigo-500/20 text-indigo-400 ring-2 ring-indigo-500/50' : ''}`}>
-              <Home size={18} />
-            </div>
-            <span className="text-[10px] tracking-tight font-extrabold">Home</span>
-          </button>
-
-          <button
-            onClick={() => {
-              setView('workshops');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
-              view === 'workshops'
-                ? 'text-indigo-400 font-black animate-spring-pop'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <div className={`p-1.5 rounded-full transition-colors ${view === 'workshops' ? 'bg-indigo-500/20 text-indigo-400 ring-2 ring-indigo-500/50' : ''}`}>
-              <BookOpen size={18} />
-            </div>
-            <span className="text-[10px] tracking-tight font-extrabold">Workshops</span>
-          </button>
-
-          <button
-            onClick={() => {
-              setView('events');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
-              view === 'events'
-                ? 'text-purple-400 font-black animate-spring-pop'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <div className={`p-1.5 rounded-full transition-colors ${view === 'events' ? 'bg-purple-500/20 text-purple-400 ring-2 ring-purple-500/50' : ''}`}>
-              <Calendar size={18} />
-            </div>
-            <span className="text-[10px] tracking-tight font-extrabold">Events</span>
-          </button>
-
-          <button
-            onClick={() => {
-              setView('hackathons');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
-              view === 'hackathons'
-                ? 'text-amber-400 font-black animate-spring-pop'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <div className={`p-1.5 rounded-full transition-colors ${view === 'hackathons' ? 'bg-amber-500/20 text-amber-400 ring-2 ring-amber-500/50' : ''}`}>
-              <Trophy size={18} />
-            </div>
-            <span className="text-[10px] tracking-tight font-extrabold">Hackathons</span>
-          </button>
-
-          <button
-            onClick={() => {
-              setView('careers');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`flex flex-col items-center gap-0.5 transition-all active:scale-90 ${
-              view === 'careers'
-                ? 'text-emerald-400 font-black animate-spring-pop'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <div className={`p-1.5 rounded-full transition-colors ${view === 'careers' ? 'bg-emerald-500/20 text-emerald-400 ring-2 ring-emerald-500/50' : ''}`}>
-              <Briefcase size={18} />
-            </div>
-            <span className="text-[10px] tracking-tight font-extrabold">Careers</span>
-          </button>
-        </div>
-      </div>
-      </div>
     </div>
   );
 };
