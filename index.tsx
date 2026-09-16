@@ -56,6 +56,8 @@ import etAi2026Poster from './et-ai-hackathon-2026.jpg';
 import algonationPoster from './algonation-hackathon.png';
 import hackronyxPoster from './hackronyx-hackathon.png';
 import mindcraftPoster from './mindcraft-hackathon.jpg';
+import tcqPoster from './tcq-cyberpeace-hackathon.jpg';
+import zeroOriginPoster from './zero-origin-hackathon.jpg';
 
 // --- Types ---
 interface Course {
@@ -278,8 +280,8 @@ const HACKATHONS: Hackathon[] = [
     statusColor: 'bg-cyan-600',
     badge: 'Accenture × Economic Times',
     thumbnail: etAiPoster,
-    description: 'Brings experienced AI professionals (3+ yrs exp) together with Accenture as Presenting Partner to build Agentic AI solutions for enterprise challenges. Features ₹2 Lakh prize pool and direct interview opportunities with Accenture.',
-    techStack: ['Agentic AI', 'AI Agents', 'LLMs & RAG', 'Enterprise Workflows', 'Guardrails & Safety'],
+    description: 'Accenture joins The Economic Times as Presenting Partner for the ET AI Hackathon: Agentic Edition. Designed for experienced AI professionals & developers to build autonomous AI agents for real enterprise challenges. Features a ₹2 Lakh prize pool, career opportunities, and direct engagement with Accenture leadership.',
+    techStack: ['Agentic AI', 'Autonomous Agents', 'Enterprise AI Workflows', 'LLMs & RAG', 'AI Safety & Guardrails'],
     link: 'https://m.economictimes.com/ai/ai-insights/et-ai-hackathon-agentic-edition-accenture-joins-the-economic-times-to-champion-the-next-generation-of-ai-innovators/articleshow/133998554.cms?utm_source=chatgpt.com',
     deadline: '20th Sep 2026',
     targetDate: '2026-09-20T23:59:59'
@@ -300,6 +302,23 @@ const HACKATHONS: Hackathon[] = [
     link: 'https://economictimes.indiatimes.com/et-ai-hackathon/2nd-edition?utm_source=economic%20times&utm_medium=article&utm_campaign=registration',
     deadline: 'Registration Open 2026',
     targetDate: '2026-10-30T23:59:59'
+  },
+  {
+    id: 'terrier-cyber-quest-2026',
+    title: 'Terrier Cyber Quest 2026 (TCQ 3.0) — Indian Army × CyberPeace',
+    category: 'Cyber Security',
+    prizePool: 'National Recognition & Defense Bounties',
+    duration: '36-Hour Sandbox Finale',
+    mode: 'New Delhi (Grand Finale) & Online CTF',
+    status: 'Registration Open',
+    statusColor: 'bg-red-600',
+    badge: 'Indian Army & CyberPeace',
+    thumbnail: tcqPoster,
+    description: 'National-level defense and cybersecurity hackathon organized by the Indian Army\'s Territorial Army with CyberPeace. Tracks include Bug Hunting (offensive CTF sandbox), AI Kavach (threat intelligence), and Creators Challenge.',
+    techStack: ['Cybersecurity', 'CTF Bug Hunting', 'AI Kavach', 'Threat Intelligence', 'Defensive AI'],
+    link: 'https://tcq.cyberpeace.org/?utm_source=chatgpt.com',
+    deadline: '6th - 9th Oct 2026 (Finale)',
+    targetDate: '2026-10-09T23:59:59'
   },
   {
     id: 'algonation-2026',
@@ -350,6 +369,23 @@ const HACKATHONS: Hackathon[] = [
     techStack: ['Mobile App Dev', 'On-Device AI', 'Android / iOS', 'Phone-First Tech'],
     link: 'https://iqoo.reskilll.com/',
     deadline: '26th Sep 2026',
+    targetDate: '2026-09-26T23:59:59'
+  },
+  {
+    id: 'zero-origin-ai-hackathon',
+    title: 'ZERO ORIGIN — Problem-Driven Online AI Hackathon',
+    category: 'AI & Multi-Domain Innovation',
+    prizePool: 'Cash Rewards & Recognition',
+    duration: '2-Round Problem-Driven Challenge',
+    mode: '100% Online (Across India)',
+    status: 'Registration Open',
+    statusColor: 'bg-indigo-600',
+    badge: 'Rotaract Club of SNSCT',
+    thumbnail: zeroOriginPoster,
+    description: 'ZERO ORIGIN, organized by the Rotaract Club of SNS College of Technology, is a problem-driven online AI Hackathon focused on transforming real-world problems into practical solutions. Round 1 (Free) focuses on Ideation & Validation; Round 2 (₹50/person) focuses on Prototype Build. Tracks include AI, Automation, Cloud Computing, Finance & Economics, Healthcare Technology, and Open Innovation.',
+    techStack: ['AI / ML', 'Automation', 'Cloud Computing', 'Finance & Economics', 'Healthcare Tech', 'Open Innovation'],
+    link: 'https://indiahackathons.com/events/zero-origin?utm_source=chatgpt.com',
+    deadline: '26th Sep 2026 (Round 1)',
     targetDate: '2026-09-26T23:59:59'
   },
   {
