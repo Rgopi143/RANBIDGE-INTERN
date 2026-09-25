@@ -1174,7 +1174,7 @@ const Navigation: React.FC<{
           </span>
         </button>
 
-        <div className="flex items-center gap-2 sm:gap-4 md:gap-5 lg:gap-7 overflow-x-auto no-scrollbar py-1 scroll-smooth max-w-full">
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-5 lg:gap-7 overflow-visible py-1 max-w-full">
           <button onClick={() => setView('home')} className={`text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all shrink-0 ${view === 'home' ? 'text-indigo-600 scale-105' : 'text-slate-600 hover:text-indigo-600'}`}>
             <Home size={15} /> <span>Home</span>
           </button>
@@ -1182,7 +1182,11 @@ const Navigation: React.FC<{
           {/* Internship Dropdown */}
           <div className="relative internship-dropdown shrink-0 z-50">
             <button 
-              onClick={() => setIsInternshipDropdownOpen(!isInternshipDropdownOpen)}
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsInternshipDropdownOpen(!isInternshipDropdownOpen);
+              }}
               className={`text-xs sm:text-sm font-bold flex items-center gap-1 transition-all cursor-pointer py-1.5 ${['unpaid-internship', 'paid-internship', 'virtual-internship', 'research-internship', 'one-on-one-mentorship', 'final-year-projects'].includes(view) ? 'text-indigo-600 scale-105 font-extrabold' : 'text-slate-600 hover:text-indigo-600'}`}
             >
               <Briefcase size={15} /> <span>Internship</span>
@@ -1191,7 +1195,7 @@ const Navigation: React.FC<{
             
             {isInternshipDropdownOpen && (
               <div 
-                className="absolute top-full left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 mt-2 w-72 max-h-[calc(100vh-90px)] sm:max-h-[80vh] overflow-y-auto dropdown-scrollable bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/80 py-2.5 z-[100] animate-dropdown-fade ring-1 ring-slate-900/5 overscroll-contain"
+                className="absolute top-full left-0 sm:left-0 mt-2 w-72 max-w-[calc(100vw-2rem)] max-h-[calc(100vh-90px)] sm:max-h-[80vh] overflow-y-auto dropdown-scrollable bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.22)] border border-slate-200/90 py-2.5 z-[110] animate-dropdown-fade ring-1 ring-slate-900/10 overscroll-contain opacity-100"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="px-4 py-1 border-b border-slate-100 mb-1">
