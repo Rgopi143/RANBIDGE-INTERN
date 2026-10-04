@@ -987,7 +987,7 @@ const VIRTUAL_INTERNSHIP_PROGRAMS: VirtualProgram[] = [
   },
   {
     id: 'fullstack-virtual',
-    title: 'Full Stack Development Virtual Internship',
+    title: 'Fullstack Development with AI',
     category: 'Development',
     badge: 'Most Comprehensive',
     badgeColor: 'bg-indigo-600',
@@ -1952,62 +1952,102 @@ const App: React.FC = () => {
             {/* Virtual Internship Grid */}
             {filteredVirtualPrograms.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-5">
-                {filteredVirtualPrograms.map((prog) => (
-                  <div key={prog.id} className="bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300 shimmer-card transform hover:-translate-y-2">
-                    <div className="relative h-40 overflow-hidden bg-gray-100">
-                      <img 
-                        src={prog.thumbnail} 
-                        alt={prog.title} 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute top-3 left-3 flex gap-1.5">
-                        <span className={`px-2 py-0.5 text-white text-[10px] font-bold rounded-full shadow-md ${prog.badgeColor}`}>
-                          {prog.badge}
-                        </span>
-                        <span className="px-2 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md">
-                          Virtual
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 flex flex-col flex-grow">
-                      <div className="flex items-center gap-1.5 mb-2 flex-wrap">
-                        <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 text-[10px] font-extrabold rounded-full border border-indigo-100">
-                          {prog.level}
-                        </span>
-                        <div className="flex items-center gap-1 text-slate-400 text-[11px]">
-                          <Clock size={12} className="text-indigo-500" />
-                          {prog.duration}
+                {filteredVirtualPrograms.map((prog) => {
+                  const isUnlocked = prog.id === 'fullstack-virtual';
+                  return (
+                    <div 
+                      key={prog.id} 
+                      className={`bg-white rounded-2xl shadow-xs overflow-hidden border border-slate-100 flex flex-col transition-all duration-300 shimmer-card transform relative group ${
+                        isUnlocked ? 'hover:shadow-2xl hover:-translate-y-2' : 'cursor-not-allowed opacity-90'
+                      }`}
+                    >
+                      {/* Lock overlay for locked tracks on hover */}
+                      {!isUnlocked && (
+                        <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center gap-2 z-20 pointer-events-none text-white p-4 text-center rounded-2xl">
+                          <div className="w-10 h-10 rounded-full bg-slate-900/90 flex items-center justify-center shadow-lg border border-slate-700/60">
+                            <Lock size={20} className="text-amber-400" />
+                          </div>
+                          <span className="text-xs font-extrabold tracking-wider uppercase px-3 py-1 bg-slate-900/90 rounded-full border border-slate-700/60 shadow-md">
+                            Track Locked
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="relative h-40 overflow-hidden bg-gray-100">
+                        <img 
+                          src={prog.thumbnail} 
+                          alt={prog.title} 
+                          className={`w-full h-full object-cover transition-transform duration-300 ${
+                            isUnlocked ? 'hover:scale-105' : 'grayscale-[20%]'
+                          }`}
+                        />
+                        <div className="absolute top-3 left-3 flex gap-1.5 flex-wrap">
+                          <span className={`px-2 py-0.5 text-white text-[10px] font-bold rounded-full shadow-md ${prog.badgeColor}`}>
+                            {prog.badge}
+                          </span>
+                          {isUnlocked ? (
+                            <span className="px-2 py-0.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold rounded-full shadow-md">
+                              Virtual
+                            </span>
+                          ) : (
+                            <span className="px-2 py-0.5 bg-slate-900/90 backdrop-blur-md text-amber-300 text-[10px] font-bold rounded-full shadow-md flex items-center gap-1">
+                              <Lock size={10} /> Locked
+                            </span>
+                          )}
                         </div>
                       </div>
+                      
+                      <div className="p-4 flex flex-col flex-grow">
+                        <div className="flex items-center gap-1.5 mb-2 flex-wrap">
+                          <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 text-[10px] font-extrabold rounded-full border border-indigo-100">
+                            {prog.level}
+                          </span>
+                          <div className="flex items-center gap-1 text-slate-400 text-[11px]">
+                            <Clock size={12} className="text-indigo-500" />
+                            {prog.duration}
+                          </div>
+                        </div>
 
-                      <h3 className="text-sm font-black text-slate-900 mb-1.5">{prog.title}</h3>
-                      <p className="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">
-                        {prog.description}
-                      </p>
+                        <h3 className="text-sm font-black text-slate-900 mb-1.5">{prog.title}</h3>
+                        <p className="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">
+                          {prog.description}
+                        </p>
 
-                      <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                        <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Learnings</h4>
-                        <ul className="space-y-1">
-                          {prog.curriculum.map((item, idx) => (
-                            <li key={idx} className="flex items-center gap-1.5 text-[11px] font-medium text-slate-700">
-                              <CheckCircle2 size={12} className="text-indigo-600 shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="mb-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Key Learnings</h4>
+                          <ul className="space-y-1">
+                            {prog.curriculum.map((item, idx) => (
+                              <li key={idx} className="flex items-center gap-1.5 text-[11px] font-medium text-slate-700">
+                                <CheckCircle2 size={12} className="text-indigo-600 shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {isUnlocked ? (
+                          <a 
+                            href={VIRTUAL_INTERNSHIP_LINK} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full mt-auto py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
+                          >
+                            <Briefcase size={13} /> Enroll Track
+                          </a>
+                        ) : (
+                          <button 
+                            disabled
+                            type="button"
+                            onClick={(e) => e.preventDefault()}
+                            className="w-full mt-auto py-2 bg-slate-100 text-slate-400 rounded-xl text-xs font-bold cursor-not-allowed flex items-center justify-center gap-1.5 border border-slate-200 shadow-none"
+                          >
+                            <Lock size={13} className="text-slate-400" /> Track Locked
+                          </button>
+                        )}
                       </div>
-
-                      <a 
-                        href={VIRTUAL_INTERNSHIP_LINK} 
-                        target="_blank"
-                        className="w-full mt-auto py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-all text-center shadow-md flex items-center justify-center gap-1.5"
-                      >
-                        <Briefcase size={13} /> Enroll Track
-                      </a>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
