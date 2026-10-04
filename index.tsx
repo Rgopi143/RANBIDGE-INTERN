@@ -58,6 +58,7 @@ import hackronyxPoster from './hackronyx-hackathon.png';
 import mindcraftPoster from './mindcraft-hackathon.jpg';
 import tcqPoster from './tcq-cyberpeace-hackathon.jpg';
 import zeroOriginPoster from './zero-origin-hackathon.jpg';
+import fullstackAiPoster from './fullstack-ai-thumbnail.jpg';
 
 // --- Types ---
 interface Course {
@@ -994,7 +995,7 @@ const VIRTUAL_INTERNSHIP_PROGRAMS: VirtualProgram[] = [
     level: 'Advanced',
     duration: '16 Weeks',
     description: 'Complete end-to-end full stack software engineering covering React, Node.js, Express, MongoDB, PostgreSQL, and cloud application deployment.',
-    thumbnail: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
+    thumbnail: fullstackAiPoster,
     curriculum: [
       'Frontend Architecture with React.js, Next.js & TypeScript',
       'Backend API & Microservices engineering with Node.js & Express',
